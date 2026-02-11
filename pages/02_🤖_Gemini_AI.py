@@ -125,7 +125,7 @@ with st.sidebar:
         
         search_type = st.radio(
             "¿Qué deseas buscar?",
-            ["📖 Por título (libros similares)", "👤 Por autor (sus mejores obras)"],
+            ["📖 Por título (libros similares)", "👤 Por autor (sus mejores obras)", "🎯 Por tema (libros sobre ese tema)"],
             key="search_type"
         )
         
@@ -151,7 +151,7 @@ with st.sidebar:
                 )
                 st.session_state.search_mode = "titles"
                 st.session_state.search_query = search_query
-        else:
+        elif search_type == "👤 Por autor (sus mejores obras)":
             author_query = st.text_input(
                 "Ingresa el nombre del autor:",
                 placeholder="Ej: Stephen King, J.R.R. Tolkien, García Márquez...",
@@ -173,6 +173,28 @@ with st.sidebar:
                 )
                 st.session_state.search_mode = "author"
                 st.session_state.search_query = author_query
+        else:  # Por tema
+            theme_query = st.text_input(
+                "Ingresa el tema que te interesa:",
+                placeholder="Ej: Amistad, Justicia social, Identidad, Supervivencia, Amor...",
+                key="search_theme"
+            )
+            if theme_query:
+                st.info(f"🔍 Buscando libros sobre '{theme_query}'...")
+                selected_book = Book(
+                    id=998,
+                    title=f"Top 3 libros sobre: {theme_query}",
+                    author="Búsqueda Gemini",
+                    description=f"Gemini mostrará 3 libros que abordan el tema: {theme_query}",
+                    year=2024,
+                    genre="Búsqueda",
+                    theme=theme_query,
+                    pre_questions=[],
+                    post_questions=[],
+                    author_bio="Análisis de Gemini"
+                )
+                st.session_state.search_mode = "theme"
+                st.session_state.search_query = theme_query
 
 # Contenido principal
 if selected_book:

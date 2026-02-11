@@ -67,6 +67,21 @@ def display_gemini_page(book: Book):
                         file_name=f"obras_{search_query.replace(' ', '_')}.txt",
                         mime="text/plain"
                     )
+        
+        elif search_mode == "theme":
+            # Búsqueda por tema
+            st.info(f"🎯 **Libros sobre el tema:** {search_query}")
+            
+            if st.button("🎯 Buscar libros por tema", key="btn_search_theme"):
+                with st.spinner("✨ Gemini está buscando libros sobre este tema..."):
+                    results = gemini_service.search_books_by_theme(search_query)
+                    st.markdown(results)
+                    st.download_button(
+                        label="⬇️ Descargar resultados",
+                        data=results,
+                        file_name=f"libros_sobre_{search_query.replace(' ', '_')}.txt",
+                        mime="text/plain"
+                    )
     
     else:
         # Modo normal: tabs para análisis de un libro específico

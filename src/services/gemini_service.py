@@ -352,3 +352,43 @@ class GeminiService:
             return response.text
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def search_books_by_theme(self, theme: str) -> str:
+        """
+        Busca libros que tratan un tema específico
+        
+        Args:
+            theme: Tema a buscar (ej: Amistad, Justicia, Identidad)
+            
+        Returns:
+            Top 3 libros que abordan ese tema
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Proporciona recomendaciones de los 3 MEJORES LIBROS que abordan el tema: "{theme}"
+        
+        RESTRICCIONES IMPORTANTES:
+        - Solo menciona LIBROS (novelas, ensayos, poesía, etc.)
+        - NO utilices lenguaje ofensivo o discriminatorio
+        - Mantén un tono respetuoso e inclusivo
+        
+        Para cada uno de los 3 libros, incluye:
+        1. **Título y Autor**
+        2. **Año de publicación**
+        3. **Género**
+        4. **Cómo aborda el tema** - Explicación de cómo el libro trata el tema "{theme}"
+        5. **Sinopsis breve** (2-3 líneas)
+        6. **Por qué recomendarlo** - Lo que lo hace especial para este tema
+        
+        Formatea la respuesta de manera clara y estructurada.
+        Usa emojis para hacer más legible.
+        Sé preciso: solo 3 libros, ordenados por relevancia al tema.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
