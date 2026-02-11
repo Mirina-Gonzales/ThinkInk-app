@@ -44,11 +44,21 @@ class GeminiService:
             return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
 
         prompt = f"""
-        Proporciona un resumen detallado y analítico del libro "{book.title}" 
+        IMPORTANTE: Verifica primero que "{book.title}" es UN LIBRO (novela, ensayo, poesía, etc.).
+        Si NO es un libro (es película, serie, videojuego, etc.), responde:
+        "❌ Lo siento, solo analizo LIBROS. '{book.title}' no es un libro. Por favor, ingresa un libro válido."
+        
+        Si ES un libro, proporciona un resumen detallado y analítico de "{book.title}" 
         escrito por {book.author} ({book.year}).
         
         Género: {book.genre}
+        Tema principal: {book.theme}
         Descripción: {book.description}
+        
+        RESTRICCIONES IMPORTANTES:
+        - NO utilices lenguaje ofensivo, discriminatorio o que promueva el odio
+        - NO hagas referencias negativas hacia grupos de personas, razas, géneros, religiones o orientaciones sexuales
+        - Mantén un tono académico y respetuoso
         
         Por favor incluye:
         - Resumen del argumento (2-3 párrafos)
@@ -79,7 +89,16 @@ class GeminiService:
             return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
 
         prompt = f"""
+        IMPORTANTE: Verifica que "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
+        
         Analiza en profundidad el libro "{book.title}" de {book.author}.
+        
+        Tema principal: {book.theme}
+        
+        RESTRICCIONES IMPORTANTES:
+        - NO utilices lenguaje ofensivo, discriminatorio o que promueva el odio
+        - NO hagas referencias negativas hacia grupos de personas
+        - Mantén un tono académico y respetuoso
         
         Por favor incluye:
         1. **Personajes Principales**: Nombres y características clave
@@ -147,8 +166,16 @@ class GeminiService:
             return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
 
         prompt = f"""
+        IMPORTANTE: Verifica que "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
+        
         Explica el concepto o tema "{concept}" en el contexto del libro 
         "{book.title}" de {book.author}.
+        
+        Tema principal del libro: {book.theme}
+        
+        RESTRICCIONES IMPORTANTES:
+        - NO utilices lenguaje ofensivo, discriminatorio o que promueva el odio
+        - Mantén un tono académico y respetuoso
         
         Por favor:
         1. Define el concepto claramente
@@ -219,15 +246,24 @@ class GeminiService:
             return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
 
         prompt = f"""
+        IMPORTANTE: Verifica que "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
+        
         Genera preguntas de discusión profundas para el libro "{book.title}" 
         de {book.author}.
+        
+        Tema principal: {book.theme}
+        
+        RESTRICCIONES IMPORTANTES:
+        - NO crees preguntas que inciten a lenguaje ofensivo o discriminatorio
+        - Las preguntas deben ser inclusivas y respetuosas
+        - Mantén un tono académico
         
         Las preguntas deben:
         1. Explorar temas principales
         2. Invitar a reflexión personal
         3. Conectar con experiencias del lector
         4. Ser desafiantes pero accesibles
-        5. Promover debate
+        5. Promover debate constructivo
         
         Proporciona 8-10 preguntas bien formuladas.
         """
@@ -252,12 +288,20 @@ class GeminiService:
             return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
 
         prompt = f"""
-        Basándote en el libro o película "{title}", proporciona un análisis de 
-        los 3 libros/películas MÁS SIMILARES.
+        IMPORTANTE: Verifica que "{title}" es UN LIBRO. Si no lo es, responde:
+        "❌ Lo siento, solo analizo LIBROS. '{title}' no es un libro."
         
-        Para cada uno de los 3, incluye:
-        1. **Título y Autor/Director**
-        2. **Año de publicación/lanzamiento**
+        Si es un libro, basándote en él, proporciona un análisis de 
+        los 3 LIBROS MÁS SIMILARES.
+        
+        RESTRICCIONES IMPORTANTES:
+        - Solo menciona LIBROS (novelas, ensayos, etc.)
+        - NO utilices lenguaje ofensivo o discriminatorio
+        - Mantén un tono respetuoso
+        
+        Para cada uno de los 3 libros, incluye:
+        1. **Título y Autor**
+        2. **Año de publicación**
         3. **Género**
         4. **Por qué es similar** - Explicación clara de similitudes temáticas, 
            narrativas o de estilo

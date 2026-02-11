@@ -57,22 +57,23 @@ with st.sidebar:
         selected_book = book_service.get_book_by_title(selected_title)
     
     elif input_mode == "🎬 Ingreso personalizado":
-        st.subheader("📝 Información completa del libro/película")
+        st.subheader("📝 Información del libro")
+        st.info("ℹ️ Solo se aceptan **libros**. Para análisis de películas u otros contenidos, utiliza la búsqueda de la lista.")
         
         title = st.text_input(
-            "Título del libro/película:",
-            placeholder="Ej: Harry Potter, Inception, El Hobbit...",
+            "Título del libro:",
+            placeholder="Ej: Harry Potter, El Hobbit, Cien años de soledad...",
             key="custom_title"
         )
         
         author = st.text_input(
-            "Autor/Director:",
-            placeholder="Ej: J.K. Rowling, Christopher Nolan...",
+            "Autor:",
+            placeholder="Ej: J.K. Rowling, J.R.R. Tolkien...",
             key="custom_author"
         )
         
         year = st.number_input(
-            "Año de publicación/lanzamiento:",
+            "Año de publicación:",
             min_value=1800,
             max_value=2100,
             value=2024,
@@ -81,8 +82,14 @@ with st.sidebar:
         
         genre = st.text_input(
             "Género:",
-            placeholder="Ej: Fantasía, Ciencia ficción, Drama...",
+            placeholder="Ej: Fantasía, Ciencia ficción, Drama, Novela negra...",
             key="custom_genre"
+        )
+        
+        theme = st.text_input(
+            "Tema principal:",
+            placeholder="Ej: Amistad, Justicia social, Identidad, Supervivencia...",
+            key="custom_theme"
         )
         
         description = st.text_area(
@@ -103,9 +110,10 @@ with st.sidebar:
                 genre=genre or "No especificado",
                 pre_questions=[],
                 post_questions=[],
-                author_bio=f"Autor/Director: {author}"
+                author_bio=f"Autor: {author}"
             )
-            st.success(f"✅ Libro personalizado creado: {title}")
+            st.session_state.custom_theme = theme
+            st.success(f"✅ Libro agregado: {title}")
         else:
             st.warning("⚠️ Por favor ingresa al menos el título y autor")
             selected_book = None
@@ -113,6 +121,7 @@ with st.sidebar:
     else:  # Búsqueda inteligente (Top 3)
         st.subheader("🔍 Búsqueda inteligente con Gemini")
         st.markdown("Ingresa **solo un dato** y Gemini te mostrará un top 3 similar")
+        st.info("ℹ️ Solo se aceptan **libros**. Si ingresas películas u otros contenidos, serán rechazados.")
         
         search_type = st.radio(
             "¿Qué deseas buscar?",
@@ -122,8 +131,8 @@ with st.sidebar:
         
         if search_type == "📖 Por título (libros similares)":
             search_query = st.text_input(
-                "Ingresa el título del libro/película:",
-                placeholder="Ej: Inception, El Hobbit, Dune...",
+                "Ingresa el título del libro:",
+                placeholder="Ej: El Hobbit, Dune, Cien años de soledad...",
                 key="search_title"
             )
             if search_query:
@@ -132,9 +141,10 @@ with st.sidebar:
                     id=998,
                     title=f"Top 3 similares a: {search_query}",
                     author="Búsqueda Gemini",
-                    description=f"Gemini buscará 3 libros/películas similares a: {search_query}",
+                    description=f"Gemini buscará 3 libros similares a: {search_query}",
                     year=2024,
-                    genre="Mixed",
+                    genre="Búsqueda",
+                    theme="Literatura",
                     pre_questions=[],
                     post_questions=[],
                     author_bio="Análisis de Gemini"
@@ -143,19 +153,20 @@ with st.sidebar:
                 st.session_state.search_query = search_query
         else:
             author_query = st.text_input(
-                "Ingresa el nombre del autor/director:",
-                placeholder="Ej: Stephen King, Tarantino, J.R.R. Tolkien...",
+                "Ingresa el nombre del autor:",
+                placeholder="Ej: Stephen King, J.R.R. Tolkien, García Márquez...",
                 key="search_author"
             )
             if author_query:
-                st.info(f"🔍 Buscando obras de '{author_query}'...")
+                st.info(f"🔍 Buscando mejores obras de '{author_query}'...")
                 selected_book = Book(
                     id=998,
                     title=f"Top 3 obras de: {author_query}",
                     author=author_query,
                     description=f"Gemini mostrará las 3 mejores obras de {author_query}",
                     year=2024,
-                    genre="Mixed",
+                    genre="Búsqueda",
+                    theme="Literatura",
                     pre_questions=[],
                     post_questions=[],
                     author_bio=f"Búsqueda de obras del autor: {author_query}"
@@ -165,10 +176,11 @@ with st.sidebar:
 
 # Contenido principal
 if selected_book:
+    theme_display = st.session_state.get("custom_theme", selected_book.theme)
     st.info(
         f"📚 **Libro seleccionado:** {selected_book.title}\n\n"
         f"✍️ **Autor:** {selected_book.author}\n\n"
-        f"📖 **Año:** {selected_book.year} | **Género:** {selected_book.genre}"
+        f"📖 **Año:** {selected_book.year} | **Género:** {selected_book.genre} | **Tema:** {theme_display}"
     )
     st.divider()
     
