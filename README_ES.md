@@ -459,33 +459,6 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 - Explora obras de autores favoritos
 - Encuentra libros similares a los que leíste
 
----
-
-## 💡 Casos de Uso
-
-### Para Estudiantes 📖
-- Prepararse para discusiones de clase
-- Entender temas complejos rápidamente
-- Analizar libros de lectura obligatoria
-- Desarrollar pensamiento crítico
-
-### Para Profesores 👨‍🏫
-- Generar preguntas de discusión
-- Crear actividades de lectura
-- Analizar temas de libros para lecciones
-- Personalizar recomendaciones
-
-### Para Lectores Casuales 📕
-- Descubrir nuevos libros por tema
-- Entender mejor lo que leen
-- Conectar emocionalmente con historias
-- Expandir horizontes literarios
-
-### Para Investigadores 🔍
-- Buscar libros sobre temas específicos
-- Comparar obras de diferentes autores
-- Explorar tendencias literarias
-- Análisis rápido de contenidos
 
 ---
 
@@ -500,30 +473,8 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 | **pytest-cov** | - | Code coverage |
 | **python-dotenv** | - | Variables de entorno |
 
----
 
-## 📝 Git Commits Recientes
 
-```
-feat: Add theme-based search in intelligent search
-feat: Restrict to books only with content guardrails
-feat: Add intelligent search mode for Gemini page
-feat: Add custom book/movie input to Gemini AI page
-feat: Upgrade to gemini-2.0-flash model
-feat: Refactor to multi-page Streamlit app
-feat: Add Google Gemini AI integration
-```
-
----
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-1. Fork el repositorio
-2. Crea una rama (`git checkout -b feature/nueva-feature`)
-3. Haz commit de tus cambios (`git commit -m 'feat: Descripción'`)
-4. Push a la rama (`git push origin feature/nueva-feature`)
-5. Abre un Pull Request
 
 ---
 
@@ -531,55 +482,6 @@ Las contribuciones son bienvenidas. Por favor:
 
 Este proyecto está bajo licencia MIT. Ver archivo `LICENSE` para más detalles.
 
----
-
-## 👨‍💻 Autor
-
-**Desarrollado por:** Equipo de Desarrollo
-
----
-
-## 🐛 Reporte de Bugs
-
-Si encuentras algún bug, por favor:
-1. Verifica que no sea un problema conocido
-2. Proporciona descripción clara del problema
-3. Incluye pasos para reproducirlo
-4. Abre un issue en GitHub
-
----
-
-## 🗺️ Roadmap Futuro
-
-### v2.0 (Próximas Mejoras)
-- [ ] Base de datos completa (100+ libros)
-- [ ] Autenticación de usuarios
-- [ ] Guardado de progreso personal
-- [ ] Estadísticas de lectura
-- [ ] Comunidad de lectores
-- [ ] Recomendaciones personalizadas basadas en historial
-- [ ] Integración con APIs de libros (Google Books, OpenLibrary)
-- [ ] Exportar análisis en PDF
-- [ ] Modo oscuro/claro mejorado
-- [ ] Multiidioma
-
-### v2.5
-- [ ] Podcasts literarios
-- [ ] Clubes de lectura virtuales
-- [ ] Desafíos de lectura
-- [ ] Badges y logros
-- [ ] Social sharing
-
----
-
-## 📞 Soporte
-
-Para preguntas o soporte:
-- 📧 Email: [tu-email@ejemplo.com]
-- 💬 Discord: [link-a-servidor]
-- 🐦 Twitter: [@tu-usuario]
-
----
 
 ## ⭐ ¡Si te gusta, déjanos una estrella en GitHub!
 
@@ -595,5 +497,4 @@ Para preguntas o soporte:
 
 **Versión:** 2.0  
 **Última actualización:** Febrero 2025  
-**Estado:** ✅ En producción  
 **Documentación disponible en:** [English](README_EN.md)

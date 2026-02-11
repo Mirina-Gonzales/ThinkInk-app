@@ -461,34 +461,6 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 
 ---
 
-## 💡 Use Cases
-
-### For Students 📖
-- Prepare for class discussions
-- Understand complex themes quickly
-- Analyze required reading books
-- Develop critical thinking
-
-### For Teachers 👨‍🏫
-- Generate discussion questions
-- Create reading activities
-- Analyze book themes for lessons
-- Personalize recommendations
-
-### For Casual Readers 📕
-- Discover new books by theme
-- Better understand what you read
-- Connect emotionally with stories
-- Expand literary horizons
-
-### For Researchers 🔍
-- Search books about specific topics
-- Compare works by different authors
-- Explore literary trends
-- Quick content analysis
-
----
-
 ## 🛠️ Technologies Used
 
 | Tool | Version | Purpose |
@@ -500,84 +472,12 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 | **pytest-cov** | - | Code coverage |
 | **python-dotenv** | - | Environment variables |
 
----
-
-## 📝 Recent Git Commits
-
-```
-feat: Add theme-based search in intelligent search
-feat: Restrict to books only with content guardrails
-feat: Add intelligent search mode for Gemini page
-feat: Add custom book/movie input to Gemini AI page
-feat: Upgrade to gemini-2.0-flash model
-feat: Refactor to multi-page Streamlit app
-feat: Add Google Gemini AI integration
-```
-
----
-
-## 🤝 Contributions
-
-Contributions are welcome. Please:
-1. Fork the repository
-2. Create a branch (`git checkout -b feature/new-feature`)
-3. Commit your changes (`git commit -m 'feat: Description'`)
-4. Push to the branch (`git push origin feature/new-feature`)
-5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
 This project is under MIT License. See `LICENSE` file for details.
-
----
-
-## 👨‍💻 Author
-
-**Developed by:** Development Team
-
----
-
-## 🐛 Bug Reports
-
-If you find a bug, please:
-1. Check if it's a known issue
-2. Provide a clear bug description
-3. Include steps to reproduce
-4. Open an issue on GitHub
-
----
-
-## 🗺️ Future Roadmap
-
-### v2.0 (Next Improvements)
-- [ ] Complete database (100+ books)
-- [ ] User authentication
-- [ ] Personal progress tracking
-- [ ] Reading statistics
-- [ ] Reader community
-- [ ] Personalized recommendations based on history
-- [ ] Integration with book APIs (Google Books, OpenLibrary)
-- [ ] Export analyses as PDF
-- [ ] Improved dark/light mode
-- [ ] Multi-language support
-
-### v2.5
-- [ ] Literary podcasts
-- [ ] Virtual reading clubs
-- [ ] Reading challenges
-- [ ] Badges and achievements
-- [ ] Social sharing
-
----
-
-## 📞 Support
-
-For questions or support:
-- 📧 Email: [your-email@example.com]
-- 💬 Discord: [server-link]
-- 🐦 Twitter: [@your-username]
 
 ---
 
@@ -595,5 +495,4 @@ For questions or support:
 
 **Version:** 2.0  
 **Last Updated:** February 2025  
-**Status:** ✅ In Production  
 **Documentation available in:** [Español](README.md)
