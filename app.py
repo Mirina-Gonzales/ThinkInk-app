@@ -1,24 +1,16 @@
 import streamlit as st
 from dotenv import load_dotenv
-import os
 
-# Cargar variables de entorno desde .env
+# Cargar variables de entorno
 load_dotenv()
 
-from config.settings import STREAMLIT_CONFIG
-from src.services.book_service import BookService
-from src.services.question_service import QuestionService
-from src.ui.pages import display_book_card, display_author_section, display_questions
-from src.ui.gemini_page import display_gemini_page, display_gemini_setup_instructions
-
 # Configurar página
-st.set_page_config(**STREAMLIT_CONFIG)
-
-# Inicializar sesión
-if "book_service" not in st.session_state:
-    st.session_state.book_service = BookService()
-
-book_service = st.session_state.book_service
+st.set_page_config(
+    page_title="📚 ThinkInk App",
+    page_icon="📖",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 # Header
 st.title("📚 ThinkInk - Aplicación de Preguntas sobre Libros")
@@ -27,68 +19,138 @@ st.markdown(
 )
 st.divider()
 
-# Sidebar - Selección de libro
-with st.sidebar:
-    st.header("📖 Biblioteca")
-    books = book_service.get_all_books()
-    book_titles = [book.title for book in books]
-    
-    selected_title = st.selectbox("Selecciona un libro:", book_titles)
-    selected_book = book_service.get_book_by_title(selected_title)
+# Contenido de bienvenida
+col1, col2 = st.columns(2)
 
-# Tabs principales
-if selected_book:
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(
-        ["📘 Información", "❓ Preguntas Previas", "✅ Preguntas Finales", "🖊️ Autor", "🤖 Gemini AI"]
-    )
+with col1:
+    st.markdown("""
+    ## 📖 ¿Qué es ThinkInk?
     
-    with tab1:
-        st.subheader(f"{selected_book.title}")
-        display_book_card(selected_book)
+    ThinkInk es una aplicación diseñada para mejorar tu experiencia de lectura mediante:
     
-    with tab2:
-        st.subheader("Preguntas Antes de Leer")
-        st.info(
-            "💡 Responde estas preguntas ANTES de comenzar a leer. Te ayudarán a preparar tu mente para los temas del libro."
-        )
-        pre_answers = display_questions(
-            selected_book.pre_questions, "Preguntas Previas"
-        )
-        
-        if st.button("Guardar respuestas previas", key="save_pre"):
-            st.success("✅ Respuestas previas guardadas!")
+    ### 🎯 Características Principales
     
-    with tab3:
-        st.subheader("Preguntas Después de Leer")
-        st.info(
-            "💭 Responde estas preguntas DESPUÉS de terminar el libro. Servirán para reflexionar sobre lo leído."
-        )
-        post_answers = display_questions(
-            selected_book.post_questions, "Preguntas Finales"
-        )
-        
-        if st.button("Guardar respuestas finales", key="save_post"):
-            st.success("✅ Respuestas finales guardadas!")
+    - **📚 Página Principal**
+      - Preguntas previas para prepararte
+      - Preguntas finales para reflexionar
+      - Biografías de autores
+      - Enfoque en pensamiento crítico
     
-    with tab4:
-        display_author_section(selected_book)
-        
-        with st.expander("📊 Más estadísticas del autor"):
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("Libro", selected_book.title)
-                st.metric("Género", selected_book.genre)
-            with col2:
-                st.metric("Año de publicación", selected_book.year)
-                st.metric("Autor", selected_book.author)
-    
-    with tab5:
-        display_gemini_page(selected_book)
-        st.divider()
-        display_gemini_setup_instructions()
+    - **🤖 Página Gemini AI**
+      - Análisis con inteligencia artificial
+      - Resúmenes instantáneos
+      - Recomendaciones personalizadas
+      - Explicación de conceptos
+      - Comparación de libros
+    """)
 
-else:
-    st.warning("⚠️ Por favor selecciona un libro de la lista.")
+with col2:
+    st.markdown("""
+    ## 🎯 Cómo Usar
+    
+    ### Paso 1: Página Principal
+    1. Selecciona un libro del sidebar
+    2. Responde las **preguntas previas**
+    3. Lee el libro
+    4. Responde las **preguntas finales**
+    5. Lee la biografía del autor
+    
+    ### Paso 2: Análisis con IA
+    1. Ve a la página **🤖 Gemini AI**
+    2. Elige el mismo libro (o diferente)
+    3. Selecciona un tipo de análisis
+    4. Revisa los resultados
+    5. Compara con tus respuestas
+    
+    ### 📚 10 Libros Disponibles
+    - 1984 - George Orwell
+    - El Quijote - Miguel de Cervantes
+    - Orgullo y Prejuicio - Jane Austen
+    - Y 7 más...
+    """)
+
+st.divider()
+
+# Instrucciones principales
+st.markdown("""
+## 🚀 Comienza Ahora
+
+### Opción 1: Análisis Reflexivo (Recomendado)
+👉 **Ve a la página "📚 Principal"** en el menú lateral
+
+Aquí encontrarás:
+- Selección de 10 libros clásicos
+- Preguntas para reflexionar
+- Información sobre autores
+- Ideal para desarrollar pensamiento crítico
+
+### Opción 2: Análisis con IA
+👉 **Ve a la página "🤖 Gemini AI"** en el menú lateral
+
+Aquí encontrarás:
+- Análisis automáticos con Google Gemini 2.0 Flash
+- Resúmenes, temas, recomendaciones
+- Comparativa entre enfoques
+- Ideal para explorar perspectivas diferentes
+
+---
+
+## 📊 Comparativa de Enfoques
+
+| Aspecto | Página Principal | Gemini AI |
+|--------|-----------------|-----------|
+| **Enfoque** | Reflexivo | Analítico |
+| **Tiempo** | Mayor | Instantáneo |
+| **Conexión** | Personal | Objetiva |
+| **Profundidad** | Emocional | Técnica |
+| **Aprendizaje** | Crítico | Informativo |
+
+**💡 Lo ideal:** Usa ambas páginas para una experiencia completa.
+
+---
+
+## ⚙️ Configuración
+
+### Para usar Gemini AI:
+1. Obtén una API key en: https://makersuite.google.com/app/apikey
+2. Crea un archivo `.env` en la raíz con: `GEMINI_API_KEY=tu_key`
+3. Reinicia la app
+4. ¡Listo! Ya puedes usar la página Gemini AI
+
+### Sin configurar Gemini:
+- ✅ La página Principal funciona completamente
+- ⚠️ La página Gemini AI mostrará un mensaje de configuración
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+ThinkInk-app/
+├── app.py                    # Esta página (inicio)
+├── pages/
+│   ├── 01_📚_Principal.py    # Análisis reflexivo
+│   └── 02_🤖_Gemini_AI.py    # Análisis con IA
+├── src/
+│   ├── models/
+│   ├── services/
+│   └── ui/
+├── data/
+│   └── books.json            # 10 libros
+└── venv/                      # Entorno virtual
+```
+
+---
+
+## 💡 Tips
+
+- 🔗 Usa ambas páginas para comprensión profunda
+- 📝 Descarga los análisis de Gemini
+- 🔄 Compara tus respuestas con el análisis IA
+- 📚 Lee la biografía del autor
+- 🎯 Reflexiona sobre los aprendizajes
+
+""")
 
 # Footer
 st.divider()
