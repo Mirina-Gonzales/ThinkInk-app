@@ -1,103 +1,105 @@
 # 📚 ThinkInk App
 
-Una aplicación web interactiva para mejorar tu experiencia de lectura con preguntas reflexivas, análisis de IA, información de autores y búsqueda inteligente de libros. Construida con Python, Streamlit y Google Gemini AI.
+An interactive web application to enhance your reading experience with reflective questions, AI analysis, author information, and intelligent book search. Built with Python, Streamlit, and Google Gemini AI.
 
-**Comparación de dos enfoques:** Análisis reflexivo manual vs. Análisis con Inteligencia Artificial
+**Comparison of two approaches:** Manual reflective analysis vs. Artificial Intelligence analysis
 
----
-
-## ✨ Características Principales
-
-### 📚 Página Principal - Análisis Reflexivo
-- ✅ **Preguntas Previas** - 3 preguntas para prepararte antes de leer
-- ✅ **Preguntas Finales** - 3 preguntas reflexivas después de terminar
-- ✅ **Fichas de Autor** - Biografía y contexto del escritor
-- ✅ **Información del Libro** - Detalles, género y tema
-- ✅ **10 Libros Clásicos** - Selección curada de literatura
-- ✅ **Pensamiento Crítico** - Desarrollo de conexión personal con el texto
-
-### 🤖 Página Gemini AI - Análisis Inteligente
-- 🧠 **Resumen Analítico** - IA genera resumen detallado del libro
-- 🎭 **Análisis de Temas y Personajes** - Profundización en temas centrales
-- 💡 **Explicación de Conceptos** - Entiende ideas complejas del libro
-- ⭐ **Recomendaciones Personalizadas** - Libros similares sugeridos
-- ❓ **Preguntas de Discusión** - IA genera preguntas de debate
-- 🔄 **Comparación de Libros** - Compara dos libros de la biblioteca
-- 🎯 **Búsqueda Inteligente (Top 3)** ✨ NUEVA:
-  - 📖 **Por Título** - Encuentra 3 libros similares
-  - 👤 **Por Autor** - Ve las 3 mejores obras de un autor
-  - 🎯 **Por Tema** - Descubre libros sobre un tema específico
-
-### 🔒 Restricciones y Guardrails ✨ NUEVO
-- ✅ **Solo Libros** - Rechaza películas, series, videojuegos, etc.
-- ✅ **Sin Malas Palabras** - Control de contenido ofensivo
-- ✅ **Sin Discriminación** - Exclusión de lenguaje discriminatorio
-- ✅ **Validación Clara** - Mensajes en español cuando se rechaza contenido
-- ✅ **Tono Académico** - Respuestas respetuosas e inclusivas
-
-### 📊 Calidad del Código
-- ✅ **Pruebas Unitarias** - 3/3 tests pasando
-- ✅ **Coverage de 84%** - Código bien testeado
-- ✅ **Git Integration** - Versionado completo
-- ✅ **Entorno Virtual** - Aislamiento de dependencias
+> 📖 **Available in Spanish:** [Documentación en Español](README_ES.md)
 
 ---
 
-## 📁 Estructura del Proyecto
+## ✨ Main Features
+
+### 📚 Principal Page - Reflective Analysis
+- ✅ **Pre-reading Questions** - 3 questions to prepare before reading
+- ✅ **Post-reading Questions** - 3 reflective questions after finishing
+- ✅ **Author Profiles** - Biography and context of the writer
+- ✅ **Book Information** - Details, genre, and theme
+- ✅ **10 Classic Books** - Curated literature selection
+- ✅ **Critical Thinking** - Develop personal connection with text
+
+### 🤖 Gemini AI Page - Intelligent Analysis
+- 🧠 **Analytical Summary** - AI generates detailed book summary
+- 🎭 **Theme & Character Analysis** - Deep dive into central themes
+- 💡 **Concept Explanation** - Understand complex ideas in the book
+- ⭐ **Personalized Recommendations** - Similar books suggested
+- ❓ **Discussion Questions** - AI generates debate questions
+- 🔄 **Book Comparison** - Compare two books from library
+- 🎯 **Intelligent Search (Top 3)** ✨ NEW:
+  - 📖 **By Title** - Find 3 similar books
+  - 👤 **By Author** - See 3 best works by author
+  - 🎯 **By Theme** - Discover books about a specific theme
+
+### 🔒 Restrictions & Guardrails ✨ NEW
+- ✅ **Books Only** - Rejects movies, TV shows, videogames, etc.
+- ✅ **No Offensive Language** - Content filtering
+- ✅ **No Discrimination** - Excludes discriminatory language
+- ✅ **Clear Validation** - Spanish messages when content is rejected
+- ✅ **Academic Tone** - Respectful and inclusive responses
+
+### 📊 Code Quality
+- ✅ **Unit Tests** - 3/3 tests passing
+- ✅ **84% Coverage** - Well-tested code
+- ✅ **Git Integration** - Complete version control
+- ✅ **Virtual Environment** - Dependency isolation
+
+---
+
+## 📁 Project Structure
 
 ```
 ThinkInk-app/
-├── app.py                          # Página de bienvenida (entry point)
+├── app.py                          # Welcome page (entry point)
 ├── pages/
-│   ├── 01_📚_Principal.py         # Análisis reflexivo local
-│   └── 02_🤖_Gemini_AI.py         # Análisis con IA Gemini
+│   ├── 01_📚_Principal.py         # Local reflective analysis
+│   └── 02_🤖_Gemini_AI.py         # AI analysis with Gemini
 ├── config/
-│   └── settings.py                # Configuración global (100% coverage)
+│   └── settings.py                # Global configuration (100% coverage)
 ├── data/
-│   └── books.json                 # 10 libros con Q&A y biografías
+│   └── books.json                 # 10 books with Q&A and bios
 ├── src/
 │   ├── models/
 │   │   ├── __init__.py
-│   │   └── book.py                # Dataclass Book (94% coverage)
+│   │   └── book.py                # Book dataclass (94% coverage)
 │   ├── services/
 │   │   ├── __init__.py
-│   │   ├── book_service.py        # Gestión de libros (68% coverage)
-│   │   ├── question_service.py    # Gestión de preguntas
-│   │   ├── author_service.py      # Información de autores
-│   │   └── gemini_service.py      # Integración Gemini AI (400+ líneas)
+│   │   ├── book_service.py        # Book management (68% coverage)
+│   │   ├── question_service.py    # Question management
+│   │   ├── author_service.py      # Author information
+│   │   └── gemini_service.py      # Gemini AI integration (400+ lines)
 │   └── ui/
 │       ├── __init__.py
-│       └── gemini_page.py         # Componentes UI Gemini
+│       └── gemini_page.py         # Gemini UI components
 ├── tests/
 │   ├── __init__.py
-│   └── test_book_service.py       # Tests unitarios (97% coverage)
-├── htmlcov/                       # Reporte HTML de coverage
-├── venv/                          # Entorno virtual Python
-├── .env.example                   # Template para Gemini API key
-├── .gitignore                     # Archivos ignorados en Git
-├── requirements.txt               # Dependencias del proyecto
-├── README.md                      # Documentación en español
+│   └── test_book_service.py       # Unit tests (97% coverage)
+├── htmlcov/                       # Coverage HTML report
+├── venv/                          # Python virtual environment
+├── .env.example                   # Template for Gemini API key
+├── .gitignore                     # Git ignored files
+├── requirements.txt               # Project dependencies
+├── README.md                      # Documentation in Spanish
 ├── README_EN.md                   # Documentation in English ✨ NEW
-└── .git/                          # Repositorio Git
+└── .git/                          # Git repository
 ```
 
 ---
 
-## 📦 Módulos y Componentes
+## 📦 Modules and Components
 
 ### 1️⃣ `config/settings.py` (100% Coverage ✅)
 
-**Propósito:** Configuración centralizada
+**Purpose:** Centralized configuration
 
 ```python
-# Variables principales:
-BASE_DIR              # Ruta del proyecto
-DATA_DIR              # Carpeta /data
-BOOKS_FILE            # Ruta a books.json
-STREAMLIT_CONFIG      # Config de Streamlit (tema, layout, etc.)
+# Main variables:
+BASE_DIR              # Project root path
+DATA_DIR              # /data folder
+BOOKS_FILE            # Path to books.json
+STREAMLIT_CONFIG      # Streamlit config (theme, layout, etc.)
 ```
 
-**Ejemplo:**
+**Example:**
 ```python
 from config.settings import BOOKS_FILE
 books = json.load(open(BOOKS_FILE))
@@ -107,45 +109,45 @@ books = json.load(open(BOOKS_FILE))
 
 ### 2️⃣ `src/models/book.py` (94% Coverage)
 
-**Propósito:** Modelo de datos para libros
+**Purpose:** Data model for books
 
 ```python
 @dataclass
 class Book:
-    id: int                       # ID único
-    title: str                    # Título del libro
-    author: str                   # Nombre del autor
-    description: str              # Sinopsis
-    year: int                     # Año de publicación
-    genre: str                    # Género (Fantasía, Drama, etc.)
-    theme: str = "No especificado"  # ✨ NUEVO: Tema principal
-    pre_questions: List[str]      # 3 preguntas antes de leer
-    post_questions: List[str]     # 3 preguntas después de leer
-    author_bio: str               # Biografía del autor
+    id: int                       # Unique ID
+    title: str                    # Book title
+    author: str                   # Author name
+    description: str              # Synopsis
+    year: int                     # Publication year
+    genre: str                    # Genre (Fantasy, Drama, etc.)
+    theme: str = "No especificado"  # ✨ NEW: Main theme
+    pre_questions: List[str]      # 3 pre-reading questions
+    post_questions: List[str]     # 3 post-reading questions
+    author_bio: str               # Author biography
 ```
 
-**Métodos:**
+**Methods:**
 ```python
-# Serialización
-book_dict = book.to_dict()           # → Diccionario/JSON
-book_obj = Book.from_dict(book_dict) # ← Desde diccionario
+# Serialization
+book_dict = book.to_dict()           # → Dictionary/JSON
+book_obj = Book.from_dict(book_dict) # ← From dictionary
 ```
 
-**Ejemplo de uso:**
+**Usage Example:**
 ```python
 from src.models.book import Book
 
 book = Book(
     id=1,
-    title="El Hobbit",
+    title="The Hobbit",
     author="J.R.R. Tolkien",
     year=1937,
-    genre="Fantasía",
-    theme="Amistad y Aventura",
-    description="Un viaje inesperado...",
-    pre_questions=["¿Qué es el valor?", ...],
-    post_questions=["¿Cómo cambió Bilbo?", ...],
-    author_bio="J.R.R. Tolkien fue..."
+    genre="Fantasy",
+    theme="Friendship and Adventure",
+    description="An unexpected journey...",
+    pre_questions=["What is courage?", ...],
+    post_questions=["How did Bilbo change?", ...],
+    author_bio="J.R.R. Tolkien was..."
 )
 ```
 
@@ -153,224 +155,224 @@ book = Book(
 
 ### 3️⃣ `src/services/book_service.py` (68% Coverage)
 
-**Propósito:** Gestión CRUD de libros
+**Purpose:** Book CRUD management
 
 ```python
 class BookService:
     def __init__(self)
-    def load_books() → List[Book]           # Carga desde JSON
-    def get_all_books() → List[Book]        # Todos los libros
-    def get_book_by_id(id) → Book           # Busca por ID
-    def get_book_by_title(title) → Book     # Busca por título
-    def add_book(book) → bool               # Agrega nuevo libro
-    def save_books(books) → bool            # Guarda en JSON
+    def load_books() → List[Book]           # Load from JSON
+    def get_all_books() → List[Book]        # Get all books
+    def get_book_by_id(id) → Book           # Search by ID
+    def get_book_by_title(title) → Book     # Search by title
+    def add_book(book) → bool               # Add new book
+    def save_books(books) → bool            # Save to JSON
 ```
 
-**Ejemplo:**
+**Example:**
 ```python
 from src.services.book_service import BookService
 
 service = BookService()
-all_books = service.get_all_books()        # [10 libros]
-hobbit = service.get_book_by_title("El Hobbit")
+all_books = service.get_all_books()        # [10 books]
+hobbit = service.get_book_by_title("The Hobbit")
 ```
 
 ---
 
-### 4️⃣ `src/services/gemini_service.py` ✨ NUEVO
+### 4️⃣ `src/services/gemini_service.py` ✨ NEW
 
-**Propósito:** Integración con Google Gemini AI 2.0 Flash
+**Purpose:** Google Gemini AI 2.0 Flash integration
 
 ```python
 class GeminiService:
     def __init__(api_key=None)
     
-    # Análisis de un libro específico:
-    def get_book_summary(book) → str                    # Resumen
-    def analyze_themes_and_characters(book) → str       # Temas/personajes
-    def explain_concept(book, concept) → str            # Explicar concepto
-    def get_book_recommendations(book, interests) → str # Recomendaciones
-    def generate_discussion_questions(book) → str       # Preguntas de debate
-    def compare_books(book1, book2) → str               # Comparar 2 libros
+    # Analysis of a specific book:
+    def get_book_summary(book) → str                    # Summary
+    def analyze_themes_and_characters(book) → str       # Themes/characters
+    def explain_concept(book, concept) → str            # Explain concept
+    def get_book_recommendations(book, interests) → str # Recommendations
+    def generate_discussion_questions(book) → str       # Debate questions
+    def compare_books(book1, book2) → str               # Compare 2 books
     
-    # ✨ Búsqueda inteligente (Top 3):
-    def search_similar_books(title) → str               # Por título
-    def search_author_works(author) → str               # Por autor
-    def search_books_by_theme(theme) → str              # Por tema ✨ NEW
+    # ✨ Intelligent Search (Top 3):
+    def search_similar_books(title) → str               # By title
+    def search_author_works(author) → str               # By author
+    def search_books_by_theme(theme) → str              # By theme ✨ NEW
 ```
 
-**Características:**
-- ✅ Modelo: `gemini-2.0-flash` (rápido y eficiente)
-- ✅ Guardrails: Rechaza contenido no literario
-- ✅ Validación: Verifica que sea un libro real
-- ✅ Restricciones: Sin malas palabras, sin discriminación
-- ✅ Descargas: Todos los análisis se pueden descargar como .txt
+**Features:**
+- ✅ Model: `gemini-2.0-flash` (fast and efficient)
+- ✅ Guardrails: Rejects non-literary content
+- ✅ Validation: Verifies it's a real book
+- ✅ Restrictions: No offensive language, no discrimination
+- ✅ Downloads: All analyses can be downloaded as .txt
 
-**Ejemplo:**
+**Example:**
 ```python
 from src.services.gemini_service import GeminiService
 from src.models.book import Book
 
-gemini = GeminiService()  # Lee API_KEY de .env
+gemini = GeminiService()  # Reads API_KEY from .env
 
-book = Book(..., title="1984", author="George Orwell", theme="Totalitarismo", ...)
+book = Book(..., title="1984", author="George Orwell", theme="Totalitarianism", ...)
 summary = gemini.get_book_summary(book)
-print(summary)  # → Resumen detallado de 1984
+print(summary)  # → Detailed 1984 summary
 
-themes = gemini.search_books_by_theme("Totalitarismo")
-print(themes)  # → Top 3 libros sobre totalitarismo
+themes = gemini.search_books_by_theme("Totalitarianism")
+print(themes)  # → Top 3 books about totalitarianism
 ```
 
 ---
 
 ### 5️⃣ `src/services/question_service.py`
 
-**Propósito:** Gestión de preguntas reflexivas
+**Purpose:** Reflective questions management
 
 ```python
 class QuestionService:
-    def get_pre_questions(book_id) → List[str]         # Preguntas previas
-    def get_post_questions(book_id) → List[str]        # Preguntas finales
+    def get_pre_questions(book_id) → List[str]         # Pre-reading Qs
+    def get_post_questions(book_id) → List[str]        # Post-reading Qs
 ```
 
-**Ejemplo:**
+**Example:**
 ```python
 from src.services.question_service import QuestionService
 
 service = QuestionService()
 pre_q = service.get_pre_questions(book_id=1)
-# ["¿Qué esperas del libro?", "¿Qué te atrae de la trama?", ...]
+# ["What do you expect from the book?", "What attracts you to the plot?", ...]
 ```
 
 ---
 
 ### 6️⃣ `src/services/author_service.py`
 
-**Propósito:** Información de autores
+**Purpose:** Author information
 
 ```python
 class AuthorService:
-    def get_author_bio(book_id) → str                   # Biografía
+    def get_author_bio(book_id) → str                   # Biography
 ```
 
-**Ejemplo:**
+**Example:**
 ```python
 from src.services.author_service import AuthorService
 
 service = AuthorService()
 bio = service.get_author_bio(book_id=1)
-# "J.R.R. Tolkien fue un escritor británico..."
+# "J.R.R. Tolkien was a British writer..."
 ```
 
 ---
 
-### 7️⃣ `src/ui/gemini_page.py` ✨ NUEVO
+### 7️⃣ `src/ui/gemini_page.py` ✨ NEW
 
-**Propósito:** Componentes UI para la página Gemini
+**Purpose:** UI components for Gemini page
 
 ```python
-def display_gemini_page(book: Book)              # Interfaz principal
-def display_gemini_setup_instructions()          # Instrucciones de setup
+def display_gemini_page(book: Book)              # Main interface
+def display_gemini_setup_instructions()          # Setup instructions
 ```
 
 **Features:**
-- 📖 Tab: Resumen
-- 🎭 Tab: Temas y Personajes
-- 💡 Tab: Explicar Concepto
-- ⭐ Tab: Recomendaciones
-- ❓ Tab: Preguntas de Discusión
-- 🔄 Tab: Comparar Libros
-- 🎯 Tab: Búsqueda Inteligente (3 modos)
+- 📖 Tab: Summary
+- 🎭 Tab: Themes and Characters
+- 💡 Tab: Explain Concept
+- ⭐ Tab: Recommendations
+- ❓ Tab: Discussion Questions
+- 🔄 Tab: Compare Books
+- 🎯 Tab: Intelligent Search (3 modes)
 
 ---
 
-## 🚀 Instalación y Ejecución
+## 🚀 Installation and Execution
 
-### Requisitos
+### Requirements
 - Python 3.8+
-- pip (gestor de paquetes)
+- pip (package manager)
 - Git
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 ```bash
-git clone <url-del-repositorio>
+git clone <repository-url>
 cd ThinkInk-app
 ```
 
-### 2. Crear entorno virtual
+### 2. Create virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate        # Linux/Mac
-# o
+# or
 venv\Scripts\activate           # Windows
 ```
 
-### 3. Instalar dependencias
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configurar Gemini (Opcional pero recomendado)
+### 4. Configure Gemini (Optional but recommended)
 
-#### Paso A: Obtener API Key
-1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Haz clic en "Get API Key"
-3. Copia tu clave
+#### Step A: Get API Key
+1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Click "Get API Key"
+3. Copy your key
 
-#### Paso B: Crear archivo .env
-En la raíz del proyecto, crea un archivo `.env`:
+#### Step B: Create .env file
+In the project root, create `.env`:
 ```env
-GEMINI_API_KEY=tu_clave_aqui
+GEMINI_API_KEY=your_key_here
 ```
 
-O usa el template:
+Or use the template:
 ```bash
 cp .env.example .env
-# Luego edita .env con tu clave
+# Then edit .env with your key
 ```
 
-### 5. Ejecutar la aplicación
+### 5. Run the application
 ```bash
 streamlit run app.py
 ```
 
-La app se abrirá en `http://localhost:8502`
+The app will open at `http://localhost:8502`
 
 ---
 
-## 📊 Datos Incluidos
+## 📊 Included Data
 
-### 10 Libros Clásicos Precargados
+### 10 Preloaded Classic Books
 
-Cada libro incluye:
-- Información completa (título, autor, año, género, **tema**)
-- 3 preguntas previas (para antes de leer)
-- 3 preguntas finales (para después de leer)
-- Biografía del autor
-- Descripción/sinopsis
+Each book includes:
+- Complete information (title, author, year, genre, **theme**)
+- 3 pre-reading questions (before reading)
+- 3 post-reading questions (after reading)
+- Author biography
+- Description/synopsis
 
-**Libros incluidos:**
-1. El Quijote - Miguel de Cervantes
-2. Orgullo y Prejuicio - Jane Austen
-3. Cien Años de Soledad - Gabriel García Márquez
+**Included Books:**
+1. Don Quixote - Miguel de Cervantes
+2. Pride and Prejudice - Jane Austen
+3. One Hundred Years of Solitude - Gabriel García Márquez
 4. 1984 - George Orwell
-5. El Hobbit - J.R.R. Tolkien
-6. Mujercitas - Louisa May Alcott
-7. Drácula - Bram Stoker
-8. Las Aventuras de Sherlock Holmes - Arthur Conan Doyle
-9. La Revolución Francesa - Libro informativo
-10. Psicología del Aprendizaje - Libro educativo
+5. The Hobbit - J.R.R. Tolkien
+6. Little Women - Louisa May Alcott
+7. Dracula - Bram Stoker
+8. The Adventures of Sherlock Holmes - Arthur Conan Doyle
+9. The French Revolution - Informative book
+10. Psychology of Learning - Educational book
 
 ---
 
-## 🧪 Pruebas y Cobertura
+## 🧪 Tests and Coverage
 
-### Ejecutar Tests
+### Run Tests
 ```bash
 pytest tests/ -v
 ```
 
-### Resultado de Tests
+### Test Results
 ```
 test_book_service.py::TestBookService::test_load_books ✅ PASSED
 test_book_service.py::TestBookService::test_get_book_by_id ✅ PASSED
@@ -379,13 +381,13 @@ test_book_service.py::TestBookService::test_get_book_by_title ✅ PASSED
 ================================ 3 passed in 0.01s ===================================
 ```
 
-### Ver Cobertura
+### View Coverage
 ```bash
 pytest --cov=src --cov=config tests/ --cov-report=html
-# Abre: htmlcov/index.html
+# Opens: htmlcov/index.html
 ```
 
-**Métricas de Cobertura:**
+**Coverage Metrics:**
 - `config/settings.py`: 100% ✅
 - `tests/test_book_service.py`: 97% ✅
 - `src/models/book.py`: 94% ✅
@@ -394,29 +396,29 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 
 ---
 
-## 📚 Estructura de data/books.json
+## 📚 Structure of data/books.json
 
 ```json
 [
   {
     "id": 1,
-    "title": "El Hobbit",
+    "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
     "year": 1937,
-    "genre": "Fantasía",
-    "theme": "Amistad y Aventura",
-    "description": "La historia de Bilbo Bolsón...",
+    "genre": "Fantasy",
+    "theme": "Friendship and Adventure",
+    "description": "The story of Bilbo Baggins...",
     "pre_questions": [
-      "¿Qué es el coraje?",
-      "¿Cómo definirías la amistad?",
-      "¿Qué significa viajar para ti?"
+      "What is courage?",
+      "How would you define friendship?",
+      "What does traveling mean to you?"
     ],
     "post_questions": [
-      "¿Cómo cambió Bilbo durante el viaje?",
-      "¿Cuál fue la lección más importante?",
-      "¿Volverías a leer este libro?"
+      "How did Bilbo change during the journey?",
+      "What was the most important lesson?",
+      "Would you read this book again?"
     ],
-    "author_bio": "J.R.R. Tolkien fue un escritor británico..."
+    "author_bio": "J.R.R. Tolkien was a British writer..."
   },
   ...
 ]
@@ -424,83 +426,83 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 
 ---
 
-## 🔄 Flujo de Trabajo Recomendado
+## 🔄 Recommended Workflow
 
-### Usando la App Paso a Paso:
+### Using the App Step by Step:
 
-#### **Fase 1: Preparación (Página Principal)**
-1. Selecciona un libro de los 10 disponibles
-2. Lee la información del libro y autor
-3. Responde las **preguntas previas** reflexivamente
-4. Puedes descargar o anotar tus respuestas
+#### **Phase 1: Preparation (Principal Page)**
+1. Select a book from the 10 available
+2. Read the book and author information
+3. Answer the **pre-reading questions** thoughtfully
+4. You can download or note your answers
 
-#### **Fase 2: Lectura**
-- Lee el libro en tu tiempo
-- Toma notas sobre ideas principales
-- Reflexiona mientras lees
+#### **Phase 2: Reading**
+- Read the book at your own pace
+- Take notes about main ideas
+- Reflect while reading
 
-#### **Fase 3: Reflexión Manual (Página Principal)**
-1. Vuelve a la app
-2. Responde las **preguntas finales**
-3. Compara tus respuestas previas con las finales
-4. Observa tu crecimiento
+#### **Phase 3: Manual Reflection (Principal Page)**
+1. Return to the app
+2. Answer the **post-reading questions**
+3. Compare your pre and post answers
+4. Notice your growth
 
-#### **Fase 4: Análisis IA (Página Gemini AI)**
-1. Usa "De la lista" para analizar el mismo libro con IA
-2. Compara tu análisis reflexivo con el de Gemini
-3. Profundiza con análisis de temas y conceptos
-4. Obtén recomendaciones de libros similares
-5. Descarga análisis para referencia futura
+#### **Phase 4: AI Analysis (Gemini AI Page)**
+1. Use "From list" to analyze the same book with AI
+2. Compare your reflective analysis with Gemini's
+3. Deepen with theme and concept analysis
+4. Get recommendations for similar books
+5. Download analyses for future reference
 
-#### **Fase 5: Exploración (Búsqueda Inteligente)**
-- Busca libros por tema (ej: "Amistad", "Justicia")
-- Explora obras de autores favoritos
-- Encuentra libros similares a los que leíste
-
----
-
-## 💡 Casos de Uso
-
-### Para Estudiantes 📖
-- Prepararse para discusiones de clase
-- Entender temas complejos rápidamente
-- Analizar libros de lectura obligatoria
-- Desarrollar pensamiento crítico
-
-### Para Profesores 👨‍🏫
-- Generar preguntas de discusión
-- Crear actividades de lectura
-- Analizar temas de libros para lecciones
-- Personalizar recomendaciones
-
-### Para Lectores Casuales 📕
-- Descubrir nuevos libros por tema
-- Entender mejor lo que leen
-- Conectar emocionalmente con historias
-- Expandir horizontes literarios
-
-### Para Investigadores 🔍
-- Buscar libros sobre temas específicos
-- Comparar obras de diferentes autores
-- Explorar tendencias literarias
-- Análisis rápido de contenidos
+#### **Phase 5: Exploration (Intelligent Search)**
+- Search books by theme (e.g., "Friendship", "Justice")
+- Explore favorite authors' works
+- Find books similar to what you read
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 💡 Use Cases
 
-| Herramienta | Versión | Propósito |
+### For Students 📖
+- Prepare for class discussions
+- Understand complex themes quickly
+- Analyze required reading books
+- Develop critical thinking
+
+### For Teachers 👨‍🏫
+- Generate discussion questions
+- Create reading activities
+- Analyze book themes for lessons
+- Personalize recommendations
+
+### For Casual Readers 📕
+- Discover new books by theme
+- Better understand what you read
+- Connect emotionally with stories
+- Expand literary horizons
+
+### For Researchers 🔍
+- Search books about specific topics
+- Compare works by different authors
+- Explore literary trends
+- Quick content analysis
+
+---
+
+## 🛠️ Technologies Used
+
+| Tool | Version | Purpose |
 |---|---|---|
-| **Python** | 3.8+ | Lenguaje principal |
-| **Streamlit** | 1.28+ | Framework web |
-| **Google Gemini AI** | 2.0-flash | Análisis con IA |
+| **Python** | 3.8+ | Main language |
+| **Streamlit** | 1.28+ | Web framework |
+| **Google Gemini AI** | 2.0-flash | AI analysis |
 | **pytest** | 9.0+ | Testing |
 | **pytest-cov** | - | Code coverage |
-| **python-dotenv** | - | Variables de entorno |
+| **python-dotenv** | - | Environment variables |
 
 ---
 
-## 📝 Git Commits Recientes
+## 📝 Recent Git Commits
 
 ```
 feat: Add theme-based search in intelligent search
@@ -514,72 +516,72 @@ feat: Add Google Gemini AI integration
 
 ---
 
-## 🤝 Contribuciones
+## 🤝 Contributions
 
-Las contribuciones son bienvenidas. Por favor:
-1. Fork el repositorio
-2. Crea una rama (`git checkout -b feature/nueva-feature`)
-3. Haz commit de tus cambios (`git commit -m 'feat: Descripción'`)
-4. Push a la rama (`git push origin feature/nueva-feature`)
-5. Abre un Pull Request
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia MIT. Ver archivo `LICENSE` para más detalles.
+Contributions are welcome. Please:
+1. Fork the repository
+2. Create a branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'feat: Description'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
 ---
 
-## 👨‍💻 Autor
+## 📄 License
 
-**Desarrollado por:** Equipo de Desarrollo
-
----
-
-## 🐛 Reporte de Bugs
-
-Si encuentras algún bug, por favor:
-1. Verifica que no sea un problema conocido
-2. Proporciona descripción clara del problema
-3. Incluye pasos para reproducirlo
-4. Abre un issue en GitHub
+This project is under MIT License. See `LICENSE` file for details.
 
 ---
 
-## 🗺️ Roadmap Futuro
+## 👨‍💻 Author
 
-### v2.0 (Próximas Mejoras)
-- [ ] Base de datos completa (100+ libros)
-- [ ] Autenticación de usuarios
-- [ ] Guardado de progreso personal
-- [ ] Estadísticas de lectura
-- [ ] Comunidad de lectores
-- [ ] Recomendaciones personalizadas basadas en historial
-- [ ] Integración con APIs de libros (Google Books, OpenLibrary)
-- [ ] Exportar análisis en PDF
-- [ ] Modo oscuro/claro mejorado
-- [ ] Multiidioma
+**Developed by:** Development Team
+
+---
+
+## 🐛 Bug Reports
+
+If you find a bug, please:
+1. Check if it's a known issue
+2. Provide a clear bug description
+3. Include steps to reproduce
+4. Open an issue on GitHub
+
+---
+
+## 🗺️ Future Roadmap
+
+### v2.0 (Next Improvements)
+- [ ] Complete database (100+ books)
+- [ ] User authentication
+- [ ] Personal progress tracking
+- [ ] Reading statistics
+- [ ] Reader community
+- [ ] Personalized recommendations based on history
+- [ ] Integration with book APIs (Google Books, OpenLibrary)
+- [ ] Export analyses as PDF
+- [ ] Improved dark/light mode
+- [ ] Multi-language support
 
 ### v2.5
-- [ ] Podcasts literarios
-- [ ] Clubes de lectura virtuales
-- [ ] Desafíos de lectura
-- [ ] Badges y logros
+- [ ] Literary podcasts
+- [ ] Virtual reading clubs
+- [ ] Reading challenges
+- [ ] Badges and achievements
 - [ ] Social sharing
 
 ---
 
-## 📞 Soporte
+## 📞 Support
 
-Para preguntas o soporte:
-- 📧 Email: [tu-email@ejemplo.com]
-- 💬 Discord: [link-a-servidor]
-- 🐦 Twitter: [@tu-usuario]
+For questions or support:
+- 📧 Email: [your-email@example.com]
+- 💬 Discord: [server-link]
+- 🐦 Twitter: [@your-username]
 
 ---
 
-## ⭐ ¡Si te gusta, déjanos una estrella en GitHub!
+## ⭐ If you like it, give us a star on GitHub!
 
 ```
         📚
@@ -591,7 +593,7 @@ Para preguntas o soporte:
 
 ---
 
-**Versión:** 2.0  
-**Última actualización:** Febrero 2025  
-**Estado:** ✅ En producción  
-**Documentación disponible en:** [English](README_EN.md)
+**Version:** 2.0  
+**Last Updated:** February 2025  
+**Status:** ✅ In Production  
+**Documentation available in:** [Español](README.md)

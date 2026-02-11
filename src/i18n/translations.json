@@ -123,7 +123,12 @@
     
     "language": "Idioma / Language",
     "spanish": "🇪🇸 Español",
-    "english": "🇬🇧 English"
+    "english": "🇬🇧 English",
+    
+    "btn_save_pre_answers": "Guardar respuestas previas",
+    "btn_save_post_answers": "Guardar respuestas finales",
+    "success_pre_answers": "✅ Respuestas previas guardadas!",
+    "success_post_answers": "✅ Respuestas finales guardadas!"
   },
   "en": {
     "app_title": "🤖 ThinkInk - Book Analysis",
@@ -249,6 +254,11 @@
     
     "language": "Language / Idioma",
     "spanish": "🇪🇸 Español",
-    "english": "🇬🇧 English"
+    "english": "🇬🇧 English",
+    
+    "btn_save_pre_answers": "Save pre-reading answers",
+    "btn_save_post_answers": "Save post-reading answers",
+    "success_pre_answers": "✅ Pre-reading answers saved!",
+    "success_post_answers": "✅ Post-reading answers saved!"
   }
 }

@@ -3,9 +3,13 @@ from dotenv import load_dotenv
 from src.services.book_service import BookService
 from src.models.book import Book
 from src.ui.gemini_page import display_gemini_page, display_gemini_setup_instructions
+from src.i18n.i18n_service import t
 
 # Cargar variables de entorno
 load_dotenv()
+
+# Obtener idioma
+lang = st.session_state.get('language', 'es')
 
 # Configurar página
 st.set_page_config(
@@ -16,9 +20,9 @@ st.set_page_config(
 )
 
 # Header
-st.title("🤖 Análisis con Gemini AI 2.0 Flash")
+st.title(t("gemini_page_title", lang))
 st.markdown(
-    "Compara análisis de libros: Preguntas reflexivas vs Inteligencia Artificial"
+    t("gemini_page_subtitle", lang)
 )
 st.divider()
 
@@ -30,50 +34,48 @@ book_service = st.session_state.book_service
 
 # Sidebar - Selección de libro
 with st.sidebar:
-    st.header("📖 Selecciona un libro")
+    st.header(t("sidebar_select_book", lang))
     st.markdown(
-        """
-    **Compara dos enfoques:**
-    - 📚 Página Principal: Preguntas reflexivas y pensamiento crítico
-    - 🤖 Esta página: Análisis con IA (Gemini 2.0 Flash)
-    """
+        t("sidebar_compare_approaches", lang) + ":\n"
+        "- " + t("sidebar_approach_principal", lang) + "\n"
+        "- " + t("sidebar_approach_gemini", lang)
     )
     st.divider()
     
     # Opción: Lista predefinida o entrada personalizada
     input_mode = st.radio(
-        "¿De dónde obtener el libro?",
-        ["📚 De la lista", "🎬 Ingreso personalizado", "🔍 Búsqueda inteligente (Top 3)"],
+        t("input_mode", lang),
+        [t("input_mode_list", lang), t("input_mode_custom", lang), t("input_mode_search", lang)],
         horizontal=False
     )
     
     selected_book = None
     
-    if input_mode == "📚 De la lista":
+    if input_mode == t("input_mode_list", lang):
         books = book_service.get_all_books()
         book_titles = [book.title for book in books]
         
-        selected_title = st.selectbox("Elige un libro para analizar:", book_titles)
+        selected_title = st.selectbox(t("choose_book", lang), book_titles)
         selected_book = book_service.get_book_by_title(selected_title)
     
-    elif input_mode == "🎬 Ingreso personalizado":
-        st.subheader("📝 Información del libro")
-        st.info("ℹ️ Solo se aceptan **libros**. Para análisis de películas u otros contenidos, utiliza la búsqueda de la lista.")
+    elif input_mode == t("input_mode_custom", lang):
+        st.subheader(t("gemini_book_input", lang))
+        st.info(t("gemini_book_input_note", lang))
         
         title = st.text_input(
-            "Título del libro:",
-            placeholder="Ej: Harry Potter, El Hobbit, Cien años de soledad...",
+            t("custom_title", lang),
+            placeholder=t("custom_title_placeholder", lang),
             key="custom_title"
         )
         
         author = st.text_input(
-            "Autor:",
-            placeholder="Ej: J.K. Rowling, J.R.R. Tolkien...",
+            t("custom_author", lang),
+            placeholder=t("custom_author_placeholder", lang),
             key="custom_author"
         )
         
         year = st.number_input(
-            "Año de publicación:",
+            t("custom_year", lang),
             min_value=1800,
             max_value=2100,
             value=2024,
@@ -81,20 +83,20 @@ with st.sidebar:
         )
         
         genre = st.text_input(
-            "Género:",
-            placeholder="Ej: Fantasía, Ciencia ficción, Drama, Novela negra...",
+            t("custom_genre", lang),
+            placeholder=t("custom_genre_placeholder", lang),
             key="custom_genre"
         )
         
         theme = st.text_input(
-            "Tema principal:",
-            placeholder="Ej: Amistad, Justicia social, Identidad, Supervivencia...",
+            t("custom_theme", lang),
+            placeholder=t("custom_theme_placeholder", lang),
             key="custom_theme"
         )
         
         description = st.text_area(
-            "Descripción (opcional):",
-            placeholder="Breve descripción de la trama...",
+            t("custom_description", lang),
+            placeholder=t("custom_description_placeholder", lang),
             height=80,
             key="custom_description"
         )
@@ -113,30 +115,30 @@ with st.sidebar:
                 author_bio=f"Autor: {author}"
             )
             st.session_state.custom_theme = theme
-            st.success(f"✅ Libro agregado: {title}")
+            st.success(t("book_created", lang) + f" {title}")
         else:
-            st.warning("⚠️ Por favor ingresa al menos el título y autor")
+            st.warning(t("book_warning", lang))
             selected_book = None
     
     else:  # Búsqueda inteligente (Top 3)
-        st.subheader("🔍 Búsqueda inteligente con Gemini")
-        st.markdown("Ingresa **solo un dato** y Gemini te mostrará un top 3 similar")
-        st.info("ℹ️ Solo se aceptan **libros**. Si ingresas películas u otros contenidos, serán rechazados.")
+        st.subheader(t("search_intelligent", lang))
+        st.markdown(t("search_instruction", lang))
+        st.info(t("gemini_only_books", lang))
         
         search_type = st.radio(
-            "¿Qué deseas buscar?",
-            ["📖 Por título (libros similares)", "👤 Por autor (sus mejores obras)", "🎯 Por tema (libros sobre ese tema)"],
+            t("search_type", lang),
+            [t("search_by_title", lang), t("search_by_author", lang), t("search_by_theme", lang)],
             key="search_type"
         )
         
-        if search_type == "📖 Por título (libros similares)":
+        if search_type == t("search_by_title", lang):
             search_query = st.text_input(
-                "Ingresa el título del libro:",
-                placeholder="Ej: El Hobbit, Dune, Cien años de soledad...",
+                t("search_title_input", lang),
+                placeholder=t("search_title_placeholder", lang),
                 key="search_title"
             )
             if search_query:
-                st.info(f"🔍 Buscando libros similares a '{search_query}'...")
+                st.info(t("search_title_searching", lang).replace('{query}', search_query))
                 selected_book = Book(
                     id=998,
                     title=f"Top 3 similares a: {search_query}",
@@ -151,14 +153,14 @@ with st.sidebar:
                 )
                 st.session_state.search_mode = "titles"
                 st.session_state.search_query = search_query
-        elif search_type == "👤 Por autor (sus mejores obras)":
+        elif search_type == t("search_by_author", lang):
             author_query = st.text_input(
-                "Ingresa el nombre del autor:",
-                placeholder="Ej: Stephen King, J.R.R. Tolkien, García Márquez...",
+                t("search_author_input", lang),
+                placeholder=t("search_author_placeholder", lang),
                 key="search_author"
             )
             if author_query:
-                st.info(f"🔍 Buscando mejores obras de '{author_query}'...")
+                st.info(t("search_author_searching", lang).replace('{query}', author_query))
                 selected_book = Book(
                     id=998,
                     title=f"Top 3 obras de: {author_query}",
@@ -175,12 +177,12 @@ with st.sidebar:
                 st.session_state.search_query = author_query
         else:  # Por tema
             theme_query = st.text_input(
-                "Ingresa el tema que te interesa:",
-                placeholder="Ej: Amistad, Justicia social, Identidad, Supervivencia, Amor...",
+                t("search_theme_input", lang),
+                placeholder=t("search_theme_placeholder", lang),
                 key="search_theme"
             )
             if theme_query:
-                st.info(f"🔍 Buscando libros sobre '{theme_query}'...")
+                st.info(t("search_theme_searching", lang).replace('{query}', theme_query))
                 selected_book = Book(
                     id=998,
                     title=f"Top 3 libros sobre: {theme_query}",
@@ -200,9 +202,9 @@ with st.sidebar:
 if selected_book:
     theme_display = st.session_state.get("custom_theme", selected_book.theme)
     st.info(
-        f"📚 **Libro seleccionado:** {selected_book.title}\n\n"
-        f"✍️ **Autor:** {selected_book.author}\n\n"
-        f"📖 **Año:** {selected_book.year} | **Género:** {selected_book.genre} | **Tema:** {theme_display}"
+        f"📚 **{t('book_selected', lang)}** {selected_book.title}\n\n"
+        f"✍️ **{t('book_author', lang)}** {selected_book.author}\n\n"
+        f"📖 **{t('book_year', lang)}:** {selected_book.year} | **{t('book_genre', lang)}:** {selected_book.genre} | **{t('book_theme', lang)}:** {theme_display}"
     )
     st.divider()
     
@@ -213,43 +215,20 @@ if selected_book:
     display_gemini_setup_instructions()
     
     # Comparativa
-    st.markdown("""
-    ---
-    
-    ## 📊 Comparativa: Reflexión Manual vs IA
-    
-    ### 📚 Página Principal (Reflexión Manual)
-    - ✅ Preguntas antes de leer (preparación)
-    - ✅ Preguntas después de leer (reflexión personal)
-    - ✅ Desarrolla pensamiento crítico
-    - ✅ Conexión emocional con el texto
-    - ✅ Aprendizaje profundo
-    
-    ### 🤖 Esta Página (Análisis IA)
-    - ✅ Resúmenes instantáneos
-    - ✅ Análisis de temas y personajes
-    - ✅ Recomendaciones personalizadas
-    - ✅ Explicaciones de conceptos complejos
-    - ✅ Preguntas de discusión generadas
-    - ✅ Comparación entre libros
-    - ✅ **Funciona con cualquier libro/película**
-    
-    ### 🎯 Recomendación
-    **Lo ideal es combinar ambos enfoques:**
-    1. Comienza en la **Página Principal** con las preguntas previas
-    2. Lee el libro
-    3. Responde las **preguntas finales** en la Página Principal
-    4. Usa **Gemini AI** aquí para profundizar y explorar más
-    """)
+    st.markdown("---\n\n")
+    st.markdown("## " + t("comparison_title", lang))
+    st.markdown(t("comparison_manual", lang))
+    st.markdown(t("comparison_ai", lang))
+    st.markdown(t("comparison_recommendation", lang))
 
-elif input_mode == "📚 De la lista":
-    st.warning("⚠️ Por favor selecciona un libro de la lista.")
+elif input_mode == t("input_mode_list", lang):
+    st.warning(t("book_not_selected_list", lang))
 else:
-    st.info("ℹ️ Ingresa el título y autor de un libro/película para comenzar con el análisis.")
+    st.info(t("book_not_selected_custom", lang))
 
 # Footer
 st.divider()
 st.markdown(
-    "<div style='text-align: center'><small>🤖 ThinkInk - Gemini AI Analysis | Mejora tu experiencia de lectura</small></div>",
+    "<div style='text-align: center'><small>🤖 ThinkInk - Gemini AI Analysis | " + t("app_subtitle", lang) + "</small></div>",
     unsafe_allow_html=True,
 )

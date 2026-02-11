@@ -1,11 +1,15 @@
 import streamlit as st
 from src.services.book_service import BookService
 from src.ui.pages import display_book_card, display_author_section, display_questions
+from src.i18n.i18n_service import t
+
+# Obtener idioma
+lang = st.session_state.get('language', 'es')
 
 # Header
-st.title("📚 Aplicación de Preguntas sobre Libros")
+st.title(t("principal_title", lang))
 st.markdown(
-    "Prepárate antes de leer, reflexiona después de terminar y conoce más sobre los autores."
+    t("app_subtitle", lang)
 )
 st.divider()
 
@@ -17,17 +21,17 @@ book_service = st.session_state.book_service
 
 # Sidebar - Selección de libro
 with st.sidebar:
-    st.header("📖 Biblioteca")
+    st.header(t("sidebar_select_book", lang))
     books = book_service.get_all_books()
     book_titles = [book.title for book in books]
     
-    selected_title = st.selectbox("Selecciona un libro:", book_titles)
+    selected_title = st.selectbox(t("choose_book", lang), book_titles)
     selected_book = book_service.get_book_by_title(selected_title)
 
 # Tabs principales (SIN GEMINI)
 if selected_book:
     tab1, tab2, tab3, tab4 = st.tabs(
-        ["📘 Información", "❓ Preguntas Previas", "✅ Preguntas Finales", "🖊️ Autor"]
+        [t("principal_info_section", lang), t("principal_pre_questions", lang), t("principal_post_questions", lang), t("principal_author_bio", lang)]
     )
     
     with tab1:
@@ -35,28 +39,28 @@ if selected_book:
         display_book_card(selected_book)
     
     with tab2:
-        st.subheader("Preguntas Antes de Leer")
+        st.subheader(t("principal_pre_questions", lang))
         st.info(
-            "💡 Responde estas preguntas ANTES de comenzar a leer. Te ayudarán a preparar tu mente para los temas del libro."
+            t("principal_pre_questions_desc", lang)
         )
         pre_answers = display_questions(
-            selected_book.pre_questions, "Preguntas Previas"
+            selected_book.pre_questions, t("principal_pre_questions", lang)
         )
         
-        if st.button("Guardar respuestas previas", key="save_pre"):
-            st.success("✅ Respuestas previas guardadas!")
+        if st.button(t("btn_save_pre_answers", lang), key="save_pre"):
+            st.success(t("success_pre_answers", lang))
     
     with tab3:
-        st.subheader("Preguntas Después de Leer")
+        st.subheader(t("principal_post_questions", lang))
         st.info(
-            "💭 Responde estas preguntas DESPUÉS de terminar el libro. Servirán para reflexionar sobre lo leído."
+            t("principal_post_questions_desc", lang)
         )
         post_answers = display_questions(
-            selected_book.post_questions, "Preguntas Finales"
+            selected_book.post_questions, t("principal_post_questions", lang)
         )
         
-        if st.button("Guardar respuestas finales", key="save_post"):
-            st.success("✅ Respuestas finales guardadas!")
+        if st.button(t("btn_save_post_answers", lang), key="save_post"):
+            st.success(t("success_post_answers", lang))
     
     with tab4:
         display_author_section(selected_book)
@@ -65,17 +69,17 @@ if selected_book:
             col1, col2 = st.columns(2)
             with col1:
                 st.metric("Libro", selected_book.title)
-                st.metric("Género", selected_book.genre)
+                st.metric(t("book_genre", lang), selected_book.genre)
             with col2:
-                st.metric("Año de publicación", selected_book.year)
-                st.metric("Autor", selected_book.author)
+                st.metric(t("custom_year", lang), selected_book.year)
+                st.metric(t("book_author", lang), selected_book.author)
 
 else:
-    st.warning("⚠️ Por favor selecciona un libro de la lista.")
+    st.warning(t("book_not_selected_list", lang))
 
 # Footer
 st.divider()
 st.markdown(
-    "<div style='text-align: center'><small>📚 ThinkInk App - Mejora tu experiencia de lectura</small></div>",
+    "<div style='text-align: center'><small>📚 ThinkInk App - " + t("app_subtitle", lang) + "</small></div>",
     unsafe_allow_html=True,
 )
