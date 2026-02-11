@@ -1,0 +1,254 @@
+{
+  "es": {
+    "app_title": "🤖 ThinkInk - Análisis de Libros",
+    "app_subtitle": "Mejora tu experiencia de lectura con preguntas reflexivas e IA",
+    
+    "sidebar_select_book": "📖 Selecciona un libro",
+    "sidebar_compare_approaches": "Compara dos enfoques:",
+    "sidebar_approach_principal": "📚 Página Principal: Preguntas reflexivas y pensamiento crítico",
+    "sidebar_approach_gemini": "🤖 Página Gemini: Análisis con IA (Gemini 2.0 Flash)",
+    
+    "principal_title": "📚 Análisis Reflexivo - Preguntas para Mejorar tu Lectura",
+    "principal_info_section": "📚 Información del Libro",
+    "principal_pre_questions": "❓ Preguntas Previas",
+    "principal_pre_questions_desc": "Responde estas preguntas ANTES de leer para prepararte",
+    "principal_post_questions": "❓ Preguntas Finales",
+    "principal_post_questions_desc": "Responde estas preguntas DESPUÉS de leer para reflexionar",
+    "principal_author_bio": "✍️ Sobre el Autor",
+    
+    "gemini_title": "🤖 Análisis con Gemini AI 2.0 Flash",
+    "gemini_subtitle": "Compara análisis de libros: Preguntas reflexivas vs Inteligencia Artificial",
+    
+    "gemini_page_title": "🤖 Consultas con Gemini AI",
+    "gemini_page_subtitle": "Obtén análisis profundos, resúmenes y recomendaciones sobre libros",
+    
+    "gemini_only_books": "ℹ️ Solo se aceptan **libros**. Si ingresas películas u otros contenidos, serán rechazados.",
+    "gemini_book_input": "📝 Información del libro",
+    "gemini_book_input_note": "ℹ️ Solo se aceptan **libros**. Para análisis de películas u otros contenidos, utiliza la búsqueda de la lista.",
+    
+    "input_mode": "¿De dónde obtener el libro?",
+    "input_mode_list": "📚 De la lista",
+    "input_mode_custom": "🎬 Ingreso personalizado",
+    "input_mode_search": "🔍 Búsqueda inteligente (Top 3)",
+    
+    "choose_book": "Elige un libro para analizar:",
+    
+    "custom_title": "Título del libro:",
+    "custom_title_placeholder": "Ej: Harry Potter, El Hobbit, Cien años de soledad...",
+    "custom_author": "Autor:",
+    "custom_author_placeholder": "Ej: J.K. Rowling, J.R.R. Tolkien...",
+    "custom_year": "Año de publicación:",
+    "custom_genre": "Género:",
+    "custom_genre_placeholder": "Ej: Fantasía, Ciencia ficción, Drama, Novela negra...",
+    "custom_theme": "Tema principal:",
+    "custom_theme_placeholder": "Ej: Amistad, Justicia social, Identidad, Supervivencia...",
+    "custom_description": "Descripción (opcional):",
+    "custom_description_placeholder": "Breve descripción de la trama...",
+    
+    "book_created": "✅ Libro agregado:",
+    "book_warning": "⚠️ Por favor ingresa al menos el título y autor",
+    
+    "search_intelligent": "🔍 Búsqueda inteligente con Gemini",
+    "search_instruction": "Ingresa **solo un dato** y Gemini te mostrará un top 3 similar",
+    
+    "search_type": "¿Qué deseas buscar?",
+    "search_by_title": "📖 Por título (libros similares)",
+    "search_by_author": "👤 Por autor (sus mejores obras)",
+    "search_by_theme": "🎯 Por tema (libros sobre ese tema)",
+    
+    "search_title_input": "Ingresa el título del libro:",
+    "search_title_placeholder": "Ej: El Hobbit, Dune, Cien años de soledad...",
+    "search_title_searching": "🔍 Buscando libros similares a '{query}'...",
+    
+    "search_author_input": "Ingresa el nombre del autor:",
+    "search_author_placeholder": "Ej: Stephen King, J.R.R. Tolkien, García Márquez...",
+    "search_author_searching": "🔍 Buscando mejores obras de '{query}'...",
+    
+    "search_theme_input": "Ingresa el tema que te interesa:",
+    "search_theme_placeholder": "Ej: Amistad, Justicia social, Identidad, Supervivencia, Amor...",
+    "search_theme_searching": "🔍 Buscando libros sobre '{query}'...",
+    
+    "book_selected": "📚 Libro seleccionado:",
+    "book_author": "✍️ Autor:",
+    "book_year": "📖 Año:",
+    "book_genre": "Género:",
+    "book_theme": "Tema:",
+    
+    "book_not_selected_list": "⚠️ Por favor selecciona un libro de la lista.",
+    "book_not_selected_custom": "ℹ️ Ingresa el título y autor de un libro/película para comenzar con el análisis.",
+    
+    "gemini_tab_summary": "📖 Resumen",
+    "gemini_tab_themes": "🎭 Temas y Personajes",
+    "gemini_tab_concept": "💡 Explicar Concepto",
+    "gemini_tab_recommendations": "⭐ Recomendaciones",
+    "gemini_tab_questions": "❓ Preguntas de Discusión",
+    "gemini_tab_compare": "🔄 Comparar",
+    
+    "btn_summary": "📖 Generar resumen con Gemini",
+    "btn_analysis": "🎭 Analizar temas y personajes",
+    "btn_explain": "💡 Explicar concepto",
+    "btn_recommendations": "⭐ Obtener recomendaciones",
+    "btn_questions": "❓ Generar preguntas de discusión",
+    "btn_compare": "🔄 Comparar libros",
+    "btn_search_titles": "🔎 Buscar libros similares",
+    "btn_search_author": "👤 Ver mejores obras",
+    "btn_search_theme": "🎯 Buscar libros por tema",
+    
+    "download_summary": "⬇️ Descargar resumen",
+    "download_analysis": "⬇️ Descargar análisis",
+    "download_explanation": "⬇️ Descargar explicación",
+    "download_recommendations": "⬇️ Descargar recomendaciones",
+    "download_questions": "⬇️ Descargar preguntas",
+    "download_comparison": "⬇️ Descargar comparación",
+    "download_results": "⬇️ Descargar resultados",
+    
+    "concept_input": "¿Qué concepto deseas entender?",
+    "concept_placeholder": "Ej: La alienación, El totalitarismo, El amor verdadero...",
+    "concept_error": "❌ Por favor, introduce un concepto para explicar",
+    
+    "interests_input": "Tus intereses (opcional)",
+    "interests_placeholder": "Ej: Historia, filosofía, romance, misterio...",
+    
+    "compare_book": "Elige otro libro para comparar",
+    
+    "gemini_setup": "🔧 Cómo configurar Gemini API",
+    "gemini_setup_steps": "### Pasos para configurar Google Gemini:\n\n1. **Obtener API Key:**\n   - Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)\n   - Haz clic en \"Get API Key\"\n   - Copia tu API key\n\n2. **Crear archivo `.env`:**\n   - En la raíz del proyecto, crea un archivo `.env`\n   - Añade: `GEMINI_API_KEY=tu_clave_aqui`\n\n3. **Instalar dependencia (si no está):**\n   ```bash\n   pip install google-generativeai\n   ```\n\n4. **Reiniciar la aplicación:**\n   ```bash\n   streamlit run app.py\n   ```\n\n✅ ¡Listo! Ahora puedes usar todas las funciones de Gemini.",
+    
+    "gemini_not_configured": "⚠️ **Gemini no está configurado**\n\nPara usar esta función, necesitas:\n1. Obtener una API key de [Google AI Studio](https://makersuite.google.com/app/apikey)\n2. Crear un archivo `.env` en la raíz del proyecto con:\n```\nGEMINI_API_KEY=tu_clave_aqui\n```\n3. Reiniciar la aplicación",
+    
+    "comparison_title": "📊 Comparativa: Reflexión Manual vs IA",
+    "comparison_manual": "### 📚 Página Principal (Reflexión Manual)\n- ✅ Preguntas antes de leer (preparación)\n- ✅ Preguntas después de leer (reflexión personal)\n- ✅ Desarrolla pensamiento crítico\n- ✅ Conexión emocional con el texto\n- ✅ Aprendizaje profundo",
+    "comparison_ai": "### 🤖 Esta Página (Análisis IA)\n- ✅ Resúmenes instantáneos\n- ✅ Análisis de temas y personajes\n- ✅ Recomendaciones personalizadas\n- ✅ Explicaciones de conceptos complejos\n- ✅ Preguntas de discusión generadas\n- ✅ Comparación entre libros\n- ✅ **Funciona con cualquier libro/película**",
+    "comparison_recommendation": "### 🎯 Recomendación\n**Lo ideal es combinar ambos enfoques:**\n1. Comienza en la **Página Principal** con las preguntas previas\n2. Lee el libro\n3. Responde las **preguntas finales** en la Página Principal\n4. Usa **Gemini AI** aquí para profundizar y explorar más",
+    
+    "language": "Idioma / Language",
+    "spanish": "🇪🇸 Español",
+    "english": "🇬🇧 English"
+  },
+  "en": {
+    "app_title": "🤖 ThinkInk - Book Analysis",
+    "app_subtitle": "Enhance your reading experience with reflective questions and AI",
+    
+    "sidebar_select_book": "📖 Select a book",
+    "sidebar_compare_approaches": "Compare two approaches:",
+    "sidebar_approach_principal": "📚 Principal Page: Reflective questions and critical thinking",
+    "sidebar_approach_gemini": "🤖 Gemini Page: AI analysis (Gemini 2.0 Flash)",
+    
+    "principal_title": "📚 Reflective Analysis - Questions to Improve Your Reading",
+    "principal_info_section": "📚 Book Information",
+    "principal_pre_questions": "❓ Pre-reading Questions",
+    "principal_pre_questions_desc": "Answer these questions BEFORE reading to prepare yourself",
+    "principal_post_questions": "❓ Post-reading Questions",
+    "principal_post_questions_desc": "Answer these questions AFTER reading to reflect",
+    "principal_author_bio": "✍️ About the Author",
+    
+    "gemini_title": "🤖 Analysis with Gemini AI 2.0 Flash",
+    "gemini_subtitle": "Compare book analysis: Reflective questions vs Artificial Intelligence",
+    
+    "gemini_page_title": "🤖 Gemini AI Queries",
+    "gemini_page_subtitle": "Get in-depth analysis, summaries and recommendations about books",
+    
+    "gemini_only_books": "ℹ️ Only **books** are accepted. If you enter movies or other content, they will be rejected.",
+    "gemini_book_input": "📝 Book information",
+    "gemini_book_input_note": "ℹ️ Only **books** are accepted. For movie analysis or other content, use the list search.",
+    
+    "input_mode": "Where do you want to get the book from?",
+    "input_mode_list": "📚 From list",
+    "input_mode_custom": "🎬 Custom input",
+    "input_mode_search": "🔍 Intelligent search (Top 3)",
+    
+    "choose_book": "Choose a book to analyze:",
+    
+    "custom_title": "Book title:",
+    "custom_title_placeholder": "E.g.: Harry Potter, The Hobbit, One Hundred Years of Solitude...",
+    "custom_author": "Author:",
+    "custom_author_placeholder": "E.g.: J.K. Rowling, J.R.R. Tolkien...",
+    "custom_year": "Year of publication:",
+    "custom_genre": "Genre:",
+    "custom_genre_placeholder": "E.g.: Fantasy, Science Fiction, Drama, Crime...",
+    "custom_theme": "Main theme:",
+    "custom_theme_placeholder": "E.g.: Friendship, Social Justice, Identity, Survival...",
+    "custom_description": "Description (optional):",
+    "custom_description_placeholder": "Brief plot description...",
+    
+    "book_created": "✅ Book added:",
+    "book_warning": "⚠️ Please enter at least title and author",
+    
+    "search_intelligent": "🔍 Intelligent search with Gemini",
+    "search_instruction": "Enter **only one piece of data** and Gemini will show you a similar top 3",
+    
+    "search_type": "What do you want to search?",
+    "search_by_title": "📖 By title (similar books)",
+    "search_by_author": "👤 By author (their best works)",
+    "search_by_theme": "🎯 By theme (books about that theme)",
+    
+    "search_title_input": "Enter the book title:",
+    "search_title_placeholder": "E.g.: The Hobbit, Dune, One Hundred Years of Solitude...",
+    "search_title_searching": "🔍 Searching for books similar to '{query}'...",
+    
+    "search_author_input": "Enter the author's name:",
+    "search_author_placeholder": "E.g.: Stephen King, J.R.R. Tolkien, García Márquez...",
+    "search_author_searching": "🔍 Searching for best works by '{query}'...",
+    
+    "search_theme_input": "Enter the theme you're interested in:",
+    "search_theme_placeholder": "E.g.: Friendship, Social Justice, Identity, Survival, Love...",
+    "search_theme_searching": "🔍 Searching for books about '{query}'...",
+    
+    "book_selected": "📚 Selected book:",
+    "book_author": "✍️ Author:",
+    "book_year": "📖 Year:",
+    "book_genre": "Genre:",
+    "book_theme": "Theme:",
+    
+    "book_not_selected_list": "⚠️ Please select a book from the list.",
+    "book_not_selected_custom": "ℹ️ Enter the title and author of a book to start the analysis.",
+    
+    "gemini_tab_summary": "📖 Summary",
+    "gemini_tab_themes": "🎭 Themes and Characters",
+    "gemini_tab_concept": "💡 Explain Concept",
+    "gemini_tab_recommendations": "⭐ Recommendations",
+    "gemini_tab_questions": "❓ Discussion Questions",
+    "gemini_tab_compare": "🔄 Compare",
+    
+    "btn_summary": "📖 Generate summary with Gemini",
+    "btn_analysis": "🎭 Analyze themes and characters",
+    "btn_explain": "💡 Explain concept",
+    "btn_recommendations": "⭐ Get recommendations",
+    "btn_questions": "❓ Generate discussion questions",
+    "btn_compare": "🔄 Compare books",
+    "btn_search_titles": "🔎 Search for similar books",
+    "btn_search_author": "👤 See best works",
+    "btn_search_theme": "🎯 Search books by theme",
+    
+    "download_summary": "⬇️ Download summary",
+    "download_analysis": "⬇️ Download analysis",
+    "download_explanation": "⬇️ Download explanation",
+    "download_recommendations": "⬇️ Download recommendations",
+    "download_questions": "⬇️ Download questions",
+    "download_comparison": "⬇️ Download comparison",
+    "download_results": "⬇️ Download results",
+    
+    "concept_input": "What concept do you want to understand?",
+    "concept_placeholder": "E.g.: Alienation, Totalitarianism, True love...",
+    "concept_error": "❌ Please enter a concept to explain",
+    
+    "interests_input": "Your interests (optional)",
+    "interests_placeholder": "E.g.: History, philosophy, romance, mystery...",
+    
+    "compare_book": "Choose another book to compare",
+    
+    "gemini_setup": "🔧 How to configure Gemini API",
+    "gemini_setup_steps": "### Steps to configure Google Gemini:\n\n1. **Get API Key:**\n   - Go to [Google AI Studio](https://makersuite.google.com/app/apikey)\n   - Click \"Get API Key\"\n   - Copy your API key\n\n2. **Create `.env` file:**\n   - In the project root, create a `.env` file\n   - Add: `GEMINI_API_KEY=your_key_here`\n\n3. **Install dependency (if not already installed):**\n   ```bash\n   pip install google-generativeai\n   ```\n\n4. **Restart the application:**\n   ```bash\n   streamlit run app.py\n   ```\n\n✅ Done! Now you can use all Gemini features.",
+    
+    "gemini_not_configured": "⚠️ **Gemini is not configured**\n\nTo use this function, you need to:\n1. Get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)\n2. Create a `.env` file in the project root with:\n```\nGEMINI_API_KEY=your_key_here\n```\n3. Restart the application",
+    
+    "comparison_title": "📊 Comparison: Manual Reflection vs AI",
+    "comparison_manual": "### 📚 Principal Page (Manual Reflection)\n- ✅ Questions before reading (preparation)\n- ✅ Questions after reading (personal reflection)\n- ✅ Develops critical thinking\n- ✅ Emotional connection with text\n- ✅ Deep learning",
+    "comparison_ai": "### 🤖 This Page (AI Analysis)\n- ✅ Instant summaries\n- ✅ Analysis of themes and characters\n- ✅ Personalized recommendations\n- ✅ Explanations of complex concepts\n- ✅ Generated discussion questions\n- ✅ Book comparison\n- ✅ **Works with any book**",
+    "comparison_recommendation": "### 🎯 Recommendation\n**It's best to combine both approaches:**\n1. Start on the **Principal Page** with pre-reading questions\n2. Read the book\n3. Answer the **post-reading questions** on the Principal Page\n4. Use **Gemini AI** here to deepen and explore more",
+    
+    "language": "Language / Idioma",
+    "spanish": "🇪🇸 Español",
+    "english": "🇬🇧 English"
+  }
+}
