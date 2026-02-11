@@ -1,6 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 from src.services.book_service import BookService
+from src.models.book import Book
 from src.ui.gemini_page import display_gemini_page, display_gemini_setup_instructions
 
 # Cargar variables de entorno
@@ -39,11 +40,75 @@ with st.sidebar:
     )
     st.divider()
     
-    books = book_service.get_all_books()
-    book_titles = [book.title for book in books]
+    # Opción: Lista predefinida o entrada personalizada
+    input_mode = st.radio(
+        "¿De dónde obtener el libro?",
+        ["📚 De la lista", "🎬 Ingreso personalizado"],
+        horizontal=True
+    )
     
-    selected_title = st.selectbox("Elige un libro para analizar:", book_titles)
-    selected_book = book_service.get_book_by_title(selected_title)
+    selected_book = None
+    
+    if input_mode == "📚 De la lista":
+        books = book_service.get_all_books()
+        book_titles = [book.title for book in books]
+        
+        selected_title = st.selectbox("Elige un libro para analizar:", book_titles)
+        selected_book = book_service.get_book_by_title(selected_title)
+    
+    else:  # Entrada personalizada
+        st.subheader("📝 Ingresa datos del libro/película")
+        
+        title = st.text_input(
+            "Título del libro/película:",
+            placeholder="Ej: Harry Potter, Inception, El Hobbit...",
+            key="custom_title"
+        )
+        
+        author = st.text_input(
+            "Autor/Director:",
+            placeholder="Ej: J.K. Rowling, Christopher Nolan...",
+            key="custom_author"
+        )
+        
+        year = st.number_input(
+            "Año de publicación/lanzamiento:",
+            min_value=1800,
+            max_value=2100,
+            value=2024,
+            key="custom_year"
+        )
+        
+        genre = st.text_input(
+            "Género:",
+            placeholder="Ej: Fantasía, Ciencia ficción, Drama...",
+            key="custom_genre"
+        )
+        
+        description = st.text_area(
+            "Descripción (opcional):",
+            placeholder="Breve descripción de la trama...",
+            height=80,
+            key="custom_description"
+        )
+        
+        # Crear libro personalizado
+        if title and author:
+            selected_book = Book(
+                id=999,  # ID temporal
+                title=title,
+                author=author,
+                description=description or f"Análisis de {title}",
+                year=int(year),
+                genre=genre or "No especificado",
+                pre_questions=[],
+                post_questions=[],
+                author_bio=f"Autor/Director: {author}"
+            )
+            st.success(f"✅ Libro personalizado creado: {title}")
+        else:
+            st.warning("⚠️ Por favor ingresa al menos el título y autor")
+            selected_book = None
 
 # Contenido principal
 if selected_book:
@@ -80,6 +145,7 @@ if selected_book:
     - ✅ Explicaciones de conceptos complejos
     - ✅ Preguntas de discusión generadas
     - ✅ Comparación entre libros
+    - ✅ **Funciona con cualquier libro/película**
     
     ### 🎯 Recomendación
     **Lo ideal es combinar ambos enfoques:**
@@ -89,8 +155,10 @@ if selected_book:
     4. Usa **Gemini AI** aquí para profundizar y explorar más
     """)
 
-else:
+elif input_mode == "📚 De la lista":
     st.warning("⚠️ Por favor selecciona un libro de la lista.")
+else:
+    st.info("ℹ️ Ingresa el título y autor de un libro/película para comenzar con el análisis.")
 
 # Footer
 st.divider()
