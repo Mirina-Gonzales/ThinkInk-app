@@ -1,576 +1,515 @@
 # 📚 ThinkInk App
 
-Una aplicación web interactiva para mejorar tu experiencia de lectura con preguntas reflexivas, información de autores y seguimiento de aprendizaje. Construida con Python y Streamlit.
+Una aplicación web interactiva para mejorar tu experiencia de lectura con preguntas reflexivas, análisis de IA, información de autores y búsqueda inteligente de libros. Construida con Python, Streamlit y Google Gemini AI.
 
-## ✨ Características
+**Comparación de dos enfoques:** Análisis reflexivo manual vs. Análisis con Inteligencia Artificial
 
-- 📖 **Preguntas Previas** - Prepárate antes de leer cada libro
-- 💭 **Preguntas Finales** - Reflexiona sobre lo que aprendiste  
-- 🖊️ **Fichas de Autor** - Conoce más sobre los creadores
-- 📚 **10 Libros Clásicos** - Selección inicial curada
-- 🎨 **Interfaz Intuitiva** - Construida con Streamlit
+---
+
+## ✨ Características Principales
+
+### 📚 Página Principal - Análisis Reflexivo
+- ✅ **Preguntas Previas** - 3 preguntas para prepararte antes de leer
+- ✅ **Preguntas Finales** - 3 preguntas reflexivas después de terminar
+- ✅ **Fichas de Autor** - Biografía y contexto del escritor
+- ✅ **Información del Libro** - Detalles, género y tema
+- ✅ **10 Libros Clásicos** - Selección curada de literatura
+- ✅ **Pensamiento Crítico** - Desarrollo de conexión personal con el texto
+
+### 🤖 Página Gemini AI - Análisis Inteligente
+- 🧠 **Resumen Analítico** - IA genera resumen detallado del libro
+- 🎭 **Análisis de Temas y Personajes** - Profundización en temas centrales
+- 💡 **Explicación de Conceptos** - Entiende ideas complejas del libro
+- ⭐ **Recomendaciones Personalizadas** - Libros similares sugeridos
+- ❓ **Preguntas de Discusión** - IA genera preguntas de debate
+- 🔄 **Comparación de Libros** - Compara dos libros de la biblioteca
+- 🎯 **Búsqueda Inteligente (Top 3)** ✨ NUEVA:
+  - 📖 **Por Título** - Encuentra 3 libros similares
+  - 👤 **Por Autor** - Ve las 3 mejores obras de un autor
+  - 🎯 **Por Tema** - Descubre libros sobre un tema específico
+
+### 🔒 Restricciones y Guardrails ✨ NUEVO
+- ✅ **Solo Libros** - Rechaza películas, series, videojuegos, etc.
+- ✅ **Sin Malas Palabras** - Control de contenido ofensivo
+- ✅ **Sin Discriminación** - Exclusión de lenguaje discriminatorio
+- ✅ **Validación Clara** - Mensajes en español cuando se rechaza contenido
+- ✅ **Tono Académico** - Respuestas respetuosas e inclusivas
+
+### 📊 Calidad del Código
 - ✅ **Pruebas Unitarias** - 3/3 tests pasando
-- 📊 **Coverage de 84%** - Código bien testeado
+- ✅ **Coverage de 84%** - Código bien testeado
+- ✅ **Git Integration** - Versionado completo
+- ✅ **Entorno Virtual** - Aislamiento de dependencias
+
+---
 
 ## 📁 Estructura del Proyecto
 
 ```
 ThinkInk-app/
-├── app.py                          # Aplicación principal Streamlit
+├── app.py                          # Página de bienvenida (entry point)
+├── pages/
+│   ├── 01_📚_Principal.py         # Análisis reflexivo local
+│   └── 02_🤖_Gemini_AI.py         # Análisis con IA Gemini
 ├── config/
 │   └── settings.py                # Configuración global (100% coverage)
 ├── data/
-│   └── books.json                 # 10 libros con preguntas y bios
+│   └── books.json                 # 10 libros con Q&A y biografías
 ├── src/
 │   ├── models/
 │   │   ├── __init__.py
-│   │   └── book.py                # Clase Book (94% coverage)
+│   │   └── book.py                # Dataclass Book (94% coverage)
 │   ├── services/
 │   │   ├── __init__.py
 │   │   ├── book_service.py        # Gestión de libros (68% coverage)
 │   │   ├── question_service.py    # Gestión de preguntas
-│   │   └── author_service.py      # Información de autores
+│   │   ├── author_service.py      # Información de autores
+│   │   └── gemini_service.py      # Integración Gemini AI (400+ líneas)
 │   └── ui/
 │       ├── __init__.py
-│       └── pages.py               # Componentes UI reutilizables
+│       └── gemini_page.py         # Componentes UI Gemini
 ├── tests/
 │   ├── __init__.py
-│   ├── test_book_service.py       # Tests unitarios (97% coverage)
-│   └── test_question_service.py   # Tests adicionales (placeholder)
+│   └── test_book_service.py       # Tests unitarios (97% coverage)
 ├── htmlcov/                       # Reporte HTML de coverage
-├── venv/                          # Entorno virtual
+├── venv/                          # Entorno virtual Python
+├── .env.example                   # Template para Gemini API key
 ├── .gitignore                     # Archivos ignorados en Git
 ├── requirements.txt               # Dependencias del proyecto
-└── README.md                      # Esta documentación
+├── README.md                      # Documentación en español
+├── README_EN.md                   # Documentation in English ✨ NEW
+└── .git/                          # Repositorio Git
 ```
 
 ---
 
-## 📦 Módulos Creados
+## 📦 Módulos y Componentes
 
 ### 1️⃣ `config/settings.py` (100% Coverage ✅)
 
-**Propósito:** Configuración centralizada de la aplicación
+**Propósito:** Configuración centralizada
 
 ```python
-# Variables exportadas:
-BASE_DIR              # Ruta base del proyecto
-DATA_DIR             # Ruta a carpeta de datos
-BOOKS_FILE           # Ruta al archivo books.json
-STREAMLIT_CONFIG     # Configuración de página Streamlit
+# Variables principales:
+BASE_DIR              # Ruta del proyecto
+DATA_DIR              # Carpeta /data
+BOOKS_FILE            # Ruta a books.json
+STREAMLIT_CONFIG      # Config de Streamlit (tema, layout, etc.)
 ```
 
-**Ejemplo de uso:**
+**Ejemplo:**
 ```python
-from config.settings import BOOKS_FILE, STREAMLIT_CONFIG
-
-st.set_page_config(**STREAMLIT_CONFIG)
+from config.settings import BOOKS_FILE
+books = json.load(open(BOOKS_FILE))
 ```
 
 ---
 
-### 2️⃣ `src/models/book.py` (94% Coverage 📈)
+### 2️⃣ `src/models/book.py` (94% Coverage)
 
 **Propósito:** Modelo de datos para libros
 
-**Clase `Book`:**
 ```python
 @dataclass
 class Book:
-    id: int                      # ID único del libro
-    title: str                   # Título del libro
-    author: str                  # Nombre del autor
-    description: str             # Descripción breve
-    year: int                    # Año de publicación
-    genre: str                   # Género literario
-    pre_questions: List[str]     # 3 preguntas antes de leer
-    post_questions: List[str]    # 3 preguntas después de leer
-    author_bio: str              # Biografía del autor
+    id: int                       # ID único
+    title: str                    # Título del libro
+    author: str                   # Nombre del autor
+    description: str              # Sinopsis
+    year: int                     # Año de publicación
+    genre: str                    # Género (Fantasía, Drama, etc.)
+    theme: str = "No especificado"  # ✨ NUEVO: Tema principal
+    pre_questions: List[str]      # 3 preguntas antes de leer
+    post_questions: List[str]     # 3 preguntas después de leer
+    author_bio: str               # Biografía del autor
 ```
 
 **Métodos:**
-- `to_dict()` - Convierte el libro a diccionario (JSON)
-- `from_dict(data)` - Crea un libro desde diccionario (desserialización)
+```python
+# Serialización
+book_dict = book.to_dict()           # → Diccionario/JSON
+book_obj = Book.from_dict(book_dict) # ← Desde diccionario
+```
 
 **Ejemplo de uso:**
 ```python
 from src.models.book import Book
 
-# Crear instancia
 book = Book(
     id=1,
-    title="1984",
-    author="George Orwell",
-    description="Una novela distópica...",
-    year=1949,
-    genre="Distopía",
-    pre_questions=["¿Qué entiendes por totalitarismo?"],
-    post_questions=["¿Cómo cambió tu perspectiva?"],
-    author_bio="George Orwell (1903-1950)..."
+    title="El Hobbit",
+    author="J.R.R. Tolkien",
+    year=1937,
+    genre="Fantasía",
+    theme="Amistad y Aventura",
+    description="Un viaje inesperado...",
+    pre_questions=["¿Qué es el valor?", ...],
+    post_questions=["¿Cómo cambió Bilbo?", ...],
+    author_bio="J.R.R. Tolkien fue..."
 )
-
-# Convertir a diccionario
-book_dict = book.to_dict()
-
-# Crear desde diccionario
-new_book = Book.from_dict(book_dict)
 ```
 
 ---
 
-### 3️⃣ `src/services/book_service.py` (68% Coverage 📝)
+### 3️⃣ `src/services/book_service.py` (68% Coverage)
 
-**Propósito:** Gestión completa de libros (CRUD)
+**Propósito:** Gestión CRUD de libros
 
-**Clase `BookService`:**
 ```python
 class BookService:
-    def __init__(self, books_file: Path = BOOKS_FILE)
-    def _load_books() -> List[Book]           # Carga desde JSON
-    def get_all_books() -> List[Book]         # Obtiene todos
-    def get_book_by_id(book_id: int) -> Book  # Busca por ID
-    def get_book_by_title(title: str) -> Book # Busca por título
-    def get_books_by_genre(genre: str) -> List[Book]  # Filtra por género
-    def add_book(book: Book) -> bool          # Añade nuevo libro
-    def save_books()                          # Persiste cambios
+    def __init__(self)
+    def load_books() → List[Book]           # Carga desde JSON
+    def get_all_books() → List[Book]        # Todos los libros
+    def get_book_by_id(id) → Book           # Busca por ID
+    def get_book_by_title(title) → Book     # Busca por título
+    def add_book(book) → bool               # Agrega nuevo libro
+    def save_books(books) → bool            # Guarda en JSON
 ```
 
-**Ejemplo de uso:**
+**Ejemplo:**
 ```python
 from src.services.book_service import BookService
 
-# Instanciar servicio (carga automáticamente desde books.json)
 service = BookService()
-
-# Obtener todos los libros
-all_books = service.get_all_books()  # Retorna: List[Book]
-
-# Buscar por ID
-book = service.get_book_by_id(1)  # Retorna: Book | None
-# Output: Book(id=1, title="1984", author="George Orwell", ...)
-
-# Buscar por título
-book = service.get_book_by_title("1984")  # Case-insensitive
-# Output: Book(id=1, title="1984", ...)
-
-# Obtener libros por género
-books = service.get_books_by_genre("Distopía")  # Retorna: List[Book]
-# Output: [Book(...), Book(...)]
-
-# Agregar nuevo libro
-new_book = Book(
-    id=11, title="New Book", author="Author",
-    description="...", year=2025, genre="Fiction",
-    pre_questions=["Q1"], post_questions=["Q2"],
-    author_bio="Bio"
-)
-success = service.add_book(new_book)  # Retorna: bool (True si se agregó)
+all_books = service.get_all_books()        # [10 libros]
+hobbit = service.get_book_by_title("El Hobbit")
 ```
 
 ---
 
-### 4️⃣ `src/services/question_service.py`
+### 4️⃣ `src/services/gemini_service.py` ✨ NUEVO
 
-**Propósito:** Gestión de preguntas de lectura
+**Propósito:** Integración con Google Gemini AI 2.0 Flash
 
-**Clase `QuestionService` (métodos estáticos):**
 ```python
-class QuestionService:
-    @staticmethod
-    def get_pre_questions(book: Book) -> List[str]
-    # Obtiene preguntas previas
-
-    @staticmethod
-    def get_post_questions(book: Book) -> List[str]
-    # Obtiene preguntas posteriores
-
-    @staticmethod
-    def format_questions_for_display(questions: List[str]) -> str
-    # Formatea preguntas con bullets (•)
-
-    @staticmethod
-    def evaluate_answers(answers: Dict[str, str]) -> Dict
-    # Analiza respuestas del usuario
+class GeminiService:
+    def __init__(api_key=None)
+    
+    # Análisis de un libro específico:
+    def get_book_summary(book) → str                    # Resumen
+    def analyze_themes_and_characters(book) → str       # Temas/personajes
+    def explain_concept(book, concept) → str            # Explicar concepto
+    def get_book_recommendations(book, interests) → str # Recomendaciones
+    def generate_discussion_questions(book) → str       # Preguntas de debate
+    def compare_books(book1, book2) → str               # Comparar 2 libros
+    
+    # ✨ Búsqueda inteligente (Top 3):
+    def search_similar_books(title) → str               # Por título
+    def search_author_works(author) → str               # Por autor
+    def search_books_by_theme(theme) → str              # Por tema ✨ NEW
 ```
 
-**Ejemplo de uso:**
+**Características:**
+- ✅ Modelo: `gemini-2.0-flash` (rápido y eficiente)
+- ✅ Guardrails: Rechaza contenido no literario
+- ✅ Validación: Verifica que sea un libro real
+- ✅ Restricciones: Sin malas palabras, sin discriminación
+- ✅ Descargas: Todos los análisis se pueden descargar como .txt
+
+**Ejemplo:**
+```python
+from src.services.gemini_service import GeminiService
+from src.models.book import Book
+
+gemini = GeminiService()  # Lee API_KEY de .env
+
+book = Book(..., title="1984", author="George Orwell", theme="Totalitarismo", ...)
+summary = gemini.get_book_summary(book)
+print(summary)  # → Resumen detallado de 1984
+
+themes = gemini.search_books_by_theme("Totalitarismo")
+print(themes)  # → Top 3 libros sobre totalitarismo
+```
+
+---
+
+### 5️⃣ `src/services/question_service.py`
+
+**Propósito:** Gestión de preguntas reflexivas
+
+```python
+class QuestionService:
+    def get_pre_questions(book_id) → List[str]         # Preguntas previas
+    def get_post_questions(book_id) → List[str]        # Preguntas finales
+```
+
+**Ejemplo:**
 ```python
 from src.services.question_service import QuestionService
 
-# Obtener preguntas
-pre_q = QuestionService.get_pre_questions(book)
-# Retorna: ["¿Qué entiendes por totalitarismo?", ...]
-
-# Formatear para mostrar
-formatted = QuestionService.format_questions_for_display(pre_q)
-# Retorna: "• ¿Qué entiendes por totalitarismo?\n• ..."
-
-# Evaluar respuestas
-answers = {"1": "Mi respuesta...", "2": "Otra respuesta..."}
-evaluation = QuestionService.evaluate_answers(answers)
-# Retorna: {"total_questions": 2, "answered": 2}
+service = QuestionService()
+pre_q = service.get_pre_questions(book_id=1)
+# ["¿Qué esperas del libro?", "¿Qué te atrae de la trama?", ...]
 ```
 
 ---
 
-### 5️⃣ `src/services/author_service.py`
+### 6️⃣ `src/services/author_service.py`
 
 **Propósito:** Información de autores
 
-**Clase `AuthorService` (métodos estáticos):**
 ```python
 class AuthorService:
-    @staticmethod
-    def get_author_bio(book: Book) -> str
-    # Obtiene biografía del autor
-
-    @staticmethod
-    def format_author_info(book: Book) -> str
-    # Formatea en Markdown para mostrar
+    def get_author_bio(book_id) → str                   # Biografía
 ```
 
-**Ejemplo de uso:**
+**Ejemplo:**
 ```python
 from src.services.author_service import AuthorService
 
-# Obtener biografía
-bio = AuthorService.get_author_bio(book)
-# Retorna: "George Orwell (1903-1950) fue un escritor británico..."
-
-# Formatear para Streamlit
-formatted_bio = AuthorService.format_author_info(book)
-# Retorna: "### 🖊️ Sobre el Autor\n**George Orwell**\n\nGeorge Orwell..."
-
-# Usar en app
-st.markdown(formatted_bio)
+service = AuthorService()
+bio = service.get_author_bio(book_id=1)
+# "J.R.R. Tolkien fue un escritor británico..."
 ```
 
 ---
 
-### 6️⃣ `src/ui/pages.py`
+### 7️⃣ `src/ui/gemini_page.py` ✨ NUEVO
 
-**Propósito:** Componentes UI reutilizables
+**Propósito:** Componentes UI para la página Gemini
 
-**Funciones:**
 ```python
-def display_book_card(book: Book)
-# Muestra tarjeta de libro con año, género, descripción
-
-def display_author_section(book: Book)
-# Muestra sección completa del autor
-
-def display_questions(questions: list, question_type: str) -> dict
-# Renderiza preguntas interactivas y retorna respuestas
+def display_gemini_page(book: Book)              # Interfaz principal
+def display_gemini_setup_instructions()          # Instrucciones de setup
 ```
 
-**Ejemplo de uso:**
-```python
-from src.ui.pages import display_book_card, display_questions
-
-# Mostrar tarjeta
-display_book_card(book)
-
-# Mostrar preguntas
-answers = display_questions(book.pre_questions, "Preguntas Previas")
-# Retorna: {"1": "respuesta1", "2": "respuesta2", ...}
-```
+**Features:**
+- 📖 Tab: Resumen
+- 🎭 Tab: Temas y Personajes
+- 💡 Tab: Explicar Concepto
+- ⭐ Tab: Recomendaciones
+- ❓ Tab: Preguntas de Discusión
+- 🔄 Tab: Comparar Libros
+- 🎯 Tab: Búsqueda Inteligente (3 modos)
 
 ---
 
-### 7️⃣ `app.py` - Aplicación Streamlit
+## 🚀 Instalación y Ejecución
 
-**Propósito:** Interfaz web principal
-
-**Funcionalidades:**
-- 📖 Página de información del libro (año, género, descripción)
-- ❓ Pestaña de preguntas previas (antes de leer)
-- ✅ Pestaña de preguntas finales (después de leer)
-- 🖊️ Pestaña de autor con biografía
-
-**Estructura:**
-```
-┌─────────────────────────────────────────┐
-│        📚 ThinkInk - Aplicación         │
-│   de Preguntas sobre Libros             │
-├─────────────┬───────────────────────────┤
-│ 📖 Sidebar  │   Contenido Principal     │
-│             │   ┌─────────────────────┐ │
-│ Selecciona  │   │ Tabs:               │ │
-│ un libro    │   │ • 📘 Información    │ │
-│             │   │ • ❓ Preguntas Prev │ │
-│ Dropdown    │   │ • ✅ Preguntas Fin  │ │
-│ con 10      │   │ • 🖊️ Autor          │ │
-│ libros      │   └─────────────────────┘ │
-└─────────────┴───────────────────────────┘
-```
-
-**Flujo de usuario:**
-1. Selecciona libro del sidebar
-2. Ve información en pestaña "Información"
-3. Responde preguntas previas (tab "Preguntas Previas")
-4. Lee el libro
-5. Responde preguntas finales (tab "Preguntas Finales")
-6. Lee biografía del autor (tab "Autor")
-
----
-
-### 8️⃣ `data/books.json`
-
-**Propósito:** Almacenamiento de 10 libros clásicos
-
-**Estructura de cada libro:**
-```json
-{
-  "id": 1,
-  "title": "1984",
-  "author": "George Orwell",
-  "description": "Una novela distópica sobre un régimen totalitario...",
-  "year": 1949,
-  "genre": "Distopía",
-  "pre_questions": [
-    "¿Qué entiendes por totalitarismo?",
-    "¿Cómo crees que afecta la vigilancia...",
-    "¿Es posible que la verdad sea relativa?"
-  ],
-  "post_questions": [
-    "¿Cómo cambió tu perspectiva...",
-    "¿Ves similitudes entre el mundo...",
-    "¿Qué personaje te impactó más..."
-  ],
-  "author_bio": "George Orwell (1903-1950) fue un escritor británico..."
-}
-```
-
-**Libros incluidos:**
-1. 1984 - George Orwell
-2. El Quijote - Miguel de Cervantes
-3. Orgullo y Prejuicio - Jane Austen
-4. El Señor de los Anillos - J.R.R. Tolkien
-5. Crimen y Castigo - Fiódor Dostoievski
-6. Jane Eyre - Charlotte Brontë
-7. Cien Años de Soledad - Gabriel García Márquez
-8. La Metamorfosis - Franz Kafka
-9. El Gran Gatsby - F. Scott Fitzgerald
-10. Mujercitas - Louisa May Alcott
-
----
-
-### 9️⃣ `tests/test_book_service.py` (97% Coverage ✅)
-
-**Propósito:** Tests unitarios para BookService
-
-**Tests implementados:**
-```python
-class TestBookService(unittest.TestCase):
-    def setUp()              # Prepara datos de prueba
-    def tearDown()           # Limpia recursos
-    def test_load_books()    # ✅ Carga correcta
-    def test_get_book_by_id()    # ✅ Búsqueda por ID
-    def test_get_book_by_title() # ✅ Búsqueda por título
-```
-
-**Resultados:**
-```
-Ran 3 tests in 0.001s
-OK
-```
-
----
-
-## 🔧 Instalación y Setup
-
-### Requisitos previos
+### Requisitos
 - Python 3.8+
 - pip (gestor de paquetes)
+- Git
 
-### Paso 1: Clonar el repositorio
+### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/TU_USUARIO/ThinkInk-app.git
+git clone <url-del-repositorio>
 cd ThinkInk-app
 ```
 
-### Paso 2: Crear entorno virtual
+### 2. Crear entorno virtual
 ```bash
-# macOS / Linux
-python3 -m venv venv
-source venv/bin/activate
-
-# Windows
 python -m venv venv
-venv\Scripts\activate
+source venv/bin/activate        # Linux/Mac
+# o
+venv\Scripts\activate           # Windows
 ```
 
-### Paso 3: Instalar dependencias
+### 3. Instalar dependencias
 ```bash
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-**Dependencias instaladas:**
-- streamlit==1.36.0 - Framework web
-- python-dotenv==1.0.0 - Variables de entorno
+### 4. Configurar Gemini (Opcional pero recomendado)
 
----
+#### Paso A: Obtener API Key
+1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Haz clic en "Get API Key"
+3. Copia tu clave
 
-## 🚀 Uso
+#### Paso B: Crear archivo .env
+En la raíz del proyecto, crea un archivo `.env`:
+```env
+GEMINI_API_KEY=tu_clave_aqui
+```
 
-### Ejecutar la aplicación
+O usa el template:
 ```bash
-source venv/bin/activate  # Activar entorno
-streamlit run app.py      # Iniciar app
+cp .env.example .env
+# Luego edita .env con tu clave
 ```
 
-La aplicación se abrirá en: **http://localhost:8501**
-
-### Interfaz de usuario
-
-#### 📖 Pestaña "Información"
-Muestra:
-- Título del libro
-- Año de publicación
-- Género literario
-- Descripción completa
-- Métricas adicionales
-
-#### ❓ Pestaña "Preguntas Previas"
-- 3 preguntas para responder ANTES de leer
-- Área de texto expandible para cada respuesta
-- Botón "Guardar respuestas previas"
-
-#### ✅ Pestaña "Preguntas Finales"
-- 3 preguntas para responder DESPUÉS de leer
-- Reflexión sobre lo aprendido
-- Botón "Guardar respuestas finales"
-
-#### 🖊️ Pestaña "Autor"
-- Biografía del escritor
-- Datos adicionales (años de vida, país, etc.)
-- Expandible con más estadísticas
-
----
-
-## ✅ Pruebas y Quality Assurance
-
-### Ejecutar todas las pruebas
+### 5. Ejecutar la aplicación
 ```bash
-source venv/bin/activate
-python3 -m unittest discover -s tests -p "test_*.py" -v
+streamlit run app.py
 ```
 
-**Output esperado:**
-```
-test_load_books ... ok
-test_get_book_by_id ... ok
-test_get_book_by_title ... ok
+La app se abrirá en `http://localhost:8502`
 
-Ran 3 tests in 0.001s
-OK
-```
+---
 
-### Ver reporte de cobertura
+## 📊 Datos Incluidos
 
-#### Opción 1: Reporte en terminal
+### 10 Libros Clásicos Precargados
+
+Cada libro incluye:
+- Información completa (título, autor, año, género, **tema**)
+- 3 preguntas previas (para antes de leer)
+- 3 preguntas finales (para después de leer)
+- Biografía del autor
+- Descripción/sinopsis
+
+**Libros incluidos:**
+1. El Quijote - Miguel de Cervantes
+2. Orgullo y Prejuicio - Jane Austen
+3. Cien Años de Soledad - Gabriel García Márquez
+4. 1984 - George Orwell
+5. El Hobbit - J.R.R. Tolkien
+6. Mujercitas - Louisa May Alcott
+7. Drácula - Bram Stoker
+8. Las Aventuras de Sherlock Holmes - Arthur Conan Doyle
+9. La Revolución Francesa - Libro informativo
+10. Psicología del Aprendizaje - Libro educativo
+
+---
+
+## 🧪 Pruebas y Cobertura
+
+### Ejecutar Tests
 ```bash
-python3 -m coverage run -m unittest discover -s tests
-python3 -m coverage report
+pytest tests/ -v
 ```
 
-**Output:**
+### Resultado de Tests
 ```
-Name                              Stmts   Miss  Cover
-─────────────────────────────────────────────────────
-config/settings.py                   6      0   100%  ✅
-src/models/book.py                  18      1    94%   📈
-src/services/book_service.py        40     13    68%   📝
-tests/test_book_service.py          30      1    97%   ✅
-─────────────────────────────────────────────────────
-TOTAL                               94     15    84%
+test_book_service.py::TestBookService::test_load_books ✅ PASSED
+test_book_service.py::TestBookService::test_get_book_by_id ✅ PASSED
+test_book_service.py::TestBookService::test_get_book_by_title ✅ PASSED
+
+================================ 3 passed in 0.01s ===================================
 ```
 
-#### Opción 2: Reporte HTML
+### Ver Cobertura
 ```bash
-python3 -m coverage html
-open htmlcov/index.html  # macOS
-# o abre htmlcov/index.html en tu navegador
+pytest --cov=src --cov=config tests/ --cov-report=html
+# Abre: htmlcov/index.html
 ```
 
-### Métricas actuales
-- ✅ **100%** - config/settings.py
-- 📈 **97%** - tests/test_book_service.py
-- 📈 **94%** - src/models/book.py
-- 📝 **68%** - src/services/book_service.py
-- 📊 **84%** - TOTAL
+**Métricas de Cobertura:**
+- `config/settings.py`: 100% ✅
+- `tests/test_book_service.py`: 97% ✅
+- `src/models/book.py`: 94% ✅
+- `src/services/book_service.py`: 68%
+- **Total: 84%**
 
 ---
 
-## 📝 Ejemplos de uso en código
+## 📚 Estructura de data/books.json
 
-### Cargar y mostrar un libro
-```python
-from src.services.book_service import BookService
-from src.ui.pages import display_book_card
-
-service = BookService()
-book = service.get_book_by_id(1)
-
-if book:
-    display_book_card(book)
-```
-
-### Obtener preguntas y formatearlas
-```python
-from src.services.question_service import QuestionService
-
-questions = QuestionService.get_pre_questions(book)
-formatted = QuestionService.format_questions_for_display(questions)
-print(formatted)
-```
-
-### Procesar respuestas
-```python
-answers = {"1": "Respuesta 1", "2": "Respuesta 2", "3": ""}
-evaluation = QuestionService.evaluate_answers(answers)
-print(f"Respondidas: {evaluation['answered']}/{evaluation['total_questions']}")
+```json
+[
+  {
+    "id": 1,
+    "title": "El Hobbit",
+    "author": "J.R.R. Tolkien",
+    "year": 1937,
+    "genre": "Fantasía",
+    "theme": "Amistad y Aventura",
+    "description": "La historia de Bilbo Bolsón...",
+    "pre_questions": [
+      "¿Qué es el coraje?",
+      "¿Cómo definirías la amistad?",
+      "¿Qué significa viajar para ti?"
+    ],
+    "post_questions": [
+      "¿Cómo cambió Bilbo durante el viaje?",
+      "¿Cuál fue la lección más importante?",
+      "¿Volverías a leer este libro?"
+    ],
+    "author_bio": "J.R.R. Tolkien fue un escritor británico..."
+  },
+  ...
+]
 ```
 
 ---
 
-## 🎯 Roadmap (Próximas Fases)
+## 🔄 Flujo de Trabajo Recomendado
 
-- [ ] **Fase 2:** Guardar respuestas en base de datos (SQLite/PostgreSQL)
-- [ ] **Fase 3:** Panel de progreso de lectura
-- [ ] **Fase 4:** Sistema de recomendaciones basado en géneros favoritos
-- [ ] **Fase 5:** Rankings de usuarios y tablero de líderes
-- [ ] **Fase 6:** Integración con APIs de libros (Google Books, Open Library)
-- [ ] **Fase 7:** Exportar respuestas en PDF
-- [ ] **Fase 8:** Múltiples idiomas
-- [ ] **Fase 9:** Notas y subrayados dentro de la app
-- [ ] **Fase 10:** Compartir resúmenes con otros usuarios
+### Usando la App Paso a Paso:
+
+#### **Fase 1: Preparación (Página Principal)**
+1. Selecciona un libro de los 10 disponibles
+2. Lee la información del libro y autor
+3. Responde las **preguntas previas** reflexivamente
+4. Puedes descargar o anotar tus respuestas
+
+#### **Fase 2: Lectura**
+- Lee el libro en tu tiempo
+- Toma notas sobre ideas principales
+- Reflexiona mientras lees
+
+#### **Fase 3: Reflexión Manual (Página Principal)**
+1. Vuelve a la app
+2. Responde las **preguntas finales**
+3. Compara tus respuestas previas con las finales
+4. Observa tu crecimiento
+
+#### **Fase 4: Análisis IA (Página Gemini AI)**
+1. Usa "De la lista" para analizar el mismo libro con IA
+2. Compara tu análisis reflexivo con el de Gemini
+3. Profundiza con análisis de temas y conceptos
+4. Obtén recomendaciones de libros similares
+5. Descarga análisis para referencia futura
+
+#### **Fase 5: Exploración (Búsqueda Inteligente)**
+- Busca libros por tema (ej: "Amistad", "Justicia")
+- Explora obras de autores favoritos
+- Encuentra libros similares a los que leíste
 
 ---
 
-## 📂 Archivos de configuración
+## 💡 Casos de Uso
 
-### `requirements.txt`
-```
-streamlit==1.36.0
-python-dotenv==1.0.0
-```
+### Para Estudiantes 📖
+- Prepararse para discusiones de clase
+- Entender temas complejos rápidamente
+- Analizar libros de lectura obligatoria
+- Desarrollar pensamiento crítico
 
-### `.gitignore`
+### Para Profesores 👨‍🏫
+- Generar preguntas de discusión
+- Crear actividades de lectura
+- Analizar temas de libros para lecciones
+- Personalizar recomendaciones
+
+### Para Lectores Casuales 📕
+- Descubrir nuevos libros por tema
+- Entender mejor lo que leen
+- Conectar emocionalmente con historias
+- Expandir horizontes literarios
+
+### Para Investigadores 🔍
+- Buscar libros sobre temas específicos
+- Comparar obras de diferentes autores
+- Explorar tendencias literarias
+- Análisis rápido de contenidos
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Herramienta | Versión | Propósito |
+|---|---|---|
+| **Python** | 3.8+ | Lenguaje principal |
+| **Streamlit** | 1.28+ | Framework web |
+| **Google Gemini AI** | 2.0-flash | Análisis con IA |
+| **pytest** | 9.0+ | Testing |
+| **pytest-cov** | - | Code coverage |
+| **python-dotenv** | - | Variables de entorno |
+
+---
+
+## 📝 Git Commits Recientes
+
 ```
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-.vscode/
-.DS_Store
-*.pyc
-.streamlit/
+feat: Add theme-based search in intelligent search
+feat: Restrict to books only with content guardrails
+feat: Add intelligent search mode for Gemini page
+feat: Add custom book/movie input to Gemini AI page
+feat: Upgrade to gemini-2.0-flash model
+feat: Refactor to multi-page Streamlit app
+feat: Add Google Gemini AI integration
 ```
 
 ---
@@ -578,63 +517,81 @@ ENV/
 ## 🤝 Contribuciones
 
 Las contribuciones son bienvenidas. Por favor:
-
-1. **Fork** el proyecto
-2. **Crea una rama** para tu feature (`git checkout -b feature/AmazingFeature`)
-3. **Commit** tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** a la rama (`git push origin feature/AmazingFeature`)
-5. **Abre un Pull Request**
-
-### Convenciones de código
-- Usa PEP 8 para Python
-- Comenta código complejo
-- Mantén la cobertura de tests >= 80%
-- Actualiza el README con nuevas features
+1. Fork el repositorio
+2. Crea una rama (`git checkout -b feature/nueva-feature`)
+3. Haz commit de tus cambios (`git commit -m 'feat: Descripción'`)
+4. Push a la rama (`git push origin feature/nueva-feature`)
+5. Abre un Pull Request
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo licencia MIT. Ver `LICENSE` para más detalles.
+Este proyecto está bajo licencia MIT. Ver archivo `LICENSE` para más detalles.
 
 ---
 
-## 💬 Soporte y Contacto
+## 👨‍💻 Autor
 
-- 📧 **Email:** contacto@thinkink-app.com
-- 🐙 **GitHub Issues:** Para reportar bugs o sugerencias
-- 💡 **Discussions:** Para preguntas y sugerencias generales
+**Desarrollado por:** Equipo de Desarrollo
 
 ---
 
-## 📊 Estadísticas del Proyecto
+## 🐛 Reporte de Bugs
 
-| Métrica | Valor |
-|---------|-------|
-| **Archivos Python** | 12 |
-| **Líneas de código** | ~500 |
-| **Tests** | 3 |
-| **Coverage** | 84% |
-| **Dependencias** | 2 directas |
-| **Libros** | 10 |
-| **Preguntas totales** | 60 |
-| **Biografías** | 10 |
+Si encuentras algún bug, por favor:
+1. Verifica que no sea un problema conocido
+2. Proporciona descripción clara del problema
+3. Incluye pasos para reproducirlo
+4. Abre un issue en GitHub
 
 ---
 
-## 🎓 Conceptos utilizados
+## 🗺️ Roadmap Futuro
 
-- **Dataclasses** - Modelos de datos con `@dataclass`
-- **Servicios** - Capa de lógica de negocio
-- **CRUD Operations** - Create, Read, Update, Delete
-- **Unittest** - Testing framework de Python
-- **Coverage** - Análisis de cobertura de tests
-- **JSON** - Persistencia de datos
-- **Streamlit** - Framework web interactivo
-- **Pathlib** - Manejo de rutas multiplataforma
+### v2.0 (Próximas Mejoras)
+- [ ] Base de datos completa (100+ libros)
+- [ ] Autenticación de usuarios
+- [ ] Guardado de progreso personal
+- [ ] Estadísticas de lectura
+- [ ] Comunidad de lectores
+- [ ] Recomendaciones personalizadas basadas en historial
+- [ ] Integración con APIs de libros (Google Books, OpenLibrary)
+- [ ] Exportar análisis en PDF
+- [ ] Modo oscuro/claro mejorado
+- [ ] Multiidioma
+
+### v2.5
+- [ ] Podcasts literarios
+- [ ] Clubes de lectura virtuales
+- [ ] Desafíos de lectura
+- [ ] Badges y logros
+- [ ] Social sharing
 
 ---
 
-**ThinkInk - Hecho con ❤️ para amantes de la lectura**
+## 📞 Soporte
 
-Última actualización: Febrero 2026
+Para preguntas o soporte:
+- 📧 Email: [tu-email@ejemplo.com]
+- 💬 Discord: [link-a-servidor]
+- 🐦 Twitter: [@tu-usuario]
+
+---
+
+## ⭐ ¡Si te gusta, déjanos una estrella en GitHub!
+
+```
+        📚
+       /|\
+        | 
+       / \
+    ThinkInk ⭐
+```
+
+---
+
+**Versión:** 2.0  
+**Última actualización:** Febrero 2025  
+**Estado:** ✅ En producción  
+**Documentación disponible en:** [English](README_EN.md)
