@@ -43,8 +43,8 @@ with st.sidebar:
     # Opción: Lista predefinida o entrada personalizada
     input_mode = st.radio(
         "¿De dónde obtener el libro?",
-        ["📚 De la lista", "🎬 Ingreso personalizado"],
-        horizontal=True
+        ["📚 De la lista", "🎬 Ingreso personalizado", "🔍 Búsqueda inteligente (Top 3)"],
+        horizontal=False
     )
     
     selected_book = None
@@ -56,8 +56,8 @@ with st.sidebar:
         selected_title = st.selectbox("Elige un libro para analizar:", book_titles)
         selected_book = book_service.get_book_by_title(selected_title)
     
-    else:  # Entrada personalizada
-        st.subheader("📝 Ingresa datos del libro/película")
+    elif input_mode == "🎬 Ingreso personalizado":
+        st.subheader("📝 Información completa del libro/película")
         
         title = st.text_input(
             "Título del libro/película:",
@@ -109,6 +109,59 @@ with st.sidebar:
         else:
             st.warning("⚠️ Por favor ingresa al menos el título y autor")
             selected_book = None
+    
+    else:  # Búsqueda inteligente (Top 3)
+        st.subheader("🔍 Búsqueda inteligente con Gemini")
+        st.markdown("Ingresa **solo un dato** y Gemini te mostrará un top 3 similar")
+        
+        search_type = st.radio(
+            "¿Qué deseas buscar?",
+            ["📖 Por título (libros similares)", "👤 Por autor (sus mejores obras)"],
+            key="search_type"
+        )
+        
+        if search_type == "📖 Por título (libros similares)":
+            search_query = st.text_input(
+                "Ingresa el título del libro/película:",
+                placeholder="Ej: Inception, El Hobbit, Dune...",
+                key="search_title"
+            )
+            if search_query:
+                st.info(f"🔍 Buscando libros similares a '{search_query}'...")
+                selected_book = Book(
+                    id=998,
+                    title=f"Top 3 similares a: {search_query}",
+                    author="Búsqueda Gemini",
+                    description=f"Gemini buscará 3 libros/películas similares a: {search_query}",
+                    year=2024,
+                    genre="Mixed",
+                    pre_questions=[],
+                    post_questions=[],
+                    author_bio="Análisis de Gemini"
+                )
+                st.session_state.search_mode = "titles"
+                st.session_state.search_query = search_query
+        else:
+            author_query = st.text_input(
+                "Ingresa el nombre del autor/director:",
+                placeholder="Ej: Stephen King, Tarantino, J.R.R. Tolkien...",
+                key="search_author"
+            )
+            if author_query:
+                st.info(f"🔍 Buscando obras de '{author_query}'...")
+                selected_book = Book(
+                    id=998,
+                    title=f"Top 3 obras de: {author_query}",
+                    author=author_query,
+                    description=f"Gemini mostrará las 3 mejores obras de {author_query}",
+                    year=2024,
+                    genre="Mixed",
+                    pre_questions=[],
+                    post_questions=[],
+                    author_bio=f"Búsqueda de obras del autor: {author_query}"
+                )
+                st.session_state.search_mode = "author"
+                st.session_state.search_query = author_query
 
 # Contenido principal
 if selected_book:

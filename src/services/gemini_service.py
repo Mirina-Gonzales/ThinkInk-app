@@ -237,3 +237,74 @@ class GeminiService:
             return response.text
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def search_similar_books(self, title: str) -> str:
+        """
+        Busca libros similares basado en un título dado
+        
+        Args:
+            title: Título del libro para buscar similares
+            
+        Returns:
+            Top 3 libros similares con análisis
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Basándote en el libro o película "{title}", proporciona un análisis de 
+        los 3 libros/películas MÁS SIMILARES.
+        
+        Para cada uno de los 3, incluye:
+        1. **Título y Autor/Director**
+        2. **Año de publicación/lanzamiento**
+        3. **Género**
+        4. **Por qué es similar** - Explicación clara de similitudes temáticas, 
+           narrativas o de estilo
+        5. **Sinopsis breve** (2-3 líneas)
+        
+        Formatea la respuesta de manera clara y estructurada.
+        Usa emojis para hacer más legible.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def search_author_works(self, author: str) -> str:
+        """
+        Busca las mejores obras de un autor/director
+        
+        Args:
+            author: Nombre del autor o director
+            
+        Returns:
+            Top 3 obras del autor con análisis
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Proporciona un análisis de las 3 MEJORES OBRAS del autor/director {author}.
+        
+        Para cada obra, incluye:
+        1. **Título**
+        2. **Año de publicación/lanzamiento**
+        3. **Género**
+        4. **Por qué es destacada** - Lo que la hace especial y representativa 
+           del autor/director
+        5. **Sinopsis breve** (2-3 líneas)
+        6. **Tema principal**
+        
+        Formatea la respuesta de manera clara y estructurada.
+        Usa emojis para hacer más legible.
+        Sé preciso: solo 3 obras, ordenadas por importancia/popularidad.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
