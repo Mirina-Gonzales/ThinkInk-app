@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "Una novela distópica sobre un régimen totalitario que controla cada aspecto de la vida humana.",
+    "year": 1949,
+    "genre": "Distopía",
+    "pre_questions": [
+      "¿Qué entiendes por totalitarismo?",
+      "¿Cómo crees que afecta la vigilancia constante a la libertad individual?",
+      "¿Es posible que la verdad sea relativa?"
+    ],
+    "post_questions": [
+      "¿Cómo cambió tu perspectiva sobre el poder después de leer el libro?",
+      "¿Ves similitudes entre el mundo de 1984 y la sociedad actual?",
+      "¿Qué personaje te impactó más y por qué?"
+    ],
+    "author_bio": "George Orwell (1903-1950) fue un escritor británico conocido por sus novelas distópicas que critican el totalitarismo. '1984' es su obra maestra más icónica que advierte sobre los peligros del autoritarismo extremo."
+  },
+  {
+    "id": 2,
+    "title": "El Quijote",
+    "author": "Miguel de Cervantes",
+    "description": "Las aventuras de Don Quijote, un caballero que pierde la cordura y sale a buscar aventuras imaginarias.",
+    "year": 1605,
+    "genre": "Novela de caballerías",
+    "pre_questions": [
+      "¿Qué sabes sobre la literatura de caballerías?",
+      "¿Cuál es la diferencia entre la fantasía y la realidad?",
+      "¿Crees que soñar es importante en la vida?"
+    ],
+    "post_questions": [
+      "¿Cuál fue el propósito de Cervantes al escribir este libro?",
+      "¿Cómo el personaje de Sancho complementa a Don Quijote?",
+      "¿Qué lección sobre la realidad vs. los sueños sacaste del libro?"
+    ],
+    "author_bio": "Miguel de Cervantes (1547-1616) fue un escritor español que revolucionó la literatura. 'El Quijote' es considerado una de las primeras novelas modernas y es ampliamente reconocida como una obra maestra de la literatura universal."
+  },
+  {
+    "id": 3,
+    "title": "Orgullo y Prejuicio",
+    "author": "Jane Austen",
+    "description": "Una historia de romance y análisis social en la Inglaterra del siglo XIX donde Elizabeth Bennet desafía las convenciones.",
+    "year": 1813,
+    "genre": "Romance",
+    "pre_questions": [
+      "¿Qué papel juegan los prejuicios en nuestras relaciones?",
+      "¿Cómo ha cambiado el concepto de matrimonio a lo largo de la historia?",
+      "¿Es posible conocer realmente a alguien a primera vista?"
+    ],
+    "post_questions": [
+      "¿Cómo evolucionó la relación entre Elizabeth y Darcy?",
+      "¿Qué crítica social realiza Austen a la sociedad de su época?",
+      "¿Qué personaje secundario te pareció más memorable?"
+    ],
+    "author_bio": "Jane Austen (1775-1817) fue una novelista inglesa que escribió con perspicacia sobre la vida de las mujeres en su época. Sus obras son reconocidas por su ingenio, ironía y agudo análisis de la sociedad."
+  },
+  {
+    "id": 4,
+    "title": "El Señor de los Anillos",
+    "author": "J.R.R. Tolkien",
+    "description": "Una epopeya de fantasía sobre la batalla entre el bien y el mal en el mundo imaginario de la Tierra Media.",
+    "year": 1954,
+    "genre": "Fantasía",
+    "pre_questions": [
+      "¿Qué características definen a un héroe verdadero?",
+      "¿Cómo influye el poder en las personas?",
+      "¿Crees en la amistad como fuerza transformadora?"
+    ],
+    "post_questions": [
+      "¿Cómo la amistad fue crucial en la misión de Frodo?",
+      "¿Qué aprendiste sobre el liderazgo con Aragorn?",
+      "¿Cómo la tentación del poder afectó a diferentes personajes?"
+    ],
+    "author_bio": "J.R.R. Tolkien (1892-1973) fue un filólogo y autor británico que creó la Tierra Media. Sus obras pioneras en la literatura de fantasía han inspirado generaciones de lectores y han establecido los estándares del género."
+  },
+  {
+    "id": 5,
+    "title": "Crimen y Castigo",
+    "author": "Fiódor Dostoievski",
+    "description": "Un análisis profundo de la psicología de un estudiante que comete un crimen y lidia con la culpa y la redención.",
+    "year": 1866,
+    "genre": "Novela psicológica",
+    "pre_questions": [
+      "¿Es justificable cometer un crimen por una causa mayor?",
+      "¿Cómo se relacionan la culpa y la conciencia?",
+      "¿Puede alguien realmente escapar de sus acciones?"
+    ],
+    "post_questions": [
+      "¿Cómo evolucionó la percepción de Raskolnikov sobre su crimen?",
+      "¿Cuál fue el rol de Sonya en la redención de Raskolnikov?",
+      "¿Qué reflexión te dejó este libro sobre la moral y la justicia?"
+    ],
+    "author_bio": "Fiódor Dostoievski (1821-1881) fue un escritor ruso que exploró temas profundos de la psicología humana, la religión y la moralidad. Sus novelas son consideradas entre las más importantes de la literatura mundial."
+  },
+  {
+    "id": 6,
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "description": "La historia de una mujer independiente que lucha por su libertad y dignidad en la sociedad victoriana.",
+    "year": 1847,
+    "genre": "Romance gótico",
+    "pre_questions": [
+      "¿Qué significa la independencia para una mujer en la época victoriana?",
+      "¿Cómo influye la infancia en la vida adulta?",
+      "¿Es posible amar sin perder la identidad propia?"
+    ],
+    "post_questions": [
+      "¿Cómo Jane se convierte en un símbolo del feminismo?",
+      "¿Cuál fue tu reacción al secreto sobre Rochester?",
+      "¿Cómo el amor entre Jane y Rochester es diferente al de otros romances?"
+    ],
+    "author_bio": "Charlotte Brontë (1816-1855) fue una autora británica que escribió bajo seudónimo masculino. 'Jane Eyre' es revolucionaria por su protagonista femenina fuerte e independiente, muy adelantada para su época."
+  },
+  {
+    "id": 7,
+    "title": "Cien Años de Soledad",
+    "author": "Gabriel García Márquez",
+    "description": "La saga multigeneracional de la familia Buendía en el pueblo ficticio de Macondo, combinando realismo mágico con realidad.",
+    "year": 1967,
+    "genre": "Realismo mágico",
+    "pre_questions": [
+      "¿Cómo la magia puede ser una herramienta literaria?",
+      "¿Qué es el destino y estamos predestinados?",
+      "¿Cómo la soledad define a las personas?"
+    ],
+    "post_questions": [
+      "¿Cómo el estilo de realismo mágico enriquece la narración?",
+      "¿Cuál es el significado del manuscrito de Melquiades?",
+      "¿Qué patrón observaste en las vidas de los Buendía?"
+    ],
+    "author_bio": "Gabriel García Márquez (1927-2014) fue un escritor colombiano pionero del realismo mágico. Ganador del Premio Nobel de Literatura, su obra ha revolucionado la ficción latinoamericana y mundial."
+  },
+  {
+    "id": 8,
+    "title": "La Metamorfosis",
+    "author": "Franz Kafka",
+    "description": "Una novela corta sobre un hombre que se transforma en un insecto gigante y sus consecuencias existenciales.",
+    "year": 1915,
+    "genre": "Ficción existencial",
+    "pre_questions": [
+      "¿Qué significa la identidad personal?",
+      "¿Cómo define la sociedad nuestro valor como personas?",
+      "¿Qué cambio radical cambiaría completamente tu vida?"
+    ],
+    "post_questions": [
+      "¿Qué representa la transformación de Gregorio?",
+      "¿Cómo la familia reacciona al cambio radical?",
+      "¿Qué comentario social hace Kafka sobre la aceptación?"
+    ],
+    "author_bio": "Franz Kafka (1883-1924) fue un escritor checo cuyas obras exploran la alienación y la absurdo de la existencia moderna. Su trabajo ha profundamente influido en la literatura del siglo XX."
+  },
+  {
+    "id": 9,
+    "title": "El Gran Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "Una novela sobre el sueño americano, el amor imposible y la decadencia en la era del jazz de los años 20.",
+    "year": 1925,
+    "genre": "Novela americana",
+    "pre_questions": [
+      "¿Qué es el sueño americano?",
+      "¿Puede el dinero comprar la felicidad o el amor?",
+      "¿Cómo la clase social afecta nuestras oportunidades?"
+    ],
+    "post_questions": [
+      "¿Cómo Gatsby representa la obsesión romántica?",
+      "¿Qué crítica hace Fitzgerald sobre la sociedad de los años 20?",
+      "¿Crees que Gatsby logró realmente su sueño?"
+    ],
+    "author_bio": "F. Scott Fitzgerald (1896-1940) fue un escritor estadounidense que capturó la esencia de la era del jazz. 'El Gran Gatsby' es considerada una de las novelas más importantes de la literatura americana."
+  },
+  {
+    "id": 10,
+    "title": "Mujercitas",
+    "author": "Louisa May Alcott",
+    "description": "La historia de cuatro hermanas que crecen durante la Guerra Civil estadounidense, descubriendo amor, ambición y autenticidad.",
+    "year": 1869,
+    "genre": "Ficción histórica",
+    "pre_questions": [
+      "¿Cómo la amistad entre hermanas es especial?",
+      "¿Qué significa perseguir tus propios sueños?",
+      "¿Cómo la guerra afecta a las familias civiles?"
+    ],
+    "post_questions": [
+      "¿Cuál de las hermanas te identificaste más y por qué?",
+      "¿Cómo cada hermana persigue sus propias ambiciones?",
+      "¿Cuál fue tu escena favorita y qué te enseñó?"
+    ],
+    "author_bio": "Louisa May Alcott (1832-1888) fue una autora estadounidense conocida por sus historias sobre mujeres jóvenes independientes. 'Mujercitas' sigue siendo una novela beloved que inspira a lectores de todas las edades."
+  }
+]

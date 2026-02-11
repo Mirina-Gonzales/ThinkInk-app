@@ -1,0 +1,235 @@
+import os
+from typing import Optional
+import google.generativeai as genai
+from src.models.book import Book
+
+
+class GeminiService:
+    """Servicio para consultar libros usando Google Gemini API"""
+
+    def __init__(self, api_key: Optional[str] = None):
+        """
+        Inicializa el servicio de Gemini
+        
+        Args:
+            api_key: Clave de API de Google Gemini (si no se proporciona, 
+                     se obtiene de la variable de entorno GEMINI_API_KEY)
+        """
+        self.api_key = api_key or os.getenv("GEMINI_API_KEY")
+        if self.api_key:
+            genai.configure(api_key=self.api_key)
+            self.model = genai.GenerativeModel("gemini-pro")
+        else:
+            self.model = None
+
+    def is_configured(self) -> bool:
+        """Verifica si Gemini está configurado"""
+        return self.model is not None
+
+    def get_book_summary(self, book: Book) -> str:
+        """
+        Obtiene un resumen análitico del libro usando Gemini
+        
+        Args:
+            book: Libro a resumir
+            
+        Returns:
+            Resumen del libro generado por Gemini
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Proporciona un resumen detallado y analítico del libro "{book.title}" 
+        escrito por {book.author} ({book.year}).
+        
+        Género: {book.genre}
+        Descripción: {book.description}
+        
+        Por favor incluye:
+        - Resumen del argumento (2-3 párrafos)
+        - Temas principales
+        - Significancia literaria
+        - Público objetivo
+        
+        Sé conciso pero informativo.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def analyze_themes_and_characters(self, book: Book) -> str:
+        """
+        Analiza temas y personajes principales del libro
+        
+        Args:
+            book: Libro a analizar
+            
+        Returns:
+            Análisis de temas y personajes
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Analiza en profundidad el libro "{book.title}" de {book.author}.
+        
+        Por favor incluye:
+        1. **Personajes Principales**: Nombres y características clave
+        2. **Temas Centrales**: Ideas principales del libro
+        3. **Conflictos**: Tensiones narrativas principales
+        4. **Simbolismo**: Elementos simbólicos importantes
+        5. **Impacto Cultural**: Influencia en la literatura
+        
+        Mantén el análisis estructurado y claro.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def get_book_recommendations(self, book: Book, interests: str = "") -> str:
+        """
+        Obtiene recomendaciones basadas en el libro actual
+        
+        Args:
+            book: Libro de referencia
+            interests: Intereses adicionales del usuario
+            
+        Returns:
+            Recomendaciones de libros similares
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Basándote en el libro "{book.title}" de {book.author} (Género: {book.genre}),
+        proporciona recomendaciones de libros similares.
+        
+        Intereses del usuario: {interests if interests else 'No especificados'}
+        
+        Por favor:
+        1. Recomienda 5 libros similares
+        2. Explica por qué son relevantes
+        3. Sugiere libros del mismo autor si existen
+        4. Indica el nivel de dificultad de lectura
+        
+        Formatea la respuesta de manera clara y útil.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def explain_concept(self, book: Book, concept: str) -> str:
+        """
+        Explica un concepto específico del libro
+        
+        Args:
+            book: Libro del cual explicar el concepto
+            concept: Concepto a explicar
+            
+        Returns:
+            Explicación detallada del concepto
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Explica el concepto o tema "{concept}" en el contexto del libro 
+        "{book.title}" de {book.author}.
+        
+        Por favor:
+        1. Define el concepto claramente
+        2. Muestra cómo aparece en el libro
+        3. Explica su importancia en la trama
+        4. Proporciona ejemplos específicos del texto
+        5. Relaciona con el contexto histórico/cultural si es relevante
+        
+        Mantén la explicación accesible pero profunda.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def compare_books(self, book1: Book, book2: Book) -> str:
+        """
+        Compara dos libros
+        
+        Args:
+            book1: Primer libro
+            book2: Segundo libro
+            
+        Returns:
+            Comparación detallada de los libros
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Compara detalladamente los libros:
+        
+        Libro 1: "{book1.title}" por {book1.author} ({book1.year})
+        Género: {book1.genre}
+        
+        Libro 2: "{book2.title}" por {book2.author} ({book2.year})
+        Género: {book2.genre}
+        
+        Por favor:
+        1. Similitudes temáticas
+        2. Diferencias en estilo y narrativa
+        3. Contexto histórico de cada uno
+        4. Influencia mutua (si la hay)
+        5. Cuál recomendar según preferencias
+        
+        Sé equilibrado en la comparación.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
+
+    def generate_discussion_questions(self, book: Book) -> str:
+        """
+        Genera preguntas de discusión para el libro
+        
+        Args:
+            book: Libro para el cual generar preguntas
+            
+        Returns:
+            Preguntas de discusión
+        """
+        if not self.is_configured():
+            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+
+        prompt = f"""
+        Genera preguntas de discusión profundas para el libro "{book.title}" 
+        de {book.author}.
+        
+        Las preguntas deben:
+        1. Explorar temas principales
+        2. Invitar a reflexión personal
+        3. Conectar con experiencias del lector
+        4. Ser desafiantes pero accesibles
+        5. Promover debate
+        
+        Proporciona 8-10 preguntas bien formuladas.
+        """
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"❌ Error al consultar Gemini: {str(e)}"
