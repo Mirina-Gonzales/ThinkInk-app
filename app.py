@@ -1,4 +1,10 @@
 import streamlit as st
+from dotenv import load_dotenv
+import os
+
+# Cargar variables de entorno desde .env
+load_dotenv()
+
 from config.settings import STREAMLIT_CONFIG
 from src.services.book_service import BookService
 from src.services.question_service import QuestionService

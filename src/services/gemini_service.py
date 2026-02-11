@@ -1,7 +1,11 @@
 import os
 from typing import Optional
+from dotenv import load_dotenv
 import google.generativeai as genai
 from src.models.book import Book
+
+# Cargar variables de entorno
+load_dotenv()
 
 
 class GeminiService:
@@ -18,7 +22,7 @@ class GeminiService:
         self.api_key = api_key or os.getenv("GEMINI_API_KEY")
         if self.api_key:
             genai.configure(api_key=self.api_key)
-            self.model = genai.GenerativeModel("gemini-pro")
+            self.model = genai.GenerativeModel("gemini-2.0-flash")
         else:
             self.model = None
 
