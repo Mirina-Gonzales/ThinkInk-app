@@ -1,8 +1,8 @@
 # 📚 ThinkInk App
+### *Despierta tu curiosidad, descubre tu próxima gran historia*
+> **Tu compañero literario impulsado por IA** | *Your AI-powered literary companion*
 
-Una aplicación web interactiva para mejorar tu experiencia de lectura con preguntas reflexivas, análisis de IA, información de autores y búsqueda inteligente de libros. Construida con Python, Streamlit y Google Gemini AI.
-
-**Comparación de dos enfoques:** Análisis reflexivo manual vs. Análisis con Inteligencia Artificial
+Una aplicación bilingüe diseñada por una **Data Engineer** para transformar la lectura pasiva en una experiencia interactiva y reflexiva. Construida con Python, Streamlit e IA de Google Gemini.
 
 > 📖 **Documentation in English:** [English Documentation](README.md)
 
@@ -30,7 +30,7 @@ Una aplicación web interactiva para mejorar tu experiencia de lectura con pregu
   - 👤 **Por Autor** - Ve las 3 mejores obras de un autor
   - 🎯 **Por Tema** - Descubre libros sobre un tema específico
 
-### 🔒 Restricciones y Guardrails ✨ NUEVO
+### 🔒 Restricciones y Guardrails ✨ 
 - ✅ **Solo Libros** - Rechaza películas, series, videojuegos, etc.
 - ✅ **Sin Malas Palabras** - Control de contenido ofensivo
 - ✅ **Sin Discriminación** - Exclusión de lenguaje discriminatorio
@@ -38,10 +38,10 @@ Una aplicación web interactiva para mejorar tu experiencia de lectura con pregu
 - ✅ **Tono Académico** - Respuestas respetuosas e inclusivas
 
 ### 📊 Calidad del Código
-- ✅ **Pruebas Unitarias** - 3/3 tests pasando
-- ✅ **Coverage de 84%** - Código bien testeado
-- ✅ **Git Integration** - Versionado completo
+- ✅ **Pruebas Unitarias** - 3/3 tests pasando (100%)
+- ✅ **Coverage del 16%** - Código bien estructurado
 - ✅ **Entorno Virtual** - Aislamiento de dependencias
+- ✅ **Bilingüismo i18n** - 100+ traducciones (ES/EN)
 
 ---
 
@@ -60,26 +60,30 @@ ThinkInk-app/
 ├── src/
 │   ├── models/
 │   │   ├── __init__.py
-│   │   └── book.py                # Dataclass Book (94% coverage)
+│   │   └── book.py                # Dataclass Book (88% coverage)
 │   ├── services/
 │   │   ├── __init__.py
 │   │   ├── book_service.py        # Gestión de libros (68% coverage)
 │   │   ├── question_service.py    # Gestión de preguntas
 │   │   ├── author_service.py      # Información de autores
 │   │   └── gemini_service.py      # Integración Gemini AI (400+ líneas)
-│   └── ui/
+│   ├── ui/
+│   │   ├── __init__.py
+│   │   └── gemini_page.py         # Componentes UI Gemini
+│   └── i18n/
 │       ├── __init__.py
-│       └── gemini_page.py         # Componentes UI Gemini
+│       ├── i18n_service.py        # Lógica i18n
+│       └── translations.json      # 100+ traducciones ES/EN
 ├── tests/
 │   ├── __init__.py
-│   └── test_book_service.py       # Tests unitarios (97% coverage)
+│   └── test_book_service.py       # Tests unitarios (3/3 pasando)
 ├── htmlcov/                       # Reporte HTML de coverage
 ├── venv/                          # Entorno virtual Python
 ├── .env.example                   # Template para Gemini API key
 ├── .gitignore                     # Archivos ignorados en Git
 ├── requirements.txt               # Dependencias del proyecto
-├── README.md                      # Documentación en español
-├── README_EN.md                   # Documentation in English ✨ NEW
+├── README.md                      # Documentación en Inglés (PRIMARY)
+├── README_ES.md                   # Documentación en Español
 └── .git/                          # Repositorio Git
 ```
 
@@ -107,7 +111,7 @@ books = json.load(open(BOOKS_FILE))
 
 ---
 
-### 2️⃣ `src/models/book.py` (94% Coverage)
+### 2️⃣ `src/models/book.py` (88% Coverage)
 
 **Propósito:** Modelo de datos para libros
 
@@ -120,7 +124,7 @@ class Book:
     description: str              # Sinopsis
     year: int                     # Año de publicación
     genre: str                    # Género (Fantasía, Drama, etc.)
-    theme: str = "No especificado"  # ✨ NUEVO: Tema principal
+    theme: str = "No especificado"  # Tema principal
     pre_questions: List[str]      # 3 preguntas antes de leer
     post_questions: List[str]     # 3 preguntas después de leer
     author_bio: str               # Biografía del autor
@@ -179,7 +183,7 @@ hobbit = service.get_book_by_title("El Hobbit")
 
 ---
 
-### 4️⃣ `src/services/gemini_service.py` ✨ NUEVO
+### 4️⃣ `src/services/gemini_service.py`
 
 **Propósito:** Integración con Google Gemini AI 2.0 Flash
 
@@ -198,7 +202,7 @@ class GeminiService:
     # ✨ Búsqueda inteligente (Top 3):
     def search_similar_books(title) → str               # Por título
     def search_author_works(author) → str               # Por autor
-    def search_books_by_theme(theme) → str              # Por tema ✨ NEW
+    def search_books_by_theme(theme) → str              # Por tema ✨ NUEVA
 ```
 
 **Características:**
@@ -266,7 +270,7 @@ bio = service.get_author_bio(book_id=1)
 
 ---
 
-### 7️⃣ `src/ui/gemini_page.py` ✨ NUEVO
+### 7️⃣ `src/ui/gemini_page.py`
 
 **Propósito:** Componentes UI para la página Gemini
 
@@ -283,6 +287,35 @@ def display_gemini_setup_instructions()          # Instrucciones de setup
 - ❓ Tab: Preguntas de Discusión
 - 🔄 Tab: Comparar Libros
 - 🎯 Tab: Búsqueda Inteligente (3 modos)
+
+---
+
+### 8️⃣ `src/i18n/i18n_service.py`
+
+**Propósito:** Sistema de internacionalización (Bilingüe ES/EN)
+
+```python
+class I18nService:
+    def __init__(self)
+    def get(key: str, language: str) → str  # Obtener traducción
+    
+def t(key: str, language: str) → str        # Función helper acortada
+```
+
+**Características:**
+- 100+ claves de traducción
+- Soporte Español e Inglés
+- Fácil extensibilidad
+- Persistencia de session state
+
+**Ejemplo:**
+```python
+from src.i18n import t
+
+title = t("app_title", lang)  # Obtiene título traducido
+# Español: "ThinkInk - Análisis de Libros"
+# Inglés: "ThinkInk - Book Analysis"
+```
 
 ---
 
@@ -345,7 +378,7 @@ La app se abrirá en `http://localhost:8502`
 ### 10 Libros Clásicos Precargados
 
 Cada libro incluye:
-- Información completa (título, autor, año, género, **tema**)
+- Información completa (título, autor, año, género, tema)
 - 3 preguntas previas (para antes de leer)
 - 3 preguntas finales (para después de leer)
 - Biografía del autor
@@ -372,11 +405,12 @@ Cada libro incluye:
 pytest tests/ -v
 ```
 
-### Resultado de Tests
+### Resultados de Tests ✅
+
 ```
-test_book_service.py::TestBookService::test_load_books ✅ PASSED
-test_book_service.py::TestBookService::test_get_book_by_id ✅ PASSED
-test_book_service.py::TestBookService::test_get_book_by_title ✅ PASSED
+tests/test_book_service.py::TestBookService::test_get_book_by_id PASSED          [ 33%]
+tests/test_book_service.py::TestBookService::test_get_book_by_title PASSED       [ 66%]
+tests/test_book_service.py::TestBookService::test_load_books PASSED              [100%]
 
 ================================ 3 passed in 0.01s ===================================
 ```
@@ -387,12 +421,20 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 # Abre: htmlcov/index.html
 ```
 
-**Métricas de Cobertura:**
-- `config/settings.py`: 100% ✅
-- `tests/test_book_service.py`: 97% ✅
-- `src/models/book.py`: 94% ✅
-- `src/services/book_service.py`: 68%
-- **Total: 84%**
+**Métricas de Cobertura (Última ejecución):**
+```
+Name                               Stmts   Miss  Cover
+────────────────────────────────────────────────────
+config/settings.py                    6      0   100%  ✅
+src/models/book.py                   24      3    88%   ✅
+src/services/book_service.py          40     13    68%
+src/i18n/i18n_service.py              20     20     0%   (No testeado)
+src/services/gemini_service.py        96     96     0%   (No testeado)
+────────────────────────────────────────────────────
+TOTAL                                328    274    16%
+```
+
+**Nota:** El coverage muestra 16% en general porque solo hay tests para `book_service.py`. La funcionalidad principal se cubre mediante testing de integración a través de la UI de Streamlit.
 
 ---
 
@@ -459,29 +501,38 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 - Explora obras de autores favoritos
 - Encuentra libros similares a los que leíste
 
-
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
 | Herramienta | Versión | Propósito |
 |---|---|---|
-| **Python** | 3.8+ | Lenguaje principal |
+| **Python** | 3.12.8 | Lenguaje principal |
 | **Streamlit** | 1.28+ | Framework web |
-| **Google Gemini AI** | 2.0-flash | Análisis con IA |
-| **pytest** | 9.0+ | Testing |
-| **pytest-cov** | - | Code coverage |
-| **python-dotenv** | - | Variables de entorno |
+| **Google Gemini AI** | Gemini 2.0 Flash | Análisis con IA |
+| **pytest** | 9.0.2 | Testing |
+| **pytest-cov** | 7.0.0 | Cobertura de código |
+| **python-dotenv** | 1.0.0 | Variables de entorno |
 
+---
 
+## 🛣️ Roadmap - Mejoras Futuras
 
+- [ ] Expandir base de datos de libros (100+ libros)
+- [ ] Autenticación de usuario y seguimiento de progreso
+- [ ] Dashboard de estadísticas personales
+- [ ] Características de comunidad (clubes de lectura, ratings)
+- [ ] Exportación a PDF
+- [ ] Soporte para idiomas adicionales
+- [ ] Integración con Google Books API
+- [ ] Versión de aplicación móvil
+- [ ] Integración con podcasts
 
 ---
 
 ## 📄 Licencia
 
 Este proyecto está bajo licencia MIT. Ver archivo `LICENSE` para más detalles.
-
 
 ## ⭐ ¡Si te gusta, déjanos una estrella en GitHub!
 
@@ -490,11 +541,12 @@ Este proyecto está bajo licencia MIT. Ver archivo `LICENSE` para más detalles.
        /|\
         | 
        / \
-    ThinkInk ⭐
+     ThinkInk ⭐
 ```
 
 ---
 
-**Versión:** 2.0  
-**Última actualización:** Febrero 2025  
-**Documentación disponible en:** [English](README_EN.md)
+**Versión:** 2.1  
+**Última actualización:** 12 de Febrero de 2025  
+**Estado de Tests:** ✅ Todos los tests pasando (3/3)  
+**Documentación disponible en:** [English](README.md)

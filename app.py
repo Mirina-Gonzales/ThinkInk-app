@@ -43,48 +43,8 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    if lang == "es":
-        st.markdown("""
-        ## 📖 ¿Qué es ThinkInk?
-        
-        ThinkInk es una aplicación diseñada para mejorar tu experiencia de lectura mediante:
-        
-        ### 🎯 Características Principales
-        
-        - **📚 Página Principal**
-          - Preguntas previas para prepararte
-          - Preguntas finales para reflexionar
-          - Biografías de autores
-          - Enfoque en pensamiento crítico
-        
-        - **🤖 Página Gemini AI**
-          - Análisis con inteligencia artificial
-          - Resúmenes instantáneos
-          - Recomendaciones personalizadas
-          - Explicación de conceptos
-          - Comparación de libros
-        """)
-    else:
-        st.markdown("""
-        ## 📖 What is ThinkInk?
-        
-        ThinkInk is an application designed to improve your reading experience through:
-        
-        ### 🎯 Main Features
-        
-        - **📚 Principal Page**
-          - Pre-reading questions to prepare
-          - Post-reading questions to reflect
-          - Author biographies
-          - Focus on critical thinking
-        
-        - **🤖 Gemini AI Page**
-          - Analysis with artificial intelligence
-          - Instant summaries
-          - Personalized recommendations
-          - Concept explanations
-          - Book comparisons
-        """)
+    st.image("imagen_1.png", use_container_width=True)
+    st.markdown("")  # Espaciador
 
 with col2:
     if lang == "es":
@@ -105,11 +65,6 @@ with col2:
         4. Revisa los resultados
         5. Compara con tus respuestas
         
-        ### 📚 10 Libros Disponibles
-        - 1984 - George Orwell
-        - El Quijote - Miguel de Cervantes
-        - Orgullo y Prejuicio - Jane Austen
-        - Y 7 más...
         """)
     else:
         st.markdown("""
@@ -129,11 +84,6 @@ with col2:
         4. Review the results
         5. Compare with your answers
         
-        ### 📚 10 Available Books
-        - 1984 - George Orwell
-        - Don Quixote - Miguel de Cervantes
-        - Pride and Prejudice - Jane Austen
-        - And 7 more...
         """)
 
 st.divider()
@@ -143,7 +93,7 @@ if lang == "es":
     st.markdown("""
     ## 🚀 Comienza Ahora
     
-    ### Opción 1: Análisis Reflexivo (Recomendado)
+    ### Opción 1: Análisis Reflexivo 
     👉 **Ve a la página "📚 Principal"** en el menú lateral
     
     Aquí encontrarás:
@@ -163,20 +113,6 @@ if lang == "es":
     
     ---
     
-    ## 📊 Comparativa de Enfoques
-    
-    | Aspecto | Página Principal | Gemini AI |
-    |--------|-----------------|-----------|
-    | **Enfoque** | Reflexivo | Analítico |
-    | **Tiempo** | Mayor | Instantáneo |
-    | **Conexión** | Personal | Objetiva |
-    | **Profundidad** | Emocional | Técnica |
-    | **Aprendizaje** | Crítico | Informativo |
-    
-    **💡 Lo ideal:** Usa ambas páginas para una experiencia completa.
-    
-    ---
-    
     ## ⚙️ Configuración
     
     ### Para usar Gemini AI:
@@ -193,7 +129,7 @@ else:
     st.markdown("""
     ## 🚀 Get Started Now
     
-    ### Option 1: Reflective Analysis (Recommended)
+    ### Option 1: Reflective Analysis
     👉 **Go to the "📚 Principal" page** in the side menu
     
     You will find:
@@ -210,20 +146,6 @@ else:
     - Summaries, themes, recommendations
     - Comparison between approaches
     - Ideal for exploring different perspectives
-    
-    ---
-    
-    ## 📊 Approach Comparison
-    
-    | Aspect | Principal Page | Gemini AI |
-    |--------|----------------|-----------|
-    | **Approach** | Reflective | Analytical |
-    | **Time** | Longer | Instant |
-    | **Connection** | Personal | Objective |
-    | **Depth** | Emotional | Technical |
-    | **Learning** | Critical | Informative |
-    
-    **💡 Best:** Use both pages for a complete experience.
     
     ---
     

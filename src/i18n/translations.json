@@ -1,7 +1,7 @@
 {
   "es": {
-    "app_title": "🤖 ThinkInk - Análisis de Libros",
-    "app_subtitle": "Mejora tu experiencia de lectura con preguntas reflexivas e IA",
+    "app_title": "🤖 ThinkInk - Despierta tu curiosidad, descubre tu próxima gran historia",
+    "app_subtitle": "Tu compañero literario impulsado por IA.",
     
     "sidebar_select_book": "📖 Selecciona un libro",
     "sidebar_compare_approaches": "Compara dos enfoques:",
@@ -131,8 +131,8 @@
     "success_post_answers": "✅ Respuestas finales guardadas!"
   },
   "en": {
-    "app_title": "🤖 ThinkInk - Book Analysis",
-    "app_subtitle": "Enhance your reading experience with reflective questions and AI",
+    "app_title": "🤖 ThinkInk - Spark your curiosity, uncover your next great story",
+    "app_subtitle": "Your AI-powered literary companion.",
     
     "sidebar_select_book": "📖 Select a book",
     "sidebar_compare_approaches": "Compare two approaches:",
