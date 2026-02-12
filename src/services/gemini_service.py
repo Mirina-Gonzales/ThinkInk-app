@@ -319,32 +319,42 @@ class GeminiService:
 
     def search_author_works(self, author: str) -> str:
         """
-        Busca las mejores obras de un autor/director
+        Busca las mejores obras de un autor de libros
         
         Args:
-            author: Nombre del autor o director
+            author: Nombre del autor
             
         Returns:
-            Top 3 obras del autor con análisis
+            Top 3 libros del autor con análisis
         """
         if not self.is_configured():
             return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
 
         prompt = f"""
-        Proporciona un análisis de las 3 MEJORES OBRAS del autor/director {author}.
+        IMPORTANTE: Verifica que "{author}" es un AUTOR DE LIBROS. 
+        Si es director de cine, compositor, músico, dramaturgo o cualquier otra cosa 
+        (pero NO autor de libros), responde:
+        "❌ Lo siento, solo analizo LIBROS. '{author}' no es un autor de libros. 
+        Por favor, ingresa el nombre de un autor de libros válido."
         
-        Para cada obra, incluye:
+        Si es un autor de libros, proporciona un análisis de los 3 MEJORES LIBROS de {author}.
+        
+        RESTRICCIONES IMPORTANTES:
+        - Solo menciona LIBROS (novelas, ensayos, poesía, etc.)
+        - NO utilices lenguaje ofensivo o discriminatorio
+        - Mantén un tono respetuoso
+        
+        Para cada libro, incluye:
         1. **Título**
-        2. **Año de publicación/lanzamiento**
+        2. **Año de publicación**
         3. **Género**
-        4. **Por qué es destacada** - Lo que la hace especial y representativa 
-           del autor/director
+        4. **Por qué es destacada** - Lo que la hace especial y representativa del autor
         5. **Sinopsis breve** (2-3 líneas)
         6. **Tema principal**
         
         Formatea la respuesta de manera clara y estructurada.
         Usa emojis para hacer más legible.
-        Sé preciso: solo 3 obras, ordenadas por importancia/popularidad.
+        Sé preciso: solo 3 libros, ordenados por importancia/popularidad.
         """
 
         try:
