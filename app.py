@@ -43,7 +43,7 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("imagen_1.png", use_container_width=True)
+    st.image("imagen_1.png", use_column_width=True)
     st.markdown("")  # Espaciador
 
 with col2:
