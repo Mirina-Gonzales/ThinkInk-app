@@ -6,6 +6,7 @@
     "description": "Una novela distópica sobre un régimen totalitario que controla cada aspecto de la vida humana.",
     "year": 1949,
     "genre": "Distopía",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué entiendes por totalitarismo?",
       "¿Cómo crees que afecta la vigilancia constante a la libertad individual?",
@@ -25,6 +26,7 @@
     "description": "Las aventuras de Don Quijote, un caballero que pierde la cordura y sale a buscar aventuras imaginarias.",
     "year": 1605,
     "genre": "Novela de caballerías",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué sabes sobre la literatura de caballerías?",
       "¿Cuál es la diferencia entre la fantasía y la realidad?",
@@ -44,6 +46,7 @@
     "description": "Una historia de romance y análisis social en la Inglaterra del siglo XIX donde Elizabeth Bennet desafía las convenciones.",
     "year": 1813,
     "genre": "Romance",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué papel juegan los prejuicios en nuestras relaciones?",
       "¿Cómo ha cambiado el concepto de matrimonio a lo largo de la historia?",
@@ -63,6 +66,7 @@
     "description": "Una epopeya de fantasía sobre la batalla entre el bien y el mal en el mundo imaginario de la Tierra Media.",
     "year": 1954,
     "genre": "Fantasía",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué características definen a un héroe verdadero?",
       "¿Cómo influye el poder en las personas?",
@@ -82,6 +86,7 @@
     "description": "Un análisis profundo de la psicología de un estudiante que comete un crimen y lidia con la culpa y la redención.",
     "year": 1866,
     "genre": "Novela psicológica",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Es justificable cometer un crimen por una causa mayor?",
       "¿Cómo se relacionan la culpa y la conciencia?",
@@ -101,6 +106,7 @@
     "description": "La historia de una mujer independiente que lucha por su libertad y dignidad en la sociedad victoriana.",
     "year": 1847,
     "genre": "Romance gótico",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué significa la independencia para una mujer en la época victoriana?",
       "¿Cómo influye la infancia en la vida adulta?",
@@ -120,6 +126,7 @@
     "description": "La saga multigeneracional de la familia Buendía en el pueblo ficticio de Macondo, combinando realismo mágico con realidad.",
     "year": 1967,
     "genre": "Realismo mágico",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Cómo la magia puede ser una herramienta literaria?",
       "¿Qué es el destino y estamos predestinados?",
@@ -139,6 +146,7 @@
     "description": "Una novela corta sobre un hombre que se transforma en un insecto gigante y sus consecuencias existenciales.",
     "year": 1915,
     "genre": "Ficción existencial",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué significa la identidad personal?",
       "¿Cómo define la sociedad nuestro valor como personas?",
@@ -158,6 +166,7 @@
     "description": "Una novela sobre el sueño americano, el amor imposible y la decadencia en la era del jazz de los años 20.",
     "year": 1925,
     "genre": "Novela americana",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Qué es el sueño americano?",
       "¿Puede el dinero comprar la felicidad o el amor?",
@@ -177,6 +186,7 @@
     "description": "La historia de cuatro hermanas que crecen durante la Guerra Civil estadounidense, descubriendo amor, ambición y autenticidad.",
     "year": 1869,
     "genre": "Ficción histórica",
+    "theme": "No especificado",
     "pre_questions": [
       "¿Cómo la amistad entre hermanas es especial?",
       "¿Qué significa perseguir tus propios sueños?",
@@ -188,5 +198,21 @@
       "¿Cuál fue tu escena favorita y qué te enseñó?"
     ],
     "author_bio": "Louisa May Alcott (1832-1888) fue una autora estadounidense conocida por sus historias sobre mujeres jóvenes independientes. 'Mujercitas' sigue siendo una novela beloved que inspira a lectores de todas las edades."
+  },
+  {
+    "id": 999,
+    "title": "New Book",
+    "author": "New Author",
+    "description": "A new book",
+    "year": 2025,
+    "genre": "Fiction",
+    "theme": "Adventure",
+    "pre_questions": [
+      "Q1"
+    ],
+    "post_questions": [
+      "Q2"
+    ],
+    "author_bio": "New author bio"
   }
 ]
