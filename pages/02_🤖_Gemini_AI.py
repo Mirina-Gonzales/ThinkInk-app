@@ -150,13 +150,6 @@ if selected_book:
     
     st.divider()
     display_gemini_setup_instructions()
-    
-    # Comparativa
-    st.markdown("---\n\n")
-    st.markdown("## " + t("comparison_title", lang))
-    st.markdown(t("comparison_manual", lang))
-    st.markdown(t("comparison_ai", lang))
-    st.markdown(t("comparison_recommendation", lang))
 
 elif input_mode == t("input_mode_list", lang):
     st.warning(t("book_not_selected_list", lang))

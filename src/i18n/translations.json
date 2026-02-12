@@ -103,11 +103,6 @@
     
     "gemini_not_configured": "⚠️ **Gemini no está configurado**\n\nPara usar esta función, necesitas:\n1. Obtener una API key de [Google AI Studio](https://makersuite.google.com/app/apikey)\n2. Crear un archivo `.env` en la raíz del proyecto con:\n```\nGEMINI_API_KEY=tu_clave_aqui\n```\n3. Reiniciar la aplicación",
     
-    "comparison_title": "📊 Comparativa: Reflexión Manual vs IA",
-    "comparison_manual": "### 📚 Página Principal (Reflexión Manual)\n- ✅ Preguntas antes de leer (preparación)\n- ✅ Preguntas después de leer (reflexión personal)\n- ✅ Desarrolla pensamiento crítico\n- ✅ Conexión emocional con el texto\n- ✅ Aprendizaje profundo",
-    "comparison_ai": "### 🤖 Esta Página (Análisis IA)\n- ✅ Resúmenes instantáneos\n- ✅ Análisis de temas y personajes\n- ✅ Recomendaciones personalizadas\n- ✅ Explicaciones de conceptos complejos\n- ✅ Preguntas de discusión generadas\n- ✅ Comparación entre libros\n- ✅ **Funciona con cualquier libro/película**",
-    "comparison_recommendation": "### 🎯 Recomendación\n**Lo ideal es combinar ambos enfoques:**\n1. Comienza en la **Página Principal** con las preguntas previas\n2. Lee el libro\n3. Responde las **preguntas finales** en la Página Principal\n4. Usa **Gemini AI** aquí para profundizar y explorar más",
-    
     "language": "Idioma / Language",
     "spanish": "🇪🇸 Español",
     "english": "🇬🇧 English",
@@ -220,11 +215,6 @@
     "gemini_setup_steps": "### Steps to configure Google Gemini:\n\n1. **Get API Key:**\n   - Go to [Google AI Studio](https://makersuite.google.com/app/apikey)\n   - Click \"Get API Key\"\n   - Copy your API key\n\n2. **Create `.env` file:**\n   - In the project root, create a `.env` file\n   - Add: `GEMINI_API_KEY=your_key_here`\n\n3. **Install dependency (if not already installed):**\n   ```bash\n   pip install google-generativeai\n   ```\n\n4. **Restart the application:**\n   ```bash\n   streamlit run app.py\n   ```\n\n✅ Done! Now you can use all Gemini features.",
     
     "gemini_not_configured": "⚠️ **Gemini is not configured**\n\nTo use this function, you need to:\n1. Get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)\n2. Create a `.env` file in the project root with:\n```\nGEMINI_API_KEY=your_key_here\n```\n3. Restart the application",
-    
-    "comparison_title": "📊 Comparison: Manual Reflection vs AI",
-    "comparison_manual": "### 📚 Principal Page (Manual Reflection)\n- ✅ Questions before reading (preparation)\n- ✅ Questions after reading (personal reflection)\n- ✅ Develops critical thinking\n- ✅ Emotional connection with text\n- ✅ Deep learning",
-    "comparison_ai": "### 🤖 This Page (AI Analysis)\n- ✅ Instant summaries\n- ✅ Analysis of themes and characters\n- ✅ Personalized recommendations\n- ✅ Explanations of complex concepts\n- ✅ Generated discussion questions\n- ✅ Book comparison\n- ✅ **Works with any book**",
-    "comparison_recommendation": "### 🎯 Recommendation\n**It's best to combine both approaches:**\n1. Start on the **Principal Page** with pre-reading questions\n2. Read the book\n3. Answer the **post-reading questions** on the Principal Page\n4. Use **Gemini AI** here to deepen and explore more",
     
     "language": "Language / Idioma",
     "spanish": "🇪🇸 Español",
