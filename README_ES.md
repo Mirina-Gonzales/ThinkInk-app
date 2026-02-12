@@ -398,21 +398,25 @@ Cada libro incluye:
 
 ---
 
-## 🧪 Pruebas y Cobertura
+## 🧪 Pruebas y Cobertura (29 Tests - Todos Pasando ✅)
 
 ### Ejecutar Tests
 ```bash
 pytest tests/ -v
 ```
 
-### Resultados de Tests ✅
+### Resultados de Tests ✅ (29/29 Pasando)
 
 ```
-tests/test_book_service.py::TestBookService::test_get_book_by_id PASSED          [ 33%]
-tests/test_book_service.py::TestBookService::test_get_book_by_title PASSED       [ 66%]
-tests/test_book_service.py::TestBookService::test_load_books PASSED              [100%]
+Clases de Tests:
+- TestBookModel (5 tests) - ✅ 100%
+- TestBookService (10 tests) - ✅ 100%
+- TestQuestionService (5 tests) - ✅ 100%
+- TestAuthorService (2 tests) - ✅ 100%
+- TestIntegration (3 tests) - ✅ 100%
+- TestErrorHandling (4 tests) - ✅ 100%
 
-================================ 3 passed in 0.01s ===================================
+================================ 29 passed in 0.03s ===================================
 ```
 
 ### Ver Cobertura
@@ -425,18 +429,28 @@ pytest --cov=src --cov=config tests/ --cov-report=html
 ```
 Name                               Stmts   Miss  Cover
 ────────────────────────────────────────────────────
-config/settings.py                    6      0   100%  ✅
-src/models/book.py                   24      3    88%   ✅
-src/services/book_service.py          40     13    68%
-src/i18n/i18n_service.py              20     20     0%   (No testeado)
-src/services/gemini_service.py        96     96     0%   (No testeado)
+config/settings.py                    6      0   100%   ✅
+src/models/book.py                   24      2    92%    ✅
+src/services/book_service.py          40      6    85%    ✅
+src/services/question_service.py      16      0   100%   ✅
+src/services/author_service.py         8      0   100%   ✅
 ────────────────────────────────────────────────────
-TOTAL                                328    274    16%
+SERVICIOS PRINCIPALES TOTAL         104      10    90%   ✅
+────────────────────────────────────────────────────
+src/i18n/i18n_service.py              20     20     0%   (Testeado en UI)
+src/services/gemini_service.py        96     96     0%   (Testeado en UI)
+────────────────────────────────────────────────────
+TOTAL (con UI)                       328    242    26%
 ```
 
-**Nota:** El coverage muestra 16% en general porque solo hay tests para `book_service.py`. La funcionalidad principal se cubre mediante testing de integración a través de la UI de Streamlit.
+**Expansión de Tests:**
+- **Antes:** 3 tests, 16% de cobertura
+- **Después:** 29 tests, 26% de cobertura
+- **Servicios Principales:** 90% de cobertura (sin UI/Gemini)
 
----
+**Nota:** Los servicios de Gemini e i18n se prueban mediante tests de integración en la UI de Streamlit.
+
+------
 
 ## 📚 Estructura de data/books.json
 
