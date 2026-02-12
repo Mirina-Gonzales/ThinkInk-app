@@ -42,10 +42,10 @@ with st.sidebar:
     )
     st.divider()
     
-    # Opción: Lista predefinida o entrada personalizada
+    # Opción: Lista predefinida o búsqueda
     input_mode = st.radio(
         t("input_mode", lang),
-        [t("input_mode_list", lang), t("input_mode_custom", lang), t("input_mode_search", lang)],
+        [t("input_mode_list", lang), t("input_mode_search", lang)],
         horizontal=False
     )
     
@@ -57,68 +57,6 @@ with st.sidebar:
         
         selected_title = st.selectbox(t("choose_book", lang), book_titles)
         selected_book = book_service.get_book_by_title(selected_title)
-    
-    elif input_mode == t("input_mode_custom", lang):
-        st.subheader(t("gemini_book_input", lang))
-        st.info(t("gemini_book_input_note", lang))
-        
-        title = st.text_input(
-            t("custom_title", lang),
-            placeholder=t("custom_title_placeholder", lang),
-            key="custom_title"
-        )
-        
-        author = st.text_input(
-            t("custom_author", lang),
-            placeholder=t("custom_author_placeholder", lang),
-            key="custom_author"
-        )
-        
-        year = st.number_input(
-            t("custom_year", lang),
-            min_value=1800,
-            max_value=2100,
-            value=2024,
-            key="custom_year"
-        )
-        
-        genre = st.text_input(
-            t("custom_genre", lang),
-            placeholder=t("custom_genre_placeholder", lang),
-            key="custom_genre"
-        )
-        
-        theme = st.text_input(
-            t("custom_theme", lang),
-            placeholder=t("custom_theme_placeholder", lang),
-            key="custom_theme"
-        )
-        
-        description = st.text_area(
-            t("custom_description", lang),
-            placeholder=t("custom_description_placeholder", lang),
-            height=80,
-            key="custom_description"
-        )
-        
-        # Crear libro personalizado
-        if title and author:
-            selected_book = Book(
-                id=999,  # ID temporal
-                title=title,
-                author=author,
-                description=description or f"Análisis de {title}",
-                year=int(year),
-                genre=genre or "No especificado",
-                pre_questions=[],
-                post_questions=[],
-                author_bio=f"Autor: {author}"
-            )
-            st.session_state.custom_theme = theme
-            st.success(t("book_created", lang) + f" {title}")
-        else:
-            st.warning(t("book_warning", lang))
-            selected_book = None
     
     else:  # Búsqueda inteligente (Top 3)
         st.subheader(t("search_intelligent", lang))
@@ -200,11 +138,10 @@ with st.sidebar:
 
 # Contenido principal
 if selected_book:
-    theme_display = st.session_state.get("custom_theme", selected_book.theme)
     st.info(
         f"📚 **{t('book_selected', lang)}** {selected_book.title}\n\n"
         f"✍️ **{t('book_author', lang)}** {selected_book.author}\n\n"
-        f"📖 **{t('book_year', lang)}:** {selected_book.year} | **{t('book_genre', lang)}:** {selected_book.genre} | **{t('book_theme', lang)}:** {theme_display}"
+        f"📖 **{t('book_year', lang)}:** {selected_book.year} | **{t('book_genre', lang)}:** {selected_book.genre} | **{t('book_theme', lang)}:** {selected_book.theme}"
     )
     st.divider()
     
@@ -224,7 +161,7 @@ if selected_book:
 elif input_mode == t("input_mode_list", lang):
     st.warning(t("book_not_selected_list", lang))
 else:
-    st.info(t("book_not_selected_custom", lang))
+    st.info(t("book_not_selected_search", lang))
 
 # Footer
 st.divider()

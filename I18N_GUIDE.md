@@ -122,7 +122,6 @@ st.markdown(t('principal_info_section', lang))
 - `gemini_only_books` - Mensaje "solo libros"
 - `input_mode` - "¿De dónde obtener?"
 - `input_mode_list` - "De la lista"
-- `input_mode_custom` - "Ingreso personalizado"
 - `input_mode_search` - "Búsqueda inteligente"
 - Y más...
 

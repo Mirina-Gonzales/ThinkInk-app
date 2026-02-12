@@ -28,22 +28,9 @@
     
     "input_mode": "¿De dónde obtener el libro?",
     "input_mode_list": "📚 De la lista",
-    "input_mode_custom": "🎬 Ingreso personalizado",
     "input_mode_search": "🔍 Búsqueda inteligente (Top 3)",
     
     "choose_book": "Elige un libro para analizar:",
-    
-    "custom_title": "Título del libro:",
-    "custom_title_placeholder": "Ej: Harry Potter, El Hobbit, Cien años de soledad...",
-    "custom_author": "Autor:",
-    "custom_author_placeholder": "Ej: J.K. Rowling, J.R.R. Tolkien...",
-    "custom_year": "Año de publicación:",
-    "custom_genre": "Género:",
-    "custom_genre_placeholder": "Ej: Fantasía, Ciencia ficción, Drama, Novela negra...",
-    "custom_theme": "Tema principal:",
-    "custom_theme_placeholder": "Ej: Amistad, Justicia social, Identidad, Supervivencia...",
-    "custom_description": "Descripción (opcional):",
-    "custom_description_placeholder": "Breve descripción de la trama...",
     
     "book_created": "✅ Libro agregado:",
     "book_warning": "⚠️ Por favor ingresa al menos el título y autor",
@@ -75,7 +62,7 @@
     "book_theme": "Tema:",
     
     "book_not_selected_list": "⚠️ Por favor selecciona un libro de la lista.",
-    "book_not_selected_custom": "ℹ️ Ingresa el título y autor de un libro/película para comenzar con el análisis.",
+    "book_not_selected_search": "ℹ️ Usa la búsqueda inteligente para encontrar libros por título, autor o tema.",
     
     "gemini_tab_summary": "📖 Resumen",
     "gemini_tab_themes": "🎭 Temas y Personajes",
@@ -159,22 +146,9 @@
     
     "input_mode": "Where do you want to get the book from?",
     "input_mode_list": "📚 From list",
-    "input_mode_custom": "🎬 Custom input",
     "input_mode_search": "🔍 Intelligent search (Top 3)",
     
     "choose_book": "Choose a book to analyze:",
-    
-    "custom_title": "Book title:",
-    "custom_title_placeholder": "E.g.: Harry Potter, The Hobbit, One Hundred Years of Solitude...",
-    "custom_author": "Author:",
-    "custom_author_placeholder": "E.g.: J.K. Rowling, J.R.R. Tolkien...",
-    "custom_year": "Year of publication:",
-    "custom_genre": "Genre:",
-    "custom_genre_placeholder": "E.g.: Fantasy, Science Fiction, Drama, Crime...",
-    "custom_theme": "Main theme:",
-    "custom_theme_placeholder": "E.g.: Friendship, Social Justice, Identity, Survival...",
-    "custom_description": "Description (optional):",
-    "custom_description_placeholder": "Brief plot description...",
     
     "book_created": "✅ Book added:",
     "book_warning": "⚠️ Please enter at least title and author",
@@ -206,7 +180,7 @@
     "book_theme": "Theme:",
     
     "book_not_selected_list": "⚠️ Please select a book from the list.",
-    "book_not_selected_custom": "ℹ️ Enter the title and author of a book to start the analysis.",
+    "book_not_selected_search": "ℹ️ Use intelligent search to find books by title, author, or theme.",
     
     "gemini_tab_summary": "📖 Summary",
     "gemini_tab_themes": "🎭 Themes and Characters",

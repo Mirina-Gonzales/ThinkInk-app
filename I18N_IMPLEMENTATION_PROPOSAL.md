@@ -122,16 +122,14 @@ st.title(t('principal_title', lang))
     "gemini_subtitle": "Compara análisis de libros: Preguntas reflexivas vs IA",
     "input_mode": "¿De dónde obtener el libro?",
     "input_mode_list": "📚 De la lista",
-    "input_mode_custom": "🎬 Ingreso personalizado",
-    ...
+    "input_mode_search": "🔍 Búsqueda inteligente (Top 3)",
   },
   "en": {
     "gemini_title": "🤖 Analysis with Gemini AI 2.0 Flash",
     "gemini_subtitle": "Compare book analysis: Reflective questions vs AI",
     "input_mode": "Where do you want to get the book from?",
     "input_mode_list": "📚 From list",
-    "input_mode_custom": "🎬 Custom input",
-    ...
+    "input_mode_search": "🔍 Intelligent search (Top 3)",
   }
 }
 ```
@@ -151,7 +149,7 @@ st.markdown(t('gemini_subtitle', lang))
 # Radio button
 input_mode = st.radio(
     t('input_mode', lang),
-    [t('input_mode_list', lang), t('input_mode_custom', lang)],
+    [t('input_mode_list', lang), t('input_mode_search', lang)],
 )
 ```
 

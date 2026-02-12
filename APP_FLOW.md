@@ -194,7 +194,7 @@ pages/02_🤖_Gemini_AI.py
 │  │
 │  ├─ OPCIÓN 1: DE LA LISTA
 │  │  ├─ st.radio(t("input_mode", lang), 
-│  │  │           [t("input_mode_list", lang), ...])
+│  │  │           [t("input_mode_list", lang), t("input_mode_search", lang)])
 │  │  │
 │  │  ├─ Si seleccionó "De la lista":
 │  │  │  ├─ books = book_service.get_all_books()
@@ -203,27 +203,7 @@ pages/02_🤖_Gemini_AI.py
 │  │  │
 │  │  └─ selected_book → Libro de los 10 predefinidos
 │  │
-│  ├─ OPCIÓN 2: INGRESO PERSONALIZADO 🎬
-│  │  ├─ Si seleccionó "Ingreso personalizado":
-│  │  │
-│  │  ├─ FORMULARIO:
-│  │  │  ├─ title = st.text_input(t("custom_title", lang))
-│  │  │  ├─ author = st.text_input(t("custom_author", lang))
-│  │  │  ├─ year = st.number_input(t("custom_year", lang))
-│  │  │  ├─ genre = st.text_input(t("custom_genre", lang))
-│  │  │  ├─ theme = st.text_input(t("custom_theme", lang))
-│  │  │  │            └─ ✨ NUEVO CAMPO
-│  │  │  └─ description = st.text_area(t("custom_description", lang))
-│  │  │
-│  │  ├─ VALIDACIÓN:
-│  │  │  └─ if title and author:
-│  │  │     └─ selected_book = Book(...)
-│  │  │        └─ Crea objeto dinámico
-│  │  │     └─ st.success(t("book_created", lang))
-│  │  │
-│  │  └─ selected_book → Libro temporal creado (ID=999)
-│  │
-│  └─ OPCIÓN 3: BÚSQUEDA INTELIGENTE (TOP 3) 🔍
+│  └─ OPCIÓN 2: BÚSQUEDA INTELIGENTE (TOP 3) 🔍
 │     ├─ Si seleccionó "Búsqueda inteligente":
 │     │
 │     ├─ SUB-OPCIÓN A: POR TÍTULO
@@ -237,7 +217,7 @@ pages/02_🤖_Gemini_AI.py
 │     │  ├─ st.session_state.search_mode = "author"
 │     │  └─ st.session_state.search_query = search_query
 │     │
-│     └─ SUB-OPCIÓN C: POR TEMA ✨ NUEVO
+│     └─ SUB-OPCIÓN C: POR TEMA
 │        ├─ theme_query = st.text_input(t("search_theme_input", lang))
 │        ├─ st.session_state.search_mode = "theme"
 │        └─ st.session_state.search_query = theme_query

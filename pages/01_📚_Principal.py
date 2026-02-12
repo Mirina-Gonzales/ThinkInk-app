@@ -71,7 +71,7 @@ if selected_book:
                 st.metric("Libro", selected_book.title)
                 st.metric(t("book_genre", lang), selected_book.genre)
             with col2:
-                st.metric(t("custom_year", lang), selected_book.year)
+                st.metric(t("book_year", lang), selected_book.year)
                 st.metric(t("book_author", lang), selected_book.author)
 
 else:
