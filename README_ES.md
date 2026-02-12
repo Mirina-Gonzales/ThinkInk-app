@@ -328,7 +328,7 @@ title = t("app_title", lang)  # Obtiene título traducido
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/Mirina-Gonzales/ThinkInk-app.git
 cd ThinkInk-app
 ```
 
@@ -528,19 +528,6 @@ TOTAL (con UI)                       328    242    26%
 | **pytest-cov** | 7.0.0 | Cobertura de código |
 | **python-dotenv** | 1.0.0 | Variables de entorno |
 
----
-
-## 🛣️ Roadmap - Mejoras Futuras
-
-- [ ] Expandir base de datos de libros (100+ libros)
-- [ ] Autenticación de usuario y seguimiento de progreso
-- [ ] Dashboard de estadísticas personales
-- [ ] Características de comunidad (clubes de lectura, ratings)
-- [ ] Exportación a PDF
-- [ ] Soporte para idiomas adicionales
-- [ ] Integración con Google Books API
-- [ ] Versión de aplicación móvil
-- [ ] Integración con podcasts
 
 ---
 
