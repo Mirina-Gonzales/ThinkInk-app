@@ -2,9 +2,11 @@
 ### *Spark your curiosity, uncover your next great story*
 > **Your AI-powered literary companion** | *Tu compañero literario impulsado por IA*
 
-A bilingual application designed by a **Data Engineer** to transform passive reading into an interactive and reflective experience. Built with Python, Streamlit, and Google Gemini AI.
+ThinkInk is a bilingual (Spanish/English) application designed to enhance your reading experience. It combines **personal reflective analysis** with **advanced artificial intelligence** to help you discover titles, explore works, and develop critical thinking about literature.
 
-> 📖 **Documentation in Spanish:** [Documentación en Español](README_ES.md)
+> 🏆 **Created for:** GitHub Copilot CLI Challenge | **Built with:** GitHub Copilot
+
+> 📖 **Documentación en Español:** [Spanish Documentation](README_ES.md)
 
 ---
 
@@ -25,27 +27,115 @@ A bilingual application designed by a **Data Engineer** to transform passive rea
 - ⭐ **Personalized Recommendations** - Suggested similar books
 - ❓ **Discussion Questions** - AI generates debate questions
 - 🔄 **Book Comparison** - Compare two books from the library
-- 🎯 **Intelligent Search (Top 3)** ✨ NEW:
-  - 📖 **By Title** - Find 3 similar books
-  - 👤 **By Author** - See the 3 best works of an author
+- 🎯 **Intelligent Search (Top 3)** ✨:
+  - 📖 **By Title** - Find 3 similar books with validation
+  - 👤 **By Author** - See the 3 best books of an author (validates book author)
   - 🎯 **By Theme** - Discover books about a specific theme
 
-### 🔒 Restrictions and Guardrails ✨ 
-- ✅ **Books Only** - Rejects movies, TV shows, video games, etc.
-- ✅ **No Offensive Language** - Control of offensive content
-- ✅ **No Discrimination** - Exclusion of discriminatory language
-- ✅ **Clear Validation** - Messages when content is rejected
-- ✅ **Academic Tone** - Respectful and inclusive responses
-
-### 📊 Code Quality
-- ✅ **Unit Tests** - 3/3 tests passing (100%)
-- ✅ **16% Coverage** - Well-structured code
-- ✅ **Virtual Environment** - Dependency isolation
-- ✅ **Bilingual i18n** - 100+ translations (ES/EN)
+### 📋 Book Selection Modes
+- 📚 **From List** - Choose from 10 curated classic books
+- 🔍 **Intelligent Search** - Find books by title, author, or theme
 
 ---
 
-## 📁 Project Structure
+## 🚀 Installation and Execution
+
+### Requirements
+- Python 3.8+
+- pip (package manager)
+- Git
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Mirina-Gonzales/ThinkInk-app.git
+cd ThinkInk-app
+```
+
+### 2. Create virtual environment
+```bash
+python -m venv venv
+source venv/bin/activate        # Linux/Mac
+# or
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ⚠️ Important Notes
+
+### On Windows
+It's recommended to use **cmd** instead of PowerShell. To ensure you're using it, type `cmd` in the terminal and you'll be working with it.
+
+### Setting Up Gemini API
+If you ran the application without configuring the API key and want to do it later, you must:
+1. Add the key to your `.env` file
+2. **Stop the application** (press `Ctrl + C`)
+3. **Run again** `streamlit run app.py` for the changes to take effect
+
+---
+
+## 🔧 Configure Gemini (Optional but recommended)
+
+#### Step A: Get API Key
+1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Click "Get API Key"
+3. Copy your key
+
+#### Step B: Create .env file
+In the project root, create a `.env` file:
+```env
+GEMINI_API_KEY=your_key_here
+```
+
+Or use the template:
+```bash
+cp .env.example .env
+# Then edit .env with your key
+```
+
+### 4. Run the application
+```bash
+streamlit run app.py
+```
+
+The app will open at `http://localhost:8502`
+
+---
+
+## 🛠️ Technologies Used
+
+| Tool | Version | Purpose |
+|---|---|---|
+| **Python** | 3.12.8 | Main language |
+| **Streamlit** | 1.28+ | Web framework |
+| **Google Gemini AI** | Gemini 2.0 Flash | AI Analysis |
+| **pytest** | 9.0.2 | Testing |
+| **pytest-cov** | 7.0.0 | Code coverage |
+| **python-dotenv** | 1.0.0 | Environment variables |
+
+---
+
+## 🔒 Restrictions and Guardrails 
+All AI searches are protected with validations to ensure only books are analyzed:
+
+- ✅ **Books Only** - Rejects movies, TV shows, video games, and other non-literary content
+  - **Validated in:** `search_similar_books()`, `search_books_by_theme()`, `get_book_summary()`
+  - **Author validation:** `search_author_works()` verifies author writes books (not films, music, etc.)
+- ✅ **No Offensive Language** - Automatic control of inappropriate language
+- ✅ **No Discrimination** - Exclusion of discriminatory or harmful language
+- ✅ **Clear Messages** - When content is rejected, the application responds in English
+- ✅ **Academic Tone** - All responses maintain a respectful and inclusive tone
+
+### 📊 Code Quality
+- ✅ **Unit Tests** - 29/29 tests passing (100%)
+- ✅ **26% Coverage** - Well-structured code, 90% in core services
+- ✅ **Virtual Environment** - Complete dependency isolation
+- ✅ **Bilingual i18n** - 100+ automatic translations (Spanish/English)
 
 ```
 ThinkInk-app/
@@ -76,7 +166,7 @@ ThinkInk-app/
 │       └── translations.json      # 100+ ES/EN translations
 ├── tests/
 │   ├── __init__.py
-│   └── test_book_service.py       # Unit tests (3/3 passing)
+│   └── test_book_service.py       # Unit tests (29/29 passing)
 ├── htmlcov/                       # Coverage HTML report
 ├── venv/                          # Python virtual environment
 ├── .env.example                   # Template for Gemini API key
@@ -200,15 +290,16 @@ class GeminiService:
     def compare_books(book1, book2) → str               # Compare 2 books
     
     # ✨ Intelligent Search (Top 3):
-    def search_similar_books(title) → str               # By title
-    def search_author_works(author) → str               # By author
-    def search_books_by_theme(theme) → str              # By theme ✨ NEW
+    def search_similar_books(title) → str               # By title - validates book
+    def search_author_works(author) → str               # By author - validates book author
+    def search_books_by_theme(theme) → str              # By theme - validates books only
 ```
 
 **Features:**
 - ✅ Model: `gemini-2.0-flash` (fast and efficient)
-- ✅ Guardrails: Rejects non-literary content
-- ✅ Validation: Verifies it's a real book
+- ✅ Guardrails: Rejects non-literary content (movies, shows, games, etc.)
+- ✅ Validation: Verifies it's a real book in all search methods
+- ✅ Author Validation: Verifies searched authors write books
 - ✅ Restrictions: No offensive language, no discrimination
 - ✅ Downloads: All analyses can be downloaded as .txt
 
@@ -316,60 +407,6 @@ title = t("app_title", lang)  # Gets translated title
 # Spanish: "ThinkInk - Análisis de Libros"
 # English: "ThinkInk - Book Analysis"
 ```
-
----
-
-## 🚀 Installation and Execution
-
-### Requirements
-- Python 3.8+
-- pip (package manager)
-- Git
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/Mirina-Gonzales/ThinkInk-app.git
-cd ThinkInk-app
-```
-
-### 2. Create virtual environment
-```bash
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-# or
-venv\Scripts\activate           # Windows
-```
-
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configure Gemini (Optional but recommended)
-
-#### Step A: Get API Key
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Click "Get API Key"
-3. Copy your key
-
-#### Step B: Create .env file
-In the project root, create a `.env` file:
-```env
-GEMINI_API_KEY=your_key_here
-```
-
-Or use the template:
-```bash
-cp .env.example .env
-# Then edit .env with your key
-```
-
-### 5. Run the application
-```bash
-streamlit run app.py
-```
-
-The app will open at `http://localhost:8502`
 
 ---
 
@@ -517,20 +554,6 @@ TOTAL (with UI)                      328    242    26%
 
 ---
 
-## 🛠️ Technologies Used
-
-| Tool | Version | Purpose |
-|---|---|---|
-| **Python** | 3.12.8 | Main language |
-| **Streamlit** | 1.28+ | Web framework |
-| **Google Gemini AI** | Gemini 2.0 Flash | AI analysis |
-| **pytest** | 9.0.2 | Testing |
-| **pytest-cov** | 7.0.0 | Code coverage |
-| **python-dotenv** | 1.0.0 | Environment variables |
-
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License. See `LICENSE` file for details.
@@ -547,7 +570,7 @@ This project is licensed under the MIT License. See `LICENSE` file for details.
 
 ---
 
-**Version:** 2.1  
-**Last Updated:** February 12, 2025  
-**Test Status:** ✅ All tests passing (3/3)  
+**Version:** 2.2  
+**Last Updated:** February 12, 2026  
+**Test Status:** ✅ All tests passing (29/29)  
 **Documentation available in:** [Español](README_ES.md)

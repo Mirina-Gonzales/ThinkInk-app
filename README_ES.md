@@ -2,9 +2,11 @@
 ### *Despierta tu curiosidad, descubre tu próxima gran historia*
 > **Tu compañero literario impulsado por IA** | *Your AI-powered literary companion*
 
-Una aplicación bilingüe diseñada por una **Data Engineer** para transformar la lectura pasiva en una experiencia interactiva y reflexiva. Construida con Python, Streamlit e IA de Google Gemini.
+ThinkInk es una aplicación bilingüe (Español/Inglés) diseñada para acompañar tu experiencia lectora. Combina **análisis reflexivo personal** con **inteligencia artificial avanzada** para ayudarte a descubrir títulos, explorar obras y desarrollar tu pensamiento crítico sobre la literatura.
 
-> 📖 **Documentation in English:** [English Documentation](README.md)
+> 🏆 **Creado para:** GitHub Copilot CLI Challenge | **Desarrollado con:** GitHub Copilot
+
+> 📖 **Documentación en Inglés:** [English Documentation](README.md)
 
 ---
 
@@ -25,27 +27,118 @@ Una aplicación bilingüe diseñada por una **Data Engineer** para transformar l
 - ⭐ **Recomendaciones Personalizadas** - Libros similares sugeridos
 - ❓ **Preguntas de Discusión** - IA genera preguntas de debate
 - 🔄 **Comparación de Libros** - Compara dos libros de la biblioteca
-- 🎯 **Búsqueda Inteligente (Top 3)** ✨ NUEVA:
-  - 📖 **Por Título** - Encuentra 3 libros similares
-  - 👤 **Por Autor** - Ve las 3 mejores obras de un autor
-  - 🎯 **Por Tema** - Descubre libros sobre un tema específico
+- 🎯 **Búsqueda Inteligente (Top 3)** ✨:
+   - 📖 **Por Título** - Encuentra 3 libros similares validando que sean libros
+   - 👤 **Por Autor** - Descubre los 3 mejores libros de un autor (valida que sea autor de libros)
+   - 🎯 **Por Tema** - Descubre libros sobre un tema específico (solo libros)
 
-### 🔒 Restricciones y Guardrails ✨ 
-- ✅ **Solo Libros** - Rechaza películas, series, videojuegos, etc.
-- ✅ **Sin Malas Palabras** - Control de contenido ofensivo
-- ✅ **Sin Discriminación** - Exclusión de lenguaje discriminatorio
-- ✅ **Validación Clara** - Mensajes en español cuando se rechaza contenido
-- ✅ **Tono Académico** - Respuestas respetuosas e inclusivas
-
-### 📊 Calidad del Código
-- ✅ **Pruebas Unitarias** - 3/3 tests pasando (100%)
-- ✅ **Coverage del 16%** - Código bien estructurado
-- ✅ **Entorno Virtual** - Aislamiento de dependencias
-- ✅ **Bilingüismo i18n** - 100+ traducciones (ES/EN)
+### 📋 Modos de Selección de Libros
+Elige cómo quieres buscar los libros que deseas analizar:
+- 📚 **De la Lista** - Selecciona de los 10 libros clásicos precargados en la aplicación
+- 🔍 **Búsqueda Inteligente** - Encuentra libros dinámicamente por título, autor o tema usando IA
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🚀 Instalación y Ejecución
+- Python 3.8+
+- pip (gestor de paquetes)
+- Git
+
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/Mirina-Gonzales/ThinkInk-app.git
+cd ThinkInk-app
+```
+
+### 2. Crear entorno virtual
+```bash
+# Crear entorno virtual
+python -m venv venv
+
+# Activar entorno virtual
+source venv/bin/activate        # Linux/Mac
+# o
+venv\Scripts\activate           # Windows
+```
+# Linux/Mac
+
+### 3. Instalar dependencias
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ⚠️ Notas Importantes
+
+### En Windows
+Se recomienda usar **cmd** en lugar de PowerShell. Para asegurarte de usarlo, ingresa `cmd` en el terminal y listo estarás trabajando con él.
+
+### Configurar Gemini API
+Si ejecutaste la aplicación sin configurar la API key y quieres hacerlo después, debes:
+1. Agregar la clave en el archivo `.env`
+2. **Detener la aplicación** (presiona `Ctrl + C`)
+3. **Volver a ejecutar** `streamlit run app.py` para que tome los cambios
+
+---
+
+## 🔧 Configurar Gemini (Opcional pero recomendado)
+
+#### Paso A: Obtener API Key
+1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Haz clic en "Get API Key"
+3. Copia tu clave
+
+#### Paso B: Crear archivo .env
+En la raíz del proyecto, crea un archivo `.env`:
+```env
+GEMINI_API_KEY=tu_clave_aqui
+```
+
+O usa el template:
+```bash
+cp .env.example .env
+# Luego edita .env con tu clave
+```
+
+### 5. Ejecutar la aplicación
+```bash
+streamlit run app.py
+```
+
+La app se abrirá en `http://localhost:8502`
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Herramienta | Versión | Propósito |
+|---|---|---|
+| **Python** | 3.12.8 | Lenguaje principal |
+| **Streamlit** | 1.28+ | Framework web |
+| **Google Gemini AI** | Gemini 2.0 Flash | Análisis con IA |
+| **pytest** | 9.0.2 | Testing |
+| **pytest-cov** | 7.0.0 | Cobertura de código |
+| **python-dotenv** | 1.0.0 | Variables de entorno |
+
+---
+
+## 🔒 Restricciones y Guardrails 
+Todas las búsquedas con IA están protegidas con validaciones para garantizar que solo se analicen libros:
+
+- ✅ **Solo Libros** - La aplicación rechaza películas, series, videojuegos y otros contenidos no literarios
+  - **Validado en:** `search_similar_books()`, `search_books_by_theme()`, `get_book_summary()`
+  - **Validación de Autor:** `search_author_works()` verifica que el autor escriba libros (no películas, música, etc.)
+- ✅ **Sin Contenido Ofensivo** - Control automático de lenguaje inapropiado
+- ✅ **Sin Discriminación** - Exclusión de lenguaje discriminatorio o dañino
+- ✅ **Mensajes Claros** - Cuando se rechaza contenido, la aplicación responde en español
+- ✅ **Tono Académico** - Todas las respuestas mantienen un tono respetuoso e inclusivo
+
+### 📊 Calidad del Código
+- ✅ **Pruebas Unitarias** - 29/29 tests pasando (100%)
+- ✅ **Cobertura** - 26% cobertura general, 90% en servicios core
+- ✅ **Entorno Virtual** - Aislamiento completo de dependencias
+- ✅ **Bilingüismo i18n** - 100+ traducciones automáticas (Español/Inglés)
 
 ```
 ThinkInk-app/
@@ -200,17 +293,18 @@ class GeminiService:
     def compare_books(book1, book2) → str               # Comparar 2 libros
     
     # ✨ Búsqueda inteligente (Top 3):
-    def search_similar_books(title) → str               # Por título
-    def search_author_works(author) → str               # Por autor
-    def search_books_by_theme(theme) → str              # Por tema ✨ NUEVA
+    def search_similar_books(title) → str               # Por título - valida que sea libro
+    def search_author_works(author) → str               # Por autor - valida que sea autor de libros
+    def search_books_by_theme(theme) → str              # Por tema - valida que sean solo libros
 ```
 
 **Características:**
-- ✅ Modelo: `gemini-2.0-flash` (rápido y eficiente)
-- ✅ Guardrails: Rechaza contenido no literario
-- ✅ Validación: Verifica que sea un libro real
-- ✅ Restricciones: Sin malas palabras, sin discriminación
-- ✅ Descargas: Todos los análisis se pueden descargar como .txt
+- ✅ **Modelo:** `gemini-2.0-flash` - Rápido, eficiente y con buena calidad
+- ✅ **Guardrails:** Rechaza contenido no literario (películas, series, videojuegos, etc.)
+- ✅ **Validación Completa:** Verifica que sea un libro real en todos los modos de búsqueda
+- ✅ **Validación de Autor:** Verifica que los autores buscados escriban libros (no directores, músicos, etc.)
+- ✅ **Control de Contenido:** Sin lenguaje ofensivo o discriminatorio
+- ✅ **Descargas:** Todos los análisis se pueden descargar como archivos .txt
 
 **Ejemplo:**
 ```python
@@ -316,60 +410,6 @@ title = t("app_title", lang)  # Obtiene título traducido
 # Español: "ThinkInk - Análisis de Libros"
 # Inglés: "ThinkInk - Book Analysis"
 ```
-
----
-
-## 🚀 Instalación y Ejecución
-
-### Requisitos
-- Python 3.8+
-- pip (gestor de paquetes)
-- Git
-
-### 1. Clonar el repositorio
-```bash
-git clone https://github.com/Mirina-Gonzales/ThinkInk-app.git
-cd ThinkInk-app
-```
-
-### 2. Crear entorno virtual
-```bash
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-# o
-venv\Scripts\activate           # Windows
-```
-
-### 3. Instalar dependencias
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configurar Gemini (Opcional pero recomendado)
-
-#### Paso A: Obtener API Key
-1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Haz clic en "Get API Key"
-3. Copia tu clave
-
-#### Paso B: Crear archivo .env
-En la raíz del proyecto, crea un archivo `.env`:
-```env
-GEMINI_API_KEY=tu_clave_aqui
-```
-
-O usa el template:
-```bash
-cp .env.example .env
-# Luego edita .env con tu clave
-```
-
-### 5. Ejecutar la aplicación
-```bash
-streamlit run app.py
-```
-
-La app se abrirá en `http://localhost:8502`
 
 ---
 
@@ -517,19 +557,6 @@ TOTAL (con UI)                       328    242    26%
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
-
-| Herramienta | Versión | Propósito |
-|---|---|---|
-| **Python** | 3.12.8 | Lenguaje principal |
-| **Streamlit** | 1.28+ | Framework web |
-| **Google Gemini AI** | Gemini 2.0 Flash | Análisis con IA |
-| **pytest** | 9.0.2 | Testing |
-| **pytest-cov** | 7.0.0 | Cobertura de código |
-| **python-dotenv** | 1.0.0 | Variables de entorno |
-
-
----
 
 ## 📄 Licencia
 
@@ -547,7 +574,7 @@ Este proyecto está bajo licencia MIT. Ver archivo `LICENSE` para más detalles.
 
 ---
 
-**Versión:** 2.1  
-**Última actualización:** 12 de Febrero de 2025  
-**Estado de Tests:** ✅ Todos los tests pasando (3/3)  
+**Versión:** 2.2  
+**Última actualización:** 12 de Febrero de 2026  
+**Estado de Tests:** ✅ Todos los tests pasando (29/29)  
 **Documentación disponible en:** [English](README.md)
