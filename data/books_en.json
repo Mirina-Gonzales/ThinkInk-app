@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian novel about a totalitarian regime that controls every aspect of human life.",
+    "year": 1949,
+    "genre": "Dystopia",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What do you understand by totalitarianism?",
+      "How do you think constant surveillance affects individual freedom?",
+      "Is it possible that truth is relative?"
+    ],
+    "post_questions": [
+      "How did your perspective on power change after reading the book?",
+      "Do you see similarities between the world of 1984 and modern society?",
+      "Which character impacted you the most and why?"
+    ],
+    "author_bio": "George Orwell (1903-1950) was a British writer known for his dystopian novels that criticize totalitarianism. '1984' is his most iconic masterpiece that warns about the dangers of extreme authoritarianism."
+  },
+  {
+    "id": 2,
+    "title": "Don Quixote",
+    "author": "Miguel de Cervantes",
+    "description": "The adventures of Don Quixote, a knight who loses his mind and sets out on imaginary adventures.",
+    "year": 1605,
+    "genre": "Knight-errantry novel",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What do you know about the literature of knight-errantry?",
+      "What is the difference between fantasy and reality?",
+      "Do you think dreaming is important in life?"
+    ],
+    "post_questions": [
+      "What was Cervantes' purpose in writing this book?",
+      "How does the character of Sancho complement Don Quixote?",
+      "What lesson about reality vs. dreams did you take from the book?"
+    ],
+    "author_bio": "Miguel de Cervantes (1547-1616) was a Spanish writer who revolutionized literature. 'Don Quixote' is considered one of the first modern novels and is widely recognized as a masterpiece of world literature."
+  },
+  {
+    "id": 3,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "description": "A story of romance and social analysis in nineteenth-century England where Elizabeth Bennet defies conventions.",
+    "year": 1813,
+    "genre": "Romance",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What role do prejudices play in our relationships?",
+      "How has the concept of marriage changed throughout history?",
+      "Is it possible to truly know someone at first sight?"
+    ],
+    "post_questions": [
+      "How did the relationship between Elizabeth and Darcy evolve?",
+      "What social criticism does Austen make of her era's society?",
+      "Which secondary character seemed most memorable to you?"
+    ],
+    "author_bio": "Jane Austen (1775-1817) was an English novelist who wrote with keen insight about women's lives in her time. Her works are recognized for their wit, irony, and sharp social commentary."
+  },
+  {
+    "id": 4,
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "description": "An epic fantasy about the battle between good and evil in the imaginary world of Middle-earth.",
+    "year": 1954,
+    "genre": "Fantasy",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What characteristics define a true hero?",
+      "How does power influence people?",
+      "Do you believe in friendship as a transformative force?"
+    ],
+    "post_questions": [
+      "How was friendship crucial to Frodo's mission?",
+      "What did you learn about leadership from Aragorn?",
+      "How did the temptation of power affect different characters?"
+    ],
+    "author_bio": "J.R.R. Tolkien (1892-1973) was a British philologist and author who created Middle-earth. His pioneering works in fantasy literature have inspired generations of readers and set the standards for the genre."
+  },
+  {
+    "id": 5,
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "description": "A deep analysis of the psychology of a student who commits a crime and grapples with guilt and redemption.",
+    "year": 1866,
+    "genre": "Psychological novel",
+    "theme": "Not specified",
+    "pre_questions": [
+      "Is it justifiable to commit a crime for a greater cause?",
+      "How are guilt and conscience related?",
+      "Can someone truly escape from their actions?"
+    ],
+    "post_questions": [
+      "How did Raskolnikov's perception of his crime evolve?",
+      "What was Sonya's role in Raskolnikov's redemption?",
+      "What reflection did this book leave you with about morality and justice?"
+    ],
+    "author_bio": "Fyodor Dostoevsky (1821-1881) was a Russian writer who explored profound themes of human psychology, religion, and morality. His novels are considered among the most important in world literature."
+  },
+  {
+    "id": 6,
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "description": "The story of an independent woman who fights for her freedom and dignity in Victorian society.",
+    "year": 1847,
+    "genre": "Gothic romance",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What does independence mean for a woman in the Victorian era?",
+      "How does childhood influence adult life?",
+      "Is it possible to love without losing your own identity?"
+    ],
+    "post_questions": [
+      "How does Jane become a symbol of feminism?",
+      "What was your reaction to the secret about Rochester?",
+      "How is the love between Jane and Rochester different from other romances?"
+    ],
+    "author_bio": "Charlotte Brontë (1816-1855) was a British author who wrote under a male pseudonym. 'Jane Eyre' is revolutionary for its strong and independent female protagonist, far ahead of its time."
+  },
+  {
+    "id": 7,
+    "title": "One Hundred Years of Solitude",
+    "author": "Gabriel García Márquez",
+    "description": "The multigenerational saga of the Buendía family in the fictional town of Macondo, blending magical realism with reality.",
+    "year": 1967,
+    "genre": "Magical realism",
+    "theme": "Not specified",
+    "pre_questions": [
+      "How can magic be a literary tool?",
+      "What is destiny and are we predestined?",
+      "How does solitude define people?"
+    ],
+    "post_questions": [
+      "How does the style of magical realism enrich the narrative?",
+      "What is the significance of Melquiades' manuscript?",
+      "What pattern did you observe in the lives of the Buendías?"
+    ],
+    "author_bio": "Gabriel García Márquez (1927-2014) was a Colombian writer and pioneer of magical realism. Winner of the Nobel Prize in Literature, his work has revolutionized Latin American and world fiction."
+  },
+  {
+    "id": 8,
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "description": "A short novel about a man who transforms into a giant insect and its existential consequences.",
+    "year": 1915,
+    "genre": "Existential fiction",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What does personal identity mean?",
+      "How does society define our worth as people?",
+      "What radical change would completely alter your life?"
+    ],
+    "post_questions": [
+      "What does Gregor's transformation represent?",
+      "How does the family react to the radical change?",
+      "What social commentary does Kafka make about acceptance?"
+    ],
+    "author_bio": "Franz Kafka (1883-1924) was a Czech writer whose works explore alienation and the absurdity of modern existence. His work has profoundly influenced twentieth-century literature."
+  },
+  {
+    "id": 9,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "A novel about the American Dream, impossible love, and decadence in the Jazz Age of the 1920s.",
+    "year": 1925,
+    "genre": "American novel",
+    "theme": "Not specified",
+    "pre_questions": [
+      "What is the American Dream?",
+      "Can money buy happiness or love?",
+      "How does social class affect our opportunities?"
+    ],
+    "post_questions": [
+      "How does Gatsby represent romantic obsession?",
+      "What criticism does Fitzgerald make of 1920s society?",
+      "Do you think Gatsby truly achieved his dream?"
+    ],
+    "author_bio": "F. Scott Fitzgerald (1896-1940) was an American writer who captured the essence of the Jazz Age. 'The Great Gatsby' is considered one of the most important novels in American literature."
+  },
+  {
+    "id": 10,
+    "title": "Little Women",
+    "author": "Louisa May Alcott",
+    "description": "The story of four sisters who grow up during the American Civil War, discovering love, ambition, and authenticity.",
+    "year": 1869,
+    "genre": "Historical fiction",
+    "theme": "Not specified",
+    "pre_questions": [
+      "How is sisterhood special?",
+      "What does it mean to pursue your own dreams?",
+      "How does war affect civilian families?"
+    ],
+    "post_questions": [
+      "Which sister did you identify with the most and why?",
+      "How does each sister pursue her own ambitions?",
+      "What was your favorite scene and what did it teach you?"
+    ],
+    "author_bio": "Louisa May Alcott (1832-1888) was an American author known for her stories about independent young women. 'Little Women' remains a beloved novel that inspires readers of all ages."
+  }
+]

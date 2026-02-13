@@ -14,8 +14,9 @@ st.markdown(
 st.divider()
 
 # Inicializar sesión
-if "book_service" not in st.session_state:
-    st.session_state.book_service = BookService()
+if "book_service" not in st.session_state or st.session_state.get("last_lang") != lang:
+    st.session_state.book_service = BookService(lang=lang)
+    st.session_state.last_lang = lang
 
 book_service = st.session_state.book_service
 
@@ -36,7 +37,7 @@ if selected_book:
     
     with tab1:
         st.subheader(f"{selected_book.title}")
-        display_book_card(selected_book)
+        display_book_card(selected_book, lang)
     
     with tab2:
         st.subheader(t("principal_pre_questions", lang))
@@ -44,7 +45,7 @@ if selected_book:
             t("principal_pre_questions_desc", lang)
         )
         pre_answers = display_questions(
-            selected_book.pre_questions, t("principal_pre_questions", lang)
+            selected_book.pre_questions, t("principal_pre_questions", lang), lang
         )
         
         if st.button(t("btn_save_pre_answers", lang), key="save_pre"):
@@ -56,19 +57,19 @@ if selected_book:
             t("principal_post_questions_desc", lang)
         )
         post_answers = display_questions(
-            selected_book.post_questions, t("principal_post_questions", lang)
+            selected_book.post_questions, t("principal_post_questions", lang), lang
         )
         
         if st.button(t("btn_save_post_answers", lang), key="save_post"):
             st.success(t("success_post_answers", lang))
     
     with tab4:
-        display_author_section(selected_book)
+        display_author_section(selected_book, lang)
         
-        with st.expander("📊 Más estadísticas del autor"):
+        with st.expander(t("more_author_stats", lang)):
             col1, col2 = st.columns(2)
             with col1:
-                st.metric("Libro", selected_book.title)
+                st.metric(t("book_label", lang), selected_book.title)
                 st.metric(t("book_genre", lang), selected_book.genre)
             with col2:
                 st.metric(t("book_year", lang), selected_book.year)

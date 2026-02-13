@@ -60,6 +60,8 @@
     "book_year": "📖 Año:",
     "book_genre": "Género:",
     "book_theme": "Tema:",
+    "book_label": "📖 Libro:",
+    "answer": "Respuesta:",
     
     "book_not_selected_list": "⚠️ Por favor selecciona un libro de la lista.",
     "book_not_selected_search": "ℹ️ Usa la búsqueda inteligente para encontrar libros por título, autor o tema.",
@@ -88,6 +90,14 @@
     "download_questions": "⬇️ Descargar preguntas",
     "download_comparison": "⬇️ Descargar comparación",
     "download_results": "⬇️ Descargar resultados",
+    
+    "summary_desc": "Obtén un resumen detallado y analítico del libro",
+    "themes_desc": "Analiza los temas centrales y personajes principales",
+    "concept_desc": "Explica un concepto específico del libro",
+    "recommendations_desc": "Descubre libros similares basados en este",
+    "questions_desc": "Genera preguntas para debatir sobre el libro",
+    "compare_desc": "Compara este libro con otro de la biblioteca",
+    "more_author_stats": "📊 Más estadísticas del autor",
     
     "concept_input": "¿Qué concepto deseas entender?",
     "concept_placeholder": "Ej: La alienación, El totalitarismo, El amor verdadero...",
@@ -173,6 +183,8 @@
     "book_year": "📖 Year:",
     "book_genre": "Genre:",
     "book_theme": "Theme:",
+    "book_label": "📖 Book:",
+    "answer": "Answer:",
     
     "book_not_selected_list": "⚠️ Please select a book from the list.",
     "book_not_selected_search": "ℹ️ Use intelligent search to find books by title, author, or theme.",
@@ -201,6 +213,14 @@
     "download_questions": "⬇️ Download questions",
     "download_comparison": "⬇️ Download comparison",
     "download_results": "⬇️ Download results",
+    
+    "summary_desc": "Get a detailed and analytical summary of the book",
+    "themes_desc": "Analyze the central themes and main characters",
+    "concept_desc": "Explain a specific concept from the book",
+    "recommendations_desc": "Discover similar books based on this one",
+    "questions_desc": "Generate questions to discuss about the book",
+    "compare_desc": "Compare this book with another from the library",
+    "more_author_stats": "📊 More author statistics",
     
     "concept_input": "What concept do you want to understand?",
     "concept_placeholder": "E.g.: Alienation, Totalitarianism, True love...",

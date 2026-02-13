@@ -7,8 +7,12 @@ from config.settings import BOOKS_FILE
 
 
 class BookService:
-    def __init__(self, books_file: Path = BOOKS_FILE):
-        self.books_file = books_file
+    def __init__(self, books_file: Path = BOOKS_FILE, lang: str = "es"):
+        self.lang = lang
+        if books_file == BOOKS_FILE:
+            self.books_file = BOOKS_FILE.parent / f"books_{lang}.json" if lang == "en" else BOOKS_FILE
+        else:
+            self.books_file = books_file
         self.books = self._load_books()
 
     def _load_books(self) -> List[Book]:

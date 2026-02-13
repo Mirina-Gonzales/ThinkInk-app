@@ -30,7 +30,7 @@ class GeminiService:
         """Verifica si Gemini está configurado"""
         return self.model is not None
 
-    def get_book_summary(self, book: Book) -> str:
+    def get_book_summary(self, book: Book, lang: str = "es") -> str:
         """
         Obtiene un resumen análitico del libro usando Gemini
         
@@ -41,10 +41,13 @@ class GeminiService:
             Resumen del libro generado por Gemini
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        IMPORTANTE: Verifica primero que "{book.title}" es UN LIBRO (novela, ensayo, poesía, etc.).
+        IMPORTANTE: Verifica primero que 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{book.title}" es UN LIBRO (novela, ensayo, poesía, etc.).
         Si NO es un libro (es película, serie, videojuego, etc.), responde:
         "❌ Lo siento, solo analizo LIBROS. '{book.title}' no es un libro. Por favor, ingresa un libro válido."
         
@@ -75,7 +78,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def analyze_themes_and_characters(self, book: Book) -> str:
+    def analyze_themes_and_characters(self, book: Book, lang: str = "es") -> str:
         """
         Analiza temas y personajes principales del libro
         
@@ -86,10 +89,13 @@ class GeminiService:
             Análisis de temas y personajes
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        IMPORTANTE: Verifica que "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
+        IMPORTANTE: Verifica que 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
         
         Analiza en profundidad el libro "{book.title}" de {book.author}.
         
@@ -116,7 +122,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def get_book_recommendations(self, book: Book, interests: str = "") -> str:
+    def get_book_recommendations(self, book: Book, interests: str = "", lang: str = "es") -> str:
         """
         Obtiene recomendaciones basadas en el libro actual
         
@@ -128,10 +134,13 @@ class GeminiService:
             Recomendaciones de libros similares
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        Basándote en el libro "{book.title}" de {book.author} (Género: {book.genre}),
+        Basándote en el libro 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{book.title}" de {book.author} (Género: {book.genre}),
         proporciona recomendaciones de libros similares.
         
         Intereses del usuario: {interests if interests else 'No especificados'}
@@ -151,7 +160,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def explain_concept(self, book: Book, concept: str) -> str:
+    def explain_concept(self, book: Book, concept: str, lang: str = "es") -> str:
         """
         Explica un concepto específico del libro
         
@@ -163,10 +172,13 @@ class GeminiService:
             Explicación detallada del concepto
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        IMPORTANTE: Verifica que "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
+        IMPORTANTE: Verifica que 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
         
         Explica el concepto o tema "{concept}" en el contexto del libro 
         "{book.title}" de {book.author}.
@@ -193,7 +205,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def compare_books(self, book1: Book, book2: Book) -> str:
+    def compare_books(self, book1: Book, book2: Book, lang: str = "es") -> str:
         """
         Compara dos libros
         
@@ -205,12 +217,15 @@ class GeminiService:
             Comparación detallada de los libros
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
         Compara detalladamente los libros:
         
-        Libro 1: "{book1.title}" por {book1.author} ({book1.year})
+        Libro 1: 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{book1.title}" por {book1.author} ({book1.year})
         Género: {book1.genre}
         
         Libro 2: "{book2.title}" por {book2.author} ({book2.year})
@@ -232,7 +247,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def generate_discussion_questions(self, book: Book) -> str:
+    def generate_discussion_questions(self, book: Book, lang: str = "es") -> str:
         """
         Genera preguntas de discusión para el libro
         
@@ -243,10 +258,13 @@ class GeminiService:
             Preguntas de discusión
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        IMPORTANTE: Verifica que "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
+        IMPORTANTE: Verifica que 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{book.title}" es UN LIBRO. Si no lo es, rechaza el análisis.
         
         Genera preguntas de discusión profundas para el libro "{book.title}" 
         de {book.author}.
@@ -274,7 +292,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def search_similar_books(self, title: str) -> str:
+    def search_similar_books(self, title: str, lang: str = "es") -> str:
         """
         Busca libros similares basado en un título dado
         
@@ -285,10 +303,13 @@ class GeminiService:
             Top 3 libros similares con análisis
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        IMPORTANTE: Verifica que "{title}" es UN LIBRO. Si no lo es, responde:
+        IMPORTANTE: Verifica que 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{title}" es UN LIBRO. Si no lo es, responde:
         "❌ Lo siento, solo analizo LIBROS. '{title}' no es un libro."
         
         Si es un libro, basándote en él, proporciona un análisis de 
@@ -317,7 +338,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def search_author_works(self, author: str) -> str:
+    def search_author_works(self, author: str, lang: str = "es") -> str:
         """
         Busca las mejores obras de un autor de libros
         
@@ -328,10 +349,13 @@ class GeminiService:
             Top 3 libros del autor con análisis
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        IMPORTANTE: Verifica que "{author}" es un AUTOR DE LIBROS. 
+        IMPORTANTE: Verifica que 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{author}" es un AUTOR DE LIBROS. 
         Si es director de cine, compositor, músico, dramaturgo o cualquier otra cosa 
         (pero NO autor de libros), responde:
         "❌ Lo siento, solo analizo LIBROS. '{author}' no es un autor de libros. 
@@ -363,7 +387,7 @@ class GeminiService:
         except Exception as e:
             return f"❌ Error al consultar Gemini: {str(e)}"
 
-    def search_books_by_theme(self, theme: str) -> str:
+    def search_books_by_theme(self, theme: str, lang: str = "es") -> str:
         """
         Busca libros que tratan un tema específico
         
@@ -374,10 +398,13 @@ class GeminiService:
             Top 3 libros que abordan ese tema
         """
         if not self.is_configured():
-            return "⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY."
+            return ("⚠️ Gemini no está configurado. Por favor, proporciona tu API_KEY." if lang == "es"
+                   else "⚠️ Gemini is not configured. Please provide your API_KEY.")
 
+        lang_name = "Spanish" if lang == "es" else "English"
         prompt = f"""
-        Proporciona recomendaciones de los 3 MEJORES LIBROS que abordan el tema: "{theme}"
+        Proporciona recomendaciones de los 3 MEJORES LIBROS que abordan el tema: 
+        RESPONSE_LANGUAGE: Respond in {lang_name}. "{theme}"
         
         RESTRICCIONES IMPORTANTES:
         - Solo menciona LIBROS (novelas, ensayos, poesía, etc.)

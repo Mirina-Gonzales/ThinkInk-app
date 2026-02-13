@@ -1,4 +1,5 @@
 from src.models.book import Book
+from src.i18n.i18n_service import t
 
 
 class AuthorService:
@@ -8,10 +9,10 @@ class AuthorService:
         return book.author_bio
 
     @staticmethod
-    def format_author_info(book: Book) -> str:
+    def format_author_info(book: Book, lang: str = "es") -> str:
         """Formatea la información del autor para mostrar"""
         return f"""
-### 🖊️ Sobre el Autor
+### 🖊️ {t("principal_author_bio", lang)}
 **{book.author}**
 
 {book.author_bio}

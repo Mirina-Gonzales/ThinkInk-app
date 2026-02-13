@@ -8,7 +8,7 @@ from src.i18n.i18n_service import t
 # Cargar variables de entorno
 load_dotenv()
 
-# Obtener idioma
+# Obtener idioma (actualiza en cada recarga)
 lang = st.session_state.get('language', 'es')
 
 # Configurar página
@@ -27,8 +27,9 @@ st.markdown(
 st.divider()
 
 # Inicializar servicio
-if "book_service" not in st.session_state:
-    st.session_state.book_service = BookService()
+if "book_service" not in st.session_state or st.session_state.get("last_lang") != lang:
+    st.session_state.book_service = BookService(lang=lang)
+    st.session_state.last_lang = lang
 
 book_service = st.session_state.book_service
 
@@ -79,15 +80,15 @@ with st.sidebar:
                 st.info(t("search_title_searching", lang).replace('{query}', search_query))
                 selected_book = Book(
                     id=998,
-                    title=f"Top 3 similares a: {search_query}",
-                    author="Búsqueda Gemini",
-                    description=f"Gemini buscará 3 libros similares a: {search_query}",
+                    title=f"{t('search_similar_to', lang)}: {search_query}",
+                    author=t("search_gemini", lang),
+                    description=f"{t('search_will_find', lang)}: {search_query}",
                     year=2024,
-                    genre="Búsqueda",
-                    theme="Literatura",
+                    genre=t("search_genre", lang),
+                    theme=t("search_literature", lang),
                     pre_questions=[],
                     post_questions=[],
-                    author_bio="Análisis de Gemini"
+                    author_bio=t("search_gemini_analysis", lang)
                 )
                 st.session_state.search_mode = "titles"
                 st.session_state.search_query = search_query
@@ -101,15 +102,15 @@ with st.sidebar:
                 st.info(t("search_author_searching", lang).replace('{query}', author_query))
                 selected_book = Book(
                     id=998,
-                    title=f"Top 3 obras de: {author_query}",
+                    title=f"{t('search_top3_works', lang)}: {author_query}",
                     author=author_query,
-                    description=f"Gemini mostrará las 3 mejores obras de {author_query}",
+                    description=f"{t('search_will_show_works', lang)} {author_query}",
                     year=2024,
-                    genre="Búsqueda",
-                    theme="Literatura",
+                    genre=t("search_genre", lang),
+                    theme=t("search_literature", lang),
                     pre_questions=[],
                     post_questions=[],
-                    author_bio=f"Búsqueda de obras del autor: {author_query}"
+                    author_bio=f"{t('search_works_by', lang)}: {author_query}"
                 )
                 st.session_state.search_mode = "author"
                 st.session_state.search_query = author_query
@@ -123,15 +124,15 @@ with st.sidebar:
                 st.info(t("search_theme_searching", lang).replace('{query}', theme_query))
                 selected_book = Book(
                     id=998,
-                    title=f"Top 3 libros sobre: {theme_query}",
-                    author="Búsqueda Gemini",
-                    description=f"Gemini mostrará 3 libros que abordan el tema: {theme_query}",
+                    title=f"{t('search_top3_about', lang)}: {theme_query}",
+                    author=t("search_gemini", lang),
+                    description=f"{t('search_will_show_theme', lang)}: {theme_query}",
                     year=2024,
-                    genre="Búsqueda",
+                    genre=t("search_genre", lang),
                     theme=theme_query,
                     pre_questions=[],
                     post_questions=[],
-                    author_bio="Análisis de Gemini"
+                    author_bio=t("search_gemini_analysis", lang)
                 )
                 st.session_state.search_mode = "theme"
                 st.session_state.search_query = theme_query
@@ -145,11 +146,11 @@ if selected_book:
     )
     st.divider()
     
-    # Mostrar página de Gemini
-    display_gemini_page(selected_book)
+    # Mostrar página de Gemini (pasar idioma)
+    display_gemini_page(selected_book, lang)
     
     st.divider()
-    display_gemini_setup_instructions()
+    display_gemini_setup_instructions(lang)
 
 elif input_mode == t("input_mode_list", lang):
     st.warning(t("book_not_selected_list", lang))
