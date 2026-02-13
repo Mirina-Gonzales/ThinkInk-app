@@ -1,9 +1,14 @@
 import streamlit as st
 from dotenv import load_dotenv
 from src.i18n import i18n, t
+from pathlib import Path
 
 # Cargar variables de entorno
 load_dotenv()
+
+# Obtener ruta absoluta de la imagen
+CURRENT_DIR = Path(__file__).parent
+IMAGE_PATH = CURRENT_DIR / "imagen_1.png"
 
 # Configurar página
 st.set_page_config(
@@ -43,7 +48,10 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("imagen_1.png", use_column_width=True)
+    try:
+        st.image(str(IMAGE_PATH), use_column_width=True)
+    except FileNotFoundError:
+        st.warning("⚠️ Imagen no encontrada. Verifica que imagen_1.png esté en la raíz del proyecto.")
     st.markdown("")  # Espaciador
 
 with col2:
